@@ -1,0 +1,143 @@
+[
+  {
+    "league": "epl",
+    "home": "Brighton & Hove Albion",
+    "away": "Aston Villa",
+    "kickoff": "2026-08-23 14:00 BST",
+    "odds": {
+      "1x2": [
+        124,
+        255,
+        225
+      ],
+      "btts": [
+        -147,
+        126
+      ],
+      "ou25": [
+        -128,
+        106
+      ],
+      "corners_10.5": [
+        118,
+        -158
+      ],
+      "offsides_3plus": -322,
+      "offsides_4plus": -144,
+      "offsides_5plus": 125,
+      "bookings_exact": {
+        "0-3": -104,
+        "4": 340,
+        "5": 430,
+        "6": 660,
+        "7": 1050,
+        "8": 1700,
+        "9+": 1850
+      },
+      "home_ou15": [
+        110,
+        -129
+      ],
+      "away_ou15": [
+        160,
+        -188
+      ]
+    },
+    "referee": "Peter Bankes"
+  },
+  {
+    "league": "epl",
+    "home": "Manchester City",
+    "away": "AFC Bournemouth",
+    "kickoff": "2026-08-23 14:00 BST",
+    "odds": {
+      "1x2": [
+        -196,
+        390,
+        490
+      ],
+      "btts": [
+        -181,
+        154
+      ],
+      "ou25": [
+        -250,
+        190
+      ],
+      "ou35": [
+        106,
+        -126
+      ],
+      "corners_10.5": [
+        -121,
+        -107
+      ],
+      "bookings_ou": {
+        "2.5": [
+          -370,
+          230
+        ],
+        "3.5": [
+          -138,
+          -103
+        ],
+        "4.5": [
+          150,
+          -222
+        ],
+        "5.5": [
+          330,
+          -588
+        ]
+      },
+      "offsides_3plus": -344,
+      "offsides_4plus": -149,
+      "offsides_5plus": 125,
+      "home_ou15": [
+        -250,
+        198
+      ],
+      "home_ou25": [
+        128,
+        -151
+      ],
+      "away_ou15": [
+        196,
+        -250
+      ],
+      "away_corners_ou": {
+        "2.5": [
+          -243,
+          176
+        ],
+        "3.5": [
+          -109,
+          -120
+        ]
+      }
+    },
+    "referee": "Jarred Gillett"
+  },
+  {
+    "league": "laliga",
+    "home": "Atlético Madrid",
+    "away": "Villarreal",
+    "kickoff": "2026-08-23",
+    "odds": {
+      "double_chance": {
+        "home_or_away": -344,
+        "draw_or_away": -104,
+        "home_or_draw": -416
+      },
+      "btts": [
+        -129,
+        110
+      ],
+      "ou25": [
+        -117,
+        102
+      ]
+    },
+    "referee": "Alejandro Hernandez"
+  }
+]

@@ -1,0 +1,258 @@
+{
+  "data": [
+    {
+      "id": 311648269,
+      "match_id": 4178253,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": 140,
+      "moneyline_away_odds": 175,
+      "moneyline_draw_odds": 275,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311311986,
+      "match_id": 4178253,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": 145,
+      "moneyline_away_odds": 175,
+      "moneyline_draw_odds": 260,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 303278399,
+      "match_id": 4178253,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": 153,
+      "moneyline_away_odds": 182,
+      "moneyline_draw_odds": 292,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 311648270,
+      "match_id": 4178254,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": 150,
+      "moneyline_away_odds": 180,
+      "moneyline_draw_odds": 250,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311321242,
+      "match_id": 4178254,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": 150,
+      "moneyline_away_odds": 175,
+      "moneyline_draw_odds": 240,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 303278400,
+      "match_id": 4178254,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": 160,
+      "moneyline_away_odds": 199,
+      "moneyline_draw_odds": 264,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 311648273,
+      "match_id": 4178255,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": -400,
+      "moneyline_away_odds": 900,
+      "moneyline_draw_odds": 550,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311326110,
+      "match_id": 4178255,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": -450,
+      "moneyline_away_odds": 900,
+      "moneyline_draw_odds": 600,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 304372923,
+      "match_id": 4178255,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": -365,
+      "moneyline_away_odds": 953,
+      "moneyline_draw_odds": 641,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 311648272,
+      "match_id": 4178256,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": 120,
+      "moneyline_away_odds": 200,
+      "moneyline_draw_odds": 280,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311316585,
+      "match_id": 4178256,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": 120,
+      "moneyline_away_odds": 200,
+      "moneyline_draw_odds": 270,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 304372926,
+      "match_id": 4178256,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": 130,
+      "moneyline_away_odds": 217,
+      "moneyline_draw_odds": 292,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 311648271,
+      "match_id": 4178257,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": -115,
+      "moneyline_away_odds": 275,
+      "moneyline_draw_odds": 310,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311318950,
+      "match_id": 4178257,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": -120,
+      "moneyline_away_odds": 270,
+      "moneyline_draw_odds": 310,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 304372924,
+      "match_id": 4178257,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": -106,
+      "moneyline_away_odds": 292,
+      "moneyline_draw_odds": 335,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 315960011,
+      "match_id": 4178258,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": -425,
+      "moneyline_away_odds": 950,
+      "moneyline_draw_odds": 600,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311324025,
+      "match_id": 4178258,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": -450,
+      "moneyline_away_odds": 1000,
+      "moneyline_draw_odds": 600,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 304372925,
+      "match_id": 4178258,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": -388,
+      "moneyline_away_odds": 1233,
+      "moneyline_draw_odds": 641,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 311648275,
+      "match_id": 4178259,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": -160,
+      "moneyline_away_odds": 360,
+      "moneyline_draw_odds": 360,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311330616,
+      "match_id": 4178259,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": -160,
+      "moneyline_away_odds": 360,
+      "moneyline_draw_odds": 350,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 304372920,
+      "match_id": 4178259,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": -147,
+      "moneyline_away_odds": 413,
+      "moneyline_draw_odds": 388,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 311648274,
+      "match_id": 4178260,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": -450,
+      "moneyline_away_odds": 1000,
+      "moneyline_draw_odds": 650,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    },
+    {
+      "id": 311318951,
+      "match_id": 4178260,
+      "vendor": "fanduel",
+      "deeplinks": null,
+      "moneyline_home_odds": -500,
+      "moneyline_away_odds": 1000,
+      "moneyline_draw_odds": 600,
+      "updated_at": "2026-10-21T16:13:08.090Z"
+    },
+    {
+      "id": 304372921,
+      "match_id": 4178260,
+      "vendor": "polymarket",
+      "deeplinks": null,
+      "moneyline_home_odds": -413,
+      "moneyline_away_odds": 1076,
+      "moneyline_draw_odds": 700,
+      "updated_at": "2026-10-21T16:15:35.099Z"
+    },
+    {
+      "id": 311648276,
+      "match_id": 4178261,
+      "vendor": "draftkings",
+      "deeplinks": null,
+      "moneyline_home_odds": -310,
+      "moneyline_away_odds": 700,
+      "moneyline_draw_odds": 500,
+      "updated_at": "2026-10-21T16:14:23.284Z"
+    }
+  ],
+  "meta": {
+    "next_cursor": 311648276,
+    "per_page": 25
+  }
+}
