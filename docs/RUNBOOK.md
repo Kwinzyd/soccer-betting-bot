@@ -111,6 +111,10 @@ no-bet with reason "kill switch engaged". Delete the file to resume.
 | import Betfair Exchange closes | `python -m soccerlab expb closing-import var\expb\fd\E0_2627.csv epl` |
 | record an obtainability spot check | `python -m soccerlab expb spotcheck --fixture bdl:epl:3818288 --venue draftkings --selection home --american -105 --at 2026-11-21T14:00:00Z --stake-accepted 10` |
 | primary analysis (refuses until locked) | `python -m soccerlab expb evaluate` (exit 3 while draft) |
+| minimal auth / rate-limit probe (8 requests max) | `python -m soccerlab expb probe <schedule dir>` |
+
+Pilot preparation, the go/no-go checklist and the exact install/rollback commands are in
+[EXP-2026-11-B_PILOT_READINESS.md](EXP-2026-11-B_PILOT_READINESS.md).
 
 Install (only after authorization), check, remove:
 

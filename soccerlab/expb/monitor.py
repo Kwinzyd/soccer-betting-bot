@@ -79,8 +79,8 @@ def check(db, now=None):
     for v, c in sorted(avail.items()):
         rate = c["available"] / c["fixtures"]
         lvl = "green" if rate >= 0.9 else "amber"
-        if C.VENUES.get(v, {}).get("eligibility") != "candidate_unverified":
-            lvl = "green"            # observational venues: informational only
+        if not C.VENUES.get(v, {}).get("entry_candidate"):
+            lvl = "green"            # non-candidate venues: informational only
         add(lvl, f"{v} available at T-15 (7d)", f"{c['available']}/{c['fixtures']} fixtures ({rate:.0%})")
 
     st = Counter()
@@ -102,7 +102,7 @@ def check(db, now=None):
         ko = parse_utc(f["kickoff"])
         if now - timedelta(days=7) <= ko <= now:
             r = db.c.execute("""SELECT MAX(retrieved_at) FROM quotes WHERE fixture_uid=? AND status='available'
-                                AND eligibility='candidate_unverified' AND retrieved_at < ?""",
+                                AND venue_class='sportsbook' AND retrieved_at < ?""",
                              (f["fixture_uid"], f["kickoff"])).fetchone()[0]
             if r:
                 gaps.append((ko - parse_utc(r)).total_seconds() / 60)

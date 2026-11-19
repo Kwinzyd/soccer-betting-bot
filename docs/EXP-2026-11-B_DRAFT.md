@@ -1,144 +1,130 @@
 # EXP-2026-11-B — Forward early-price validation (DRAFT, not locked)
 
 **Status: draft.** The machine-readable protocol is
-`registry/experiments/EXP-2026-11-B.json` (`"status": "draft"`);
-`soccerlab.expb.evaluate.primary()` refuses to run until it is locked.
-`soccer-dc-legacy` and `soccer-dc-pit-v1` stay frozen and unpromoted; no
-model selects anything in this experiment.
+`registry/experiments/EXP-2026-11-B.json` (`"status": "draft"`). Every
+analysis function refuses to run until it is locked *and* every approved entry
+venue is verified. Today the approved-venue list is empty. `soccer-dc-legacy`
+and `soccer-dc-pit-v1` stay frozen and unpromoted; no model selects anything.
 
 **Question.** Do accessible, executable early prices consistently beat later
-market prices? This is a measurement of prices, not a strategy search.
+market prices? This measures prices; it is not a strategy search.
 
-## 1. Pilot-data rule (prevents retro-registration)
+## 1. Pilot and pilot-data rule
 
-Everything the logger records before `locked_at` is **pilot data**. It may be
-used only for the data-quality acceptance criteria in §7, which involve no
-comparison of entry prices with later prices. The primary population is
-fixtures whose entry time *and* kickoff are at or after `locked_at`
-(enforced in code). Quotes collected before the lock must never be
-described as prospectively pre-registered evidence.
+A 14-day observational pilot comes first (readiness:
+[EXP-2026-11-B_PILOT_READINESS.md](EXP-2026-11-B_PILOT_READINESS.md)).
+Pilot records are used only for the data-quality acceptance criteria (§8).
+The lock must happen after the pilot ends. Every analysis uses only quotes
+retrieved at or after `locked_at`, for fixtures kicking off after it
+(enforced in `books_at(..., not_before=locked_at)` and tested). Pilot data
+must never be described as prospectively pre-registered evidence.
 
 ## 2. Data sources
 
 | role | source | status |
 |---|---|---|
-| entry venues (candidates) | BallDontLie `/odds`: DraftKings, FanDuel moneyline (1X2, 90') | integrated; **legal access and obtainability unverified** |
-| observational only | BallDontLie `/odds`: Polymarket | recorded, never eligible (liquidity, fees, execution, legality unverified) |
-| schedule / reschedules | BallDontLie `/matches` (season 2026) | integrated, refreshed every 3h |
-| strong closing reference | football-data.co.uk Betfair Exchange close `BFECH/BFECD/BFECA` | available: 94% of 2025-26 fixtures through May 2026, present in the 2026-27 file; **capture time unpublished; back/lay/mid unspecified**; CSVs published with a lag |
-| not available | Pinnacle | official API closed to the public 2025-07-23; football-data's Pinnacle columns stop Jan 2026 |
-| candidate upgrades (not integrated, paid / unverified) | The Odds API historical snapshots (5-min since Sep 2022; Pinnacle coverage unconfirmed), Betfair Historical Data (timestamped exchange prices, Advanced/Pro tiers), third-party Pinnacle feeds (OddsPapi etc., self-reported, possibly scraped) | need cost, licensing and coverage checks |
+| observational feeds (entry *candidates*) | BallDontLie `/odds`: DraftKings, FanDuel moneyline (1X2, 90') | **observational**. Not executable until legal eligibility, market access, obtainability and source-to-screen agreement are verified (`venue_verification` in the protocol) |
+| observational only | BallDontLie `/odds`: Polymarket | never an entry venue (liquidity, fees, execution, legality unverified) |
+| schedule / reschedules | BallDontLie `/matches` (season 2026) | refreshed every 3h |
+| strong closing reference | football-data.co.uk Betfair Exchange close `BFEC*` | **provisional**: see [EXP-2026-11-B_CLOSING_REFERENCE.md](EXP-2026-11-B_CLOSING_REFERENCE.md). 100% coverage of 2026-27 to date (419/419 fixtures matched, 0 quarantined) |
+| not available | Pinnacle | public API closed 2025-07-23; absent from 2026-27 CSVs |
+| timestamped upgrade | Betfair Historical Data (ADVANCED/PRO) | paid; needs a Betfair account |
 
-Pilot freshness and coverage, from the existing legacy log (prices only):
-DraftKings and FanDuel quoted 112/114 and 113/114 fixtures; vendor
-`updated_at` was a median 1.0 / 0.8 minutes old at observation (p90 3 min);
-book margins were 5.1% / 6.9% (median); DK vs FD implied probabilities
-differed by a median of 0.78pp (p90 2.1pp). Polymarket quoted 85/114 fixtures
-at ~0.5% margin, with prices that sometimes sum below 1.
+The key was probed on 2026-11-19 (HTTP 200 for `matches` and `odds` in all
+four leagues; declared limit 5 requests). Details are in the readiness report.
 
 ## 3. Collection (implemented: `python -m soccerlab expb run`, every 5 min)
 
-* Regular odds poll every 2h for fixtures kicking off within 7 days.
-* Targeted snapshots at T−60 (window 45–75 min) and T−15 (5–25 min) before
-  the *currently scheduled* kickoff; each captured once; a window that closes
+* Regular odds poll every 2h for fixtures within 7 days.
+* Targeted snapshots: T−60 (window 45–75 min) and T−15 (5–25 min) before the
+  currently scheduled kickoff. Each is captured once; a window that closes
   without a successful poll is recorded as `missed`.
-* Schedule refresh every 3h per league; a kickoff change appends a new fixture
-  row and marks earlier captures `superseded`.
-* Every venue/selection in every poll gets a row: `available`, `suspended`
-  (null price), `missing` (venue absent), `invalid` (degenerate price,
-  incoherent book, fixture not scheduled) or `post_kickoff`. Failed requests
-  write a `failed` poll event and no quotes. Nothing is carried forward.
-* Quality flags: `source_stale` (>2h), `source_ts_in_future`,
-  `partial_book`, `duplicate_vendor_row`, `unknown_venue`, ….
+* Schedule refresh every 3h. A kickoff change appends a fixture row and marks
+  earlier captures `superseded`.
+* Every venue/selection in every poll gets a row: available, suspended,
+  missing, invalid or post_kickoff. Failed requests write no quotes, and
+  nothing is carried forward.
+* Quality flags include `source_stale` (> 2h), `partial_book` and
+  `cross_venue_discrepancy` (sportsbooks > 5pp apart on a selection; the
+  pilot p90 is 2.1pp). Flagged books never enter an analysis.
 
-## 4. Entry rule (model-free, one entry per fixture)
+## 4. Selection function (entry-time information only)
 
-At E = kickoff − 24h: each approved venue's latest complete, unflagged book
-retrieved in [E − 3h, E]. Reference fair = mean of the venues' power-de-vigged
-probabilities. For each selection, the best approved price; the single entry
-is the selection maximising best_price × fair − 1. **No EV threshold** in the
-primary analysis: an EV > 0 rule would admit too few fixtures (5–7% margins
-vs 0.78pp disagreement) to reach the sample floor. Opposing or repeated
-entries are impossible by construction. Fixtures whose kickoff moves > 48h
-from the kickoff known at entry are excluded as void.
+`soccerlab.expb.evaluate.select_entry(entry_books, threshold=None)`
 
-## 5. Primary endpoint
+* **Inputs:** the approved venues' complete, unflagged books retrieved in
+  [E − 3h, E] (and ≥ `locked_at`), with E = kickoff − 24h. Nothing later, no
+  outcomes, no model.
+* **Rule:** for each selection s, best_s = the highest approved price and
+  fair_s = the mean power-de-vigged probability across venues; score_s =
+  best_s × fair_s − 1. Pick the argmax. Ties go home > draw > away, then by
+  venue name. The primary analysis uses no threshold.
+* Exactly one entry per fixture. Opposing or repeated entries are impossible.
+* Tested: deterministic, order-independent, and unchanged when later quotes
+  are added.
 
-**Closing EV** = entry_price × fair_close(selection) − 1, with fair_close
-from the strong closing reference (Betfair Exchange close, power de-vig).
+## 5. Three separate analyses
 
-Secondary (descriptive, not gating): % of entries beating the reference
-close; odds ratio entry/close; selection probability move; the same
-endpoint at E = kickoff − 72h and − 6h; the EV > 0 subgroup.
+| analysis | what | role |
+|---|---|---|
+| `price_drift()` | for every selection, each venue's T−24h price vs its own last pre-kickoff price (mean log price ratio) | descriptive; no selection rule |
+| `closing_line()` | selected entries vs the strong close: **closing EV = entry_price × fair_close − 1**; the weak version (vs the venues' own close) is reported as EXP-2026-11-B-weak | **primary endpoint** |
+| `simulated_roi()` | the same entries settled on 90-minute results at the entry price, flat 1u | secondary only; never a lock or promotion criterion |
 
-### Separate, weaker experiment: EXP-2026-11-B-weak
-
-If the external close is unavailable or covers < 90% of fixtures, the same
-entries are compared with the approved venues' **own** last complete books
-within 30 minutes before kickoff. This only shows whether these books' early
-prices are better than their own later prices (price drift). It cannot show
-value against a sharp market and is reported under its own id, never as the
-primary result.
+Exclusions are counted and reported:
+- void or postponed fixtures;
+- kickoff moved > 48h from the one known at entry;
+- no entry snapshot (missing, partial or flagged books);
+- no closing reference;
+- **closing-reference mismatch** (external fair differs from the venues' close by > 10pp on any outcome; quarantined as a likely mis-join).
 
 ## 6. Statistical methodology
 
-* One entry per fixture, so fixtures are the unit. Mean closing EV with a
-  95% percentile bootstrap (2,000 replicates, seed 0), clustered by fixture
-  and, as a robustness check, by ISO week.
-* Pass: lower bound > 0 under both clusterings with n ≥ 300. Below 300 the
+* Unit = fixture (one entry each). Mean closing EV, 95% percentile bootstrap
+  (2,000 replicates, seed 0), clustered by fixture and by ISO week.
+* Pass: lower bound > 0 under both clusterings with n ≥ 300. Below that the
   result is inconclusive. Upper bound < 0 = fail.
-* Power: EXP-2026-11-A's comparable statistic had SD ≈ 0.086 per entry, giving
-  SE ≈ 0.005 at n = 300 and ≈ 0.003 at n = 800. Roughly 1,000 fixtures remain
-  in 2026-27, so n ≈ 600–800 after exclusions is plausible.
-* One primary endpoint, so no multiplicity correction; secondaries are
-  descriptive only.
-* No outcomes are needed. Realised ROI is out of scope for this experiment.
+* No outcomes are needed for the primary endpoint.
 
-## 7. Data-quality acceptance criteria (evaluated on pilot data, ≥ 14 days, before locking)
+## 7. Feasibility and sample size (draft settings kept: T−24h, T−60/T−15, min_n 300)
+
+* **Eligible sample:** ~35 fixtures a week. Fixtures remaining after a lock on
+  2026-12-07 / 12-21 / 2027-01-04: 900 / 829 / 769, giving an expected
+  eligible n of about 765–828 / 704–762 / 653–707 (allowing 8–15% loss to
+  coverage, flags, voids and missing closes).
+* **Per-entry SD:** comparable statistics in EXP-2026-11-A had SD 0.086–0.099.
+* **Minimum detectable effect** (two-sided α = 0.05, 80% power): 1.4–1.6% at
+  n = 300; 0.9–1.1% at n = 700. min_n = 300 is a floor for interpretability,
+  not the planned n. The design uses every eligible fixture to season end.
+* **Expected direction:** DraftKings and FanDuel carry 5–7% margins against
+  ~0.5% on the exchange close. Unless early prices move strongly, closing EV
+  should be clearly *negative* (roughly −2% to −4%). A positive result would
+  therefore be informative; a negative one is the expected default. The
+  price-drift analysis can still be informative when the closing-line result
+  is negative.
+
+## 8. Data-quality acceptance criteria (evaluated on pilot data, before locking)
 
 | criterion | threshold |
 |---|---|
-| logger liveness (`runs` heartbeat) | ≥ 99% of 5-min slots |
+| logger liveness (`runs` heartbeat) | ≥ 99% of 5-min slots while the machine is on; downtime logged |
 | regular-poll freshness | no league with upcoming fixtures > 3h without a successful poll on ≥ 98% of days |
 | T−60 and T−15 capture | ≥ 95% of non-rescheduled fixtures |
-| approved-venue complete, unflagged book at the T−24h entry window | ≥ 90% of fixtures, per venue |
-| source freshness | ≥ 95% of available quotes with vendor timestamp ≤ 10 min old |
+| candidate-venue complete, unflagged book in the T−24h window | ≥ 90% of fixtures, per venue |
+| source freshness | ≥ 95% of available quotes ≤ 10 min old (vendor timestamp) |
 | invalid/degenerate pre-kickoff quotes | ≤ 2% |
-| external close matched (after aliases are complete) | ≥ 90% of kicked-off fixtures |
-| obtainability spot checks (`expb spotcheck`) | ≥ 30 per approved venue; ≥ 90% within 0.5pp implied of the logged quote; stake acceptance recorded |
-| authentication failures | none for 7 consecutive days |
+| cross-venue discrepancy flags | ≤ 3% of sportsbook selections |
+| external close matched (unique fixture, scores agree) | ≥ 95% of kicked-off fixtures; quarantine reviewed |
+| source-to-screen spot checks (`expb spotcheck`) | ≥ 30 per candidate venue, ≥ 90% within 0.5pp implied, stake acceptance recorded |
+| authentication failures | none in the last 7 days |
 
-## 8. Expected volume and API budget
+## 9. Decisions still required before locking
 
-~35 fixtures a week (1,027 left in 2026-27 after 2026-11-20); about 12
-kickoff slots a week.
-
-| item | per day | notes |
-|---|---|---|
-| odds requests | ~55 | 48 regular (12/day × 4 leagues) + ~7 targeted |
-| schedule requests | ~128 | 32 refreshes × ~4 pages |
-| quote rows | ~4,000 | 35 fixtures × 3 venues × 3 selections × 12, plus targeted |
-| storage | ~2 MB | ~15 MB/week, ~400 MB for the rest of the season |
-
-All of this shares the key's 5 req/min limit with the legacy logger if that
-task is re-enabled. Each invocation is capped at ~18 requests (4 min).
-
-## 9. Decisions required
-
-Before **activation** (registering the logger task):
-1. Authorize `research_tasks/install_expb_task.ps1 -Install`.
-2. Confirm the BallDontLie key is valid (17 HTTP 401s on 2026-11-18/19)
-   and whether the legacy logger task stays disabled; both share one rate
-   limit.
-
-Before **locking**:
-3. Approved venues: are DraftKings and FanDuel legally available to you and
-   usable at the stakes you would test? Polymarket stays observational.
-4. Closing reference: accept the football-data Betfair Exchange close
-   (untimed), or buy a timestamped source (Betfair Historical Data / The Odds
-   API historical).
-5. Download the 2026-27 football-data CSVs into `var/expb/fd/` and rerun
-   `expb aliases`. Six promoted teams have no evidence-based alias yet:
-   Coventry City, Hull City, Málaga, Deportivo, Racing Santander, Le Mans.
-6. Confirm the parameters: entry offset 24h, tolerance 3h, no threshold,
-   close window 30 min, min_n 300.
+1. Venue verification for DraftKings and FanDuel: legal eligibility for you,
+   account/market access, obtainability at the intended stake, and
+   source-to-screen agreement. Without it, `approved_entry_venues` stays empty
+   and no analysis can run.
+2. Closing reference: accept the provisional `BFEC*` with stated limitations,
+   or validate/replace it with Betfair Historical Data.
+3. Confirm the draft settings (T−24h ± 3h, no threshold, 30-min weak close
+   window, min_n 300) and the lock date (after the pilot).

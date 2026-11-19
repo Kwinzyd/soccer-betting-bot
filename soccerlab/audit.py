@@ -16,7 +16,8 @@ SECRET_PATTERNS = {
 MUST_BE_UNTRACKED = ["telegram_config.json", "odds_logger/paper.sqlite3", "odds_logger/seen.json"]
 # hosts soccerlab talks to, plus documented provider hosts that appear only as
 # descriptive strings in manifests
-ALLOWED_HOSTS = {"api.balldontlie.io", "api.telegram.org", "v3.football.api-sports.io"}
+ALLOWED_HOSTS = {"api.balldontlie.io", "api.telegram.org", "v3.football.api-sports.io",
+                 "www.football-data.co.uk"}   # last: manual CSV download URL in docs only; never fetched by code
 EXECUTION_WORDS = re.compile(r"(?i)\b(place_?bet|submit_?order|execute_?wager|real_?money)\b")
 
 

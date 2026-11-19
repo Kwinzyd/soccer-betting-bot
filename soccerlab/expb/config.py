@@ -8,13 +8,15 @@ SEASON = 2026
 MARKET = "1x2_ft90"          # full-time result incl. stoppage time; no extra time/penalties
 SELECTIONS = ("home", "draw", "away")
 
-# Venue policy. 'candidate_unverified' = may become an executable venue once
-# freshness, coverage and obtainability checks pass (docs/EXP-2026-11-B_DRAFT.md);
-# 'observational' = recorded, never eligible for entries.
+# Venue policy. Every venue is recorded as 'observational'. `entry_candidate`
+# marks venues that may be proposed as entry venues *after* legal
+# eligibility, obtainability, market access and source-to-screen agreement
+# are verified (registry/experiments/EXP-2026-11-B.json "venue_verification").
+# Nothing in the logger treats any price as executable.
 VENUES = {
-    "draftkings": {"class": "sportsbook", "eligibility": "candidate_unverified"},
-    "fanduel": {"class": "sportsbook", "eligibility": "candidate_unverified"},
-    "polymarket": {"class": "prediction_market", "eligibility": "observational"},
+    "draftkings": {"class": "sportsbook", "eligibility": "observational", "entry_candidate": True},
+    "fanduel": {"class": "sportsbook", "eligibility": "observational", "entry_candidate": True},
+    "polymarket": {"class": "prediction_market", "eligibility": "observational", "entry_candidate": False},
 }
 EXPECTED_VENUES = tuple(VENUES)
 
@@ -37,3 +39,4 @@ INTERRUPTED_AFTER = timedelta(minutes=30)
 SOURCE_STALE = timedelta(hours=2)        # retrieved - vendor updated_at
 SOURCE_FUTURE_SKEW = timedelta(minutes=5)
 DEGENERATE_AMERICAN = 10000              # |odds| >= this is in-play/settled junk in this feed
+CROSS_VENUE_DISCREPANCY = 0.05          # sportsbooks disagreeing by > 5pp implied on a selection (pilot p90: 2.1pp)

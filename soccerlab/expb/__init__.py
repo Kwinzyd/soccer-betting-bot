@@ -6,5 +6,8 @@ Hard isolation rules, enforced by tests/test_expb.py:
   telegram_alerts.py) and nothing from soccerlab's paper ledger, alerting or
   live-prediction modules;
 * writes only to its own SQLite database under var/expb/;
-* contains no selection, staking or alerting logic -- it records quotes.
+* the logger records quotes only: no staking or alerting anywhere, and the
+  single selection function (evaluate.select_entry) runs only in locked
+  post-hoc analysis, never at collection time;
+* treats every venue's price as observational (none is assumed executable).
 """

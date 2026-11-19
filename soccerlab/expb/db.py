@@ -12,6 +12,7 @@ Tables (UPDATE/DELETE abort via triggers on every table):
                  rows. Prices are never carried forward or interpolated.
   targets        T-60 / T-15 snapshot bookkeeping: captured / missed / superseded
   closing_refs   externally sourced closing prices (e.g. football-data BFEC*)
+  closing_quarantine  external rows that could not be matched unambiguously, with reason
   spot_checks    manual venue price checks (obtainability evidence)
   runs           one row per invocation (liveness heartbeat for monitoring)
 """
@@ -25,7 +26,7 @@ from ..hashing import canonical_json, sha256_bytes, sha256_json
 from ..paths import assert_not_production, ensure_var
 from ..timeutil import iso
 
-TABLES = ("raw_responses", "poll_events", "fixture_obs", "quotes", "targets", "closing_refs", "spot_checks", "runs")
+TABLES = ("raw_responses", "poll_events", "fixture_obs", "quotes", "targets", "closing_refs", "spot_checks", "runs", "closing_quarantine")
 
 DDL = """
 CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
@@ -69,6 +70,9 @@ CREATE TABLE IF NOT EXISTS spot_checks (
   id INTEGER PRIMARY KEY, fixture_uid TEXT NOT NULL, venue TEXT NOT NULL, selection TEXT NOT NULL,
   observed_american REAL NOT NULL, observed_at TEXT NOT NULL, stake_accepted REAL, note TEXT,
   recorded_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS closing_quarantine (
+  id INTEGER PRIMARY KEY, league TEXT NOT NULL, row_key TEXT NOT NULL, fixture_uid TEXT, reason TEXT NOT NULL,
+  source_file_sha256 TEXT NOT NULL, recorded_at TEXT NOT NULL, UNIQUE (league, row_key, reason, source_file_sha256));
 CREATE TABLE IF NOT EXISTS runs (
   id INTEGER PRIMARY KEY, started_at TEXT NOT NULL, finished_at TEXT NOT NULL, summary TEXT NOT NULL);
 """

@@ -8,6 +8,7 @@
   spotcheck ...            record a manual venue price observation (obtainability evidence)
   spotcheck-report         agreement between spot checks and logged quotes
   evaluate                 primary analysis -- refuses until the protocol is locked
+  probe [SCHEDULE_DIR]     minimal auth / permission / rate-limit probe (8 requests max)
 """
 
 import argparse
@@ -42,7 +43,7 @@ def spotcheck_report(db, tolerance_minutes=10):
 def main(argv):
     ap = argparse.ArgumentParser(prog="soccerlab expb")
     ap.add_argument("action", choices=["run", "monitor", "quality", "aliases", "closing-import", "spotcheck",
-                                       "spotcheck-report", "evaluate"])
+                                       "spotcheck-report", "evaluate", "probe"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--db", default=None)
     ap.add_argument("--fixture"), ap.add_argument("--venue"), ap.add_argument("--selection")
@@ -53,6 +54,9 @@ def main(argv):
     if a.action == "run":
         from .logger import main as run_main
         return run_main(a.db)
+    if a.action == "probe":
+        from .probe import main as probe_main
+        return probe_main(a.args[0] if a.args else "balldontlie_consolidated")
     if a.action == "aliases":
         from .closing import build_aliases
         res = build_aliases()

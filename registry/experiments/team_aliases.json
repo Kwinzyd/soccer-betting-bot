@@ -8,9 +8,11 @@
       "Brighton": 5,
       "Burnley": 6,
       "Chelsea": 7,
+      "Coventry": 7825480,
       "Crystal Palace": 8,
       "Everton": 9,
       "Fulham": 10,
+      "Hull": 30583,
       "Ipswich": 115,
       "Leeds": 11,
       "Leicester": 131,
@@ -41,13 +43,16 @@
       "Getafe": 46,
       "Girona": 47,
       "Granada": 7884,
+      "La Coruna": 20717,
       "Las Palmas": 1491,
       "Leganes": 1494,
       "Levante": 48,
+      "Malaga": 20714,
       "Mallorca": 49,
       "Osasuna": 50,
       "Oviedo": 54,
       "Real Madrid": 53,
+      "Santander": 20726,
       "Sevilla": 56,
       "Sociedad": 55,
       "Valencia": 57,
@@ -62,6 +67,7 @@
       "Brest": 62,
       "Clermont": 11901,
       "Le Havre": 63,
+      "Le Mans": 7827705,
       "Lens": 64,
       "Lille": 65,
       "Lorient": 66,
@@ -111,5 +117,1197 @@
       "Verona": 37701
     }
   },
-  "comment": "football-data team name -> BallDontLie team id, learned from unique (date+-1, score) matches; edit by hand only with evidence"
+  "comment": "football-data team name -> BallDontLie team id, learned from fixtures with a unique (date+-1 day, exact score) match; >= 3 votes and >= 3x the runner-up; one name per id. Do not hand-edit without recording evidence.",
+  "evidence": {
+    "epl": {
+      "Arsenal": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 2,
+        "votes": 104
+      },
+      "Aston Villa": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 3,
+        "votes": 104
+      },
+      "Bournemouth": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 1,
+        "votes": 106
+      },
+      "Brentford": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 4,
+        "votes": 98
+      },
+      "Brighton": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 5,
+        "votes": 93
+      },
+      "Burnley": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2025
+        ],
+        "team_id": 6,
+        "votes": 46
+      },
+      "Chelsea": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 7,
+        "votes": 95
+      },
+      "Coventry": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2026
+        ],
+        "team_id": 7825480,
+        "votes": 7
+      },
+      "Crystal Palace": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 8,
+        "votes": 91
+      },
+      "Everton": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 9,
+        "votes": 103
+      },
+      "Fulham": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 10,
+        "votes": 95
+      },
+      "Hull": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2026
+        ],
+        "team_id": 30583,
+        "votes": 5
+      },
+      "Ipswich": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2024,
+          2026
+        ],
+        "team_id": 115,
+        "votes": 32
+      },
+      "Leeds": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2025,
+          2026
+        ],
+        "team_id": 11,
+        "votes": 53
+      },
+      "Leicester": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2024
+        ],
+        "team_id": 131,
+        "votes": 38
+      },
+      "Liverpool": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 12,
+        "votes": 90
+      },
+      "Luton": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023
+        ],
+        "team_id": 16251,
+        "votes": 29
+      },
+      "Man City": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 13,
+        "votes": 105
+      },
+      "Man United": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 14,
+        "votes": 100
+      },
+      "Newcastle": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 15,
+        "votes": 101
+      },
+      "Nott'm Forest": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 16,
+        "votes": 102
+      },
+      "Sheffield United": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023
+        ],
+        "team_id": 6507,
+        "votes": 25
+      },
+      "Southampton": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2024
+        ],
+        "team_id": 122,
+        "votes": 50
+      },
+      "Sunderland": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2025,
+          2026
+        ],
+        "team_id": 17,
+        "votes": 30
+      },
+      "Tottenham": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 18,
+        "votes": 109
+      },
+      "West Ham": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "team_id": 19,
+        "votes": 97
+      },
+      "Wolves": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "team_id": 20,
+        "votes": 96
+      }
+    },
+    "laliga": {
+      "Alaves": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 39,
+        "votes": 70
+      },
+      "Almeria": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023
+        ],
+        "team_id": 14410,
+        "votes": 52
+      },
+      "Ath Bilbao": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 40,
+        "votes": 95
+      },
+      "Ath Madrid": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 41,
+        "votes": 97
+      },
+      "Barcelona": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 42,
+        "votes": 111
+      },
+      "Betis": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 52,
+        "votes": 104
+      },
+      "Cadiz": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023
+        ],
+        "team_id": 7890,
+        "votes": 47
+      },
+      "Celta": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 43,
+        "votes": 101
+      },
+      "Elche": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2025,
+          2026
+        ],
+        "team_id": 44,
+        "votes": 54
+      },
+      "Espanol": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 45,
+        "votes": 80
+      },
+      "Getafe": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 46,
+        "votes": 101
+      },
+      "Girona": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "team_id": 47,
+        "votes": 97
+      },
+      "Granada": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023
+        ],
+        "team_id": 7884,
+        "votes": 22
+      },
+      "La Coruna": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2026
+        ],
+        "team_id": 20717,
+        "votes": 7
+      },
+      "Las Palmas": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2024
+        ],
+        "team_id": 1491,
+        "votes": 47
+      },
+      "Leganes": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2024
+        ],
+        "team_id": 1494,
+        "votes": 23
+      },
+      "Levante": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2025,
+          2026
+        ],
+        "team_id": 48,
+        "votes": 35
+      },
+      "Malaga": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2026
+        ],
+        "team_id": 20714,
+        "votes": 7
+      },
+      "Mallorca": {
+        "runner_up_votes": 1,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "team_id": 49,
+        "votes": 86
+      },
+      "Osasuna": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 50,
+        "votes": 97
+      },
+      "Oviedo": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2025
+        ],
+        "team_id": 54,
+        "votes": 23
+      },
+      "Real Madrid": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 53,
+        "votes": 110
+      },
+      "Santander": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2026
+        ],
+        "team_id": 20726,
+        "votes": 10
+      },
+      "Sevilla": {
+        "runner_up_votes": 1,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 56,
+        "votes": 100
+      },
+      "Sociedad": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 55,
+        "votes": 98
+      },
+      "Valencia": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 57,
+        "votes": 96
+      },
+      "Valladolid": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2024
+        ],
+        "team_id": 1501,
+        "votes": 52
+      },
+      "Vallecano": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 51,
+        "votes": 93
+      },
+      "Villarreal": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 58,
+        "votes": 113
+      }
+    },
+    "ligue1": {
+      "Ajaccio": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022
+        ],
+        "team_id": 15132,
+        "votes": 24
+      },
+      "Angers": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 61,
+        "votes": 72
+      },
+      "Auxerre": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 59,
+        "votes": 77
+      },
+      "Brest": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 62,
+        "votes": 103
+      },
+      "Clermont": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023
+        ],
+        "team_id": 11901,
+        "votes": 44
+      },
+      "Le Havre": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 63,
+        "votes": 71
+      },
+      "Le Mans": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2026
+        ],
+        "team_id": 7827705,
+        "votes": 5
+      },
+      "Lens": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 64,
+        "votes": 93
+      },
+      "Lille": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 65,
+        "votes": 89
+      },
+      "Lorient": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2025,
+          2026
+        ],
+        "team_id": 66,
+        "votes": 77
+      },
+      "Lyon": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 67,
+        "votes": 100
+      },
+      "Marseille": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 68,
+        "votes": 99
+      },
+      "Metz": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2025
+        ],
+        "team_id": 69,
+        "votes": 50
+      },
+      "Monaco": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 60,
+        "votes": 100
+      },
+      "Montpellier": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024
+        ],
+        "team_id": 2257,
+        "votes": 71
+      },
+      "Nantes": {
+        "runner_up_votes": 1,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "team_id": 70,
+        "votes": 93
+      },
+      "Nice": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 71,
+        "votes": 97
+      },
+      "Paris FC": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2025,
+          2026
+        ],
+        "team_id": 72,
+        "votes": 27
+      },
+      "Paris SG": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 73,
+        "votes": 103
+      },
+      "Reims": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024
+        ],
+        "team_id": 2249,
+        "votes": 74
+      },
+      "Rennes": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 74,
+        "votes": 96
+      },
+      "St Etienne": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2024
+        ],
+        "team_id": 2252,
+        "votes": 23
+      },
+      "Strasbourg": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 75,
+        "votes": 99
+      },
+      "Toulouse": {
+        "runner_up_votes": 1,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 76,
+        "votes": 94
+      },
+      "Troyes": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2026
+        ],
+        "team_id": 11896,
+        "votes": 29
+      }
+    },
+    "seriea": {
+      "Atalanta": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 80,
+        "votes": 105
+      },
+      "Bologna": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 2869,
+        "votes": 91
+      },
+      "Cagliari": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37696,
+        "votes": 77
+      },
+      "Como": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37697,
+        "votes": 51
+      },
+      "Cremonese": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2025
+        ],
+        "team_id": 37698,
+        "votes": 51
+      },
+      "Empoli": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024
+        ],
+        "team_id": 57927,
+        "votes": 70
+      },
+      "Fiorentina": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37699,
+        "votes": 102
+      },
+      "Frosinone": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2026
+        ],
+        "team_id": 62430,
+        "votes": 32
+      },
+      "Genoa": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37700,
+        "votes": 74
+      },
+      "Inter": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 95,
+        "votes": 107
+      },
+      "Juventus": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 96,
+        "votes": 87
+      },
+      "Lazio": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 9406,
+        "votes": 108
+      },
+      "Lecce": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37705,
+        "votes": 95
+      },
+      "Milan": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 2861,
+        "votes": 99
+      },
+      "Monza": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2026
+        ],
+        "team_id": 92957,
+        "votes": 75
+      },
+      "Napoli": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 101,
+        "votes": 104
+      },
+      "Parma": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37707,
+        "votes": 53
+      },
+      "Pisa": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2025
+        ],
+        "team_id": 37708,
+        "votes": 24
+      },
+      "Roma": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 22240,
+        "votes": 99
+      },
+      "Salernitana": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023
+        ],
+        "team_id": 88683,
+        "votes": 41
+      },
+      "Sampdoria": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022
+        ],
+        "team_id": 40816,
+        "votes": 23
+      },
+      "Sassuolo": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2025,
+          2026
+        ],
+        "team_id": 37709,
+        "votes": 79
+      },
+      "Spezia": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022
+        ],
+        "team_id": 84392,
+        "votes": 22
+      },
+      "Torino": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37710,
+        "votes": 93
+      },
+      "Udinese": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "team_id": 37711,
+        "votes": 90
+      },
+      "Venezia": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2024,
+          2026
+        ],
+        "team_id": 88682,
+        "votes": 34
+      },
+      "Verona": {
+        "runner_up_votes": 0,
+        "seasons": [
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "team_id": 37701,
+        "votes": 92
+      }
+    }
+  },
+  "source_files_sha256": {
+    "E0_2223.csv": "8442792d3b614c94ea3cf381bd2736805889cc1713169035368fff19c3d02380",
+    "E0_2324.csv": "b2e057b0ed959f198b0f63d2391c01239f3608e6de5db68edab3f88e04d07ff3",
+    "E0_2425.csv": "d0c8ce4a96d886cf60cf101f570f4a3893844226f91c7bd769eb568c49edbfa4",
+    "E0_2526.csv": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
+    "E0_2627.csv": "d598a5f681e1a9a4acf9dad9fb203b68da6f67e2d195678dbe99e95fbba14593",
+    "F1_2223.csv": "18ea07d922e8b6360b81189637efd5aaf44779765db856bff208d5b1acf69b2f",
+    "F1_2324.csv": "ca0a4bf51d5b1ccfd0e1558ea41de6bb829df6c96c759888a87248d296d5adb7",
+    "F1_2425.csv": "fe6ae6a0c30d05f0ac88e0fc4a31452c7203e2b444703dfa941e22f38f20ab63",
+    "F1_2526.csv": "898b7ddcd373cfe955ae353b1a98cf7f1c8757ca10b69d53039f4e098e88f192",
+    "F1_2627.csv": "351303e69ffd3e18a25ac6f06463929faa3db6b86abbf2564709f3c5a9f92f31",
+    "I1_2223.csv": "9960837f37a97ae700f876c87b85a8b7a2f5a5d05a53077830c21b9db8880c45",
+    "I1_2324.csv": "343a89db026fe4204ebeabd663cdfee8d02a45457828fc1cb63fa630ca170723",
+    "I1_2425.csv": "79d87a5b18771e066ac7419b7876bfd9771a68ca117a9712375d6bc9685abee3",
+    "I1_2526.csv": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
+    "I1_2627.csv": "91f517fedb41215a32e80faa8f4ec44e26d970e557c6c120a664686dbc4d22f0",
+    "SP1_2223.csv": "53348112526b5165539df240be350083989bb258f30c0ff7cacbc0165ca7e4b3",
+    "SP1_2324.csv": "5323f596c7ed318e4bce95557a369d809d98501fa499ea5f41350cd45cf3c7d9",
+    "SP1_2425.csv": "c086e96d6a53f6e6c0fce4e35db0d1728c773b4362323da0161a34769e315a36",
+    "SP1_2526.csv": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
+    "SP1_2627.csv": "b4c9a5cc1139f30dbd1026679c360de4626ce97fe64ae62ff1ff8ba3af0b7828"
+  },
+  "unmapped_current_season_team_ids": {
+    "epl": [],
+    "laliga": [],
+    "ligue1": [],
+    "seriea": []
+  },
+  "unresolved_names": {
+    "epl": [],
+    "laliga": [],
+    "ligue1": [],
+    "seriea": []
+  }
 }

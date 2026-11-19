@@ -119,7 +119,7 @@ def test_first_run_loads_schedule_then_regular_poll(env):
     rows = q(db, "SELECT venue, eligibility, status, snapshot_kind FROM quotes WHERE fixture_uid='bdl:epl:1'")
     assert {r["venue"] for r in rows} == {"draftkings", "fanduel", "polymarket"}
     assert all(r["eligibility"] == "observational" for r in rows if r["venue"] == "polymarket")
-    assert all(r["eligibility"] == "candidate_unverified" for r in rows if r["venue"] != "polymarket")
+    assert all(r["eligibility"] == "observational" for r in rows)          # nothing assumed executable
     assert all(r["status"] == "available" and r["snapshot_kind"] == "regular" for r in rows)
     # fixture 2: only DraftKings quoted -> explicit 'missing' rows for the others, no invented prices
     miss = q(db, "SELECT venue, decimal_odds FROM quotes WHERE fixture_uid='bdl:epl:2' AND status='missing'")
@@ -303,10 +303,12 @@ def test_evaluate_refuses_while_draft(env):
 
 def test_evaluate_locked_one_entry_per_fixture(env):
     clock, api, db, runner = env
-    proto = dict(evaluate.load_protocol(), status="locked", locked_at=iso(T0 - timedelta(days=2)), n_boot=200)
+    proto = dict(evaluate.load_protocol(), status="locked", locked_at=iso(T0 - timedelta(days=2)), n_boot=200,
+                 approved_entry_venues=["draftkings", "fanduel"],
+                 venue_verification={"draftkings": {"status": "verified"}, "fanduel": {"status": "verified"}})
     runner.run_once()                                               # schedule
     clock.t = KO - timedelta(hours=24, minutes=30)                  # entry snapshot within [E-3h, E]
-    api.odds[("epl", 1)] = [book(1, "draftkings", 200, 240, 150), book(1, "fanduel", 150, 240, 190)]
+    api.odds[("epl", 1)] = [book(1, "draftkings", 160, 240, 170), book(1, "fanduel", 155, 235, 175)]
     runner.run_once()
     clock.t = KO - timedelta(minutes=15)                            # closing snapshot
     api.odds[("epl", 1)] = [book(1, "draftkings", 170, 240, 170), book(1, "fanduel", 165, 240, 175)]
@@ -316,8 +318,8 @@ def test_evaluate_locked_one_entry_per_fixture(env):
                   "source_file_sha256, imported_at) VALUES ('bdl:epl:1','test','betfair_exchange','1x2_ft90',"
                   "2.6,3.5,2.9,'x','now')")
     out = evaluate.primary(db, proto, now=KO + timedelta(days=1))
-    assert out["strong"]["n"] == 1 and out["weak"]["n"] == 1
-    assert out["strong"]["verdict"].startswith("inconclusive")        # n < min_n is never a pass
+    assert out["strong (primary)"]["n"] == 1 and out["weak (EXP-2026-11-B-weak)"]["n"] == 1
+    assert out["strong (primary)"]["verdict"].startswith("inconclusive")        # n < min_n is never a pass
 
 
 # --------------------------------------------------------------- closing import

@@ -3,13 +3,11 @@
   "title": "Forward early-price validation (model-free, logging-first)",
   "status": "draft",
   "locked_at": null,
-  "comment": "Draft parameters. evaluate.primary() refuses to run while status != 'locked'. Locking requires the decisions in docs/EXP-2026-11-B_DRAFT.md section 9 and must happen before any endpoint statistic is computed.",
-  "approved_entry_venues": [
-    "draftkings",
-    "fanduel"
-  ],
-  "approved_entry_venues_status": "PROPOSED - legal availability, account access and obtainability not yet verified",
+  "comment": "Draft parameters. All analyses refuse while status != 'locked' or while any approved entry venue is unverified. Locking requires the decisions in docs/EXP-2026-11-B_DRAFT.md and must happen after the pilot ends and before any endpoint statistic is computed.",
+  "approved_entry_venues": [],
   "observational_venues": [
+    "draftkings",
+    "fanduel",
     "polymarket"
   ],
   "market": "1x2_ft90",
@@ -30,5 +28,53 @@
   ],
   "secondary_thresholds": [
     0.0
-  ]
+  ],
+  "candidate_entry_venues": [
+    "draftkings",
+    "fanduel"
+  ],
+  "venue_verification": {
+    "draftkings": {
+      "status": "unverified",
+      "checks": {
+        "legal_eligibility": "unverified",
+        "account_and_market_access": "unverified",
+        "realistic_obtainability_at_test_stake": "unverified",
+        "source_to_screen_agreement": "unverified"
+      }
+    },
+    "fanduel": {
+      "status": "unverified",
+      "checks": {
+        "legal_eligibility": "unverified",
+        "account_and_market_access": "unverified",
+        "realistic_obtainability_at_test_stake": "unverified",
+        "source_to_screen_agreement": "unverified"
+      }
+    },
+    "polymarket": {
+      "status": "observational_only",
+      "checks": {
+        "legal_eligibility": "unverified",
+        "account_and_market_access": "unverified",
+        "realistic_obtainability_at_test_stake": "unverified",
+        "source_to_screen_agreement": "unverified",
+        "liquidity": "unverified",
+        "fees": "unverified"
+      }
+    }
+  },
+  "selection_function": "soccerlab.expb.evaluate.select_entry: inputs = approved venues' complete unflagged books retrieved in [E - tolerance, E] (and >= locked_at) only; score_s = best_price_s * mean_power_devig_fair_s - 1; pick argmax, ties home>draw>away then venue name; threshold null",
+  "analyses": {
+    "price_drift": "descriptive; every selection, same venue early vs last pre-kickoff",
+    "closing_line": "PRIMARY endpoint (closing EV vs strong reference); weak reference reported as EXP-2026-11-B-weak",
+    "simulated_roi": "secondary only; never a lock or promotion criterion"
+  },
+  "closing_reference_strong_status": "PROVISIONAL: football-data documents BFE* as 'Betfair Exchange' but not back/lay/mid, commission, or closing capture time",
+  "pilot": {
+    "duration_days": 14,
+    "start": null,
+    "end": null,
+    "use": "data-quality acceptance criteria only; excluded from every endpoint (quotes must be retrieved >= locked_at)"
+  }
 }

@@ -312,7 +312,22 @@ class Runner:
                     for q in avail:
                         q["flags"].append("partial_book")
                 out += sel
+            self._flag_discrepancies([q for q in out if q["fixture_uid"] == uid])
         return out
+
+    @staticmethod
+    def _flag_discrepancies(rows):
+        """Flag sportsbook quotes for a selection when the venues' implied
+        probabilities differ by more than CROSS_VENUE_DISCREPANCY: one side is
+        likely stale, mis-mapped or a different market."""
+        for s in C.SELECTIONS:
+            qs = [q for q in rows if q["selection"] == s and q["status"] == "available"
+                  and q["venue_class"] == "sportsbook"]
+            if len(qs) >= 2:
+                imp = [1 / q["decimal_odds"] for q in qs]
+                if max(imp) - min(imp) > C.CROSS_VENUE_DISCREPANCY:
+                    for q in qs:
+                        q["flags"].append("cross_venue_discrepancy")
 
     def _start(self, kind, league, now):
         self._poll_id = uuid.uuid4().hex
@@ -346,6 +361,7 @@ class Runner:
 
     def run_once(self):
         start, t0 = self.now_fn(), self.monotonic()
+        self._requests = 0                     # spacing applies within a run; runs are >= 5 min apart
         res = {"started": iso(start), "recovered": self.recover(start), "actions": []}
         for act in self.plan(start):
             kind, lg, fx = act
