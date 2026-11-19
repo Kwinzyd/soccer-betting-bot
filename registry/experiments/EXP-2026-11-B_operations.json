@@ -1,0 +1,56 @@
+{
+  "experiment": "EXP-2026-11-B",
+  "comment": "Operational events only. The statistical protocol (EXP-2026-11-B.json), pilot start/end timestamps, polling policy and selection function are unchanged by these events. The protocol's pilot.store field describes the original D: store and is superseded by the 2026-11-19 migration below.",
+  "events": [
+    {
+      "at": "2026-11-19T21:58:29Z",
+      "event": "pilot_started",
+      "detail": "first logger run; store D:\\soccerlab-research\\expb (USB, volume 3CF6E1FA)"
+    },
+    {
+      "at": "2026-11-19T22:11:38Z",
+      "event": "storage_risk_found",
+      "detail": "D: reports HealthStatus Warning / Full Repair Needed; 12 NTFS Event 55 corruption errors at 21:57:45Z; 22 disk Event 11 controller errors on Harddisk1 since 2026-10-21"
+    },
+    {
+      "at": "2026-11-19T22:27:16Z",
+      "event": "emergency_backup",
+      "detail": "online backup of D: store -> C:\\Users\\louis\\soccerlab-backups\\expb\\emergency\\exp_b_odds_20261119T222716Z.sqlite3; integrity ok; sha256 ac3c4bcc3ca1aaef...; 1840 rows; independent prefix-hash verification PASS"
+    },
+    {
+      "at": "2026-11-19T22:28:01Z",
+      "event": "logger_disabled",
+      "detail": "soccerlab-expb-odds-logger disabled for migration; last run 22:27:01Z result 0; no writer process; no lock"
+    },
+    {
+      "at": "2026-11-19T22:28:18Z",
+      "event": "final_backup",
+      "detail": "C:\\Users\\louis\\soccerlab-backups\\expb\\migration\\exp_b_odds_20261119T222818Z.sqlite3; byte-identical sha256 to the emergency snapshot; exact verification vs D: PASS"
+    },
+    {
+      "at": "2026-11-19T22:29:00Z",
+      "event": "store_migrated",
+      "detail": "restored final backup to C:\\Users\\louis\\soccerlab-research\\expb; fd CSVs, validation json and probe record copied, sha256-identical; pointer var/expb/DB_LOCATION now C:; no lock migrated; D: copy left untouched (db sha256 fa28c871...)"
+    },
+    {
+      "at": "2026-11-19T22:32:02Z",
+      "event": "logger_enabled",
+      "detail": "task re-enabled unchanged (same command, working dir, 5-minute schedule); store resolved via pointer"
+    },
+    {
+      "at": "2026-11-19T22:37:03Z",
+      "event": "first_run_after_migration",
+      "detail": "run recorded on C: (runs 7 -> 8), result 0, no actions due; D: database hash unchanged; next regular odds poll due ~00:02Z"
+    },
+    {
+      "at": "2026-11-19T22:37:03Z",
+      "event": "missed_windows",
+      "detail": "one 5-minute invocation slot missed (22:32Z) while disabled; no regular poll, schedule refresh or T-60/T-15 target was due in that slot; nothing backfilled"
+    },
+    {
+      "at": "2026-11-19T22:37:03Z",
+      "event": "backup_status",
+      "detail": "daily backup task NOT installed: no separate healthy physical device or approved off-device service available; recovery copies = emergency + migration snapshots on C: (taken from D:) and the original on damaged D:. Off-device protection incomplete."
+    }
+  ]
+}

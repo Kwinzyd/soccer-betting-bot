@@ -10,8 +10,8 @@
 # $Keep backups. Refuses a target on the source's volume or inside Dropbox.
 
 param([switch]$Install, [switch]$Uninstall,
-      [string]$Source = "D:\soccerlab-research\expb\exp_b_odds.sqlite3",
-      [string]$Dest = "$env:USERPROFILE\soccerlab-backups\expb",
+      [string]$Source = "$env:USERPROFILE\soccerlab-research\expb\exp_b_odds.sqlite3",
+      [string]$Dest = "",                     # REQUIRED: a separate, healthy physical device (not C:, not the damaged USB)
       [int]$Keep = 14, [string]$At = "06:15")
 
 $TaskName = "soccerlab-expb-backup"
@@ -21,6 +21,12 @@ if (@("balldontlie-odds-logger", "balldontlie-odds-settle", "balldontlie-roster-
     throw "refusing: task name collides with an existing task"
 }
 if ($Uninstall) { Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false; Write-Host "Removed $TaskName."; exit 0 }
+if (-not $Dest) {
+    Write-Host "No -Dest given. A daily backup needs a separate, healthy physical device; a second folder on the"
+    Write-Host "source's drive is not disaster recovery, and the damaged USB (volume 3CF6E1FA) is refused by the tool."
+    Write-Host "DRY RUN - nothing registered."
+    exit 0
+}
 
 $py = Join-Path (Split-Path -Parent $Worktree) "api-football-data-research\var\venv\Scripts\python.exe"
 if (-not (Test-Path $py)) { $py = (Get-Command python -ErrorAction Stop).Source }

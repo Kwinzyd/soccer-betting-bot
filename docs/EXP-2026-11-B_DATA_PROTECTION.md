@@ -1,5 +1,14 @@
 # EXP-2026-11-B — data protection (2026-11-19)
 
+> **Update 2026-11-19 22:37 UTC — store migrated to C:.** Live store:
+> `C:\Users\louis\soccerlab-research\expb`. Recovery copies:
+> `C:\Users\louis\soccerlab-backups\expb\emergency\` and `...\migration\` (verified,
+> sha256 manifests), plus the untouched original on the damaged USB `D:`. The daily
+> backup task is not installed because no separate healthy device exists yet, so
+> off-device protection is **incomplete**. Event log:
+> `registry/experiments/EXP-2026-11-B_operations.json`. The rest of this document
+> describes the pre-migration state.
+
 The live pilot runs code frozen at `94f8c56` (worktree
 `api-football-data-research`). Everything here lives on branch
 `research/quant-audit-next` (worktree `api-football-data-research-dev`) and

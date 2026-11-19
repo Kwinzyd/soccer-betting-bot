@@ -2,7 +2,7 @@
 
 Prepared 2026-11-19 on `research/quant-audit` (not pushed, not merged).
 **Update 2026-11-19 22:00 UTC: task installed with authorization; pilot started at 2026-11-19T21:58:29Z
-(ends 2026-12-03T21:58:29Z); store on the USB drive `D:\soccerlab-research\expb`.**
+(ends 2026-12-03T21:58:29Z); store on the USB drive `D:\soccerlab-research\expb`, **migrated to `C:\Users\louis\soccerlab-research\expb` at 22:29Z after the USB showed filesystem corruption (registry/experiments/EXP-2026-11-B_operations.json).**
 Original readiness text follows. The pilot collects odds only: no
 predictions, no picks, no Telegram, no staking, no real-money execution.
 All pilot records are excluded from the eventual locked analysis.
@@ -44,8 +44,8 @@ All pilot records are excluded from the eventual locked analysis.
 | B1 | explicit authorization to run `install_expb_task.ps1 -Install` | **PENDING** |
 | B2 | legacy logger stays disabled during the pilot (it shares the 5/min key limit) | **CONFIRM** |
 | B3 | PC on and online across kickoff windows (Fri–Mon afternoons/evenings UTC, Tue–Thu evenings). A sleeping machine shows up as missed snapshots, not invented data | **CONFIRM** |
-| B4 | disk: pilot store moved to USB `D:` (NTFS, 112 GB free); C: holds only code and `var\venv` | DONE |
-| B5 | USB `D:` must stay plugged in. If it is missing, every run exits 4 and writes nothing (marker check); monitor shows liveness red | CONFIRM |
+| B4 | disk: store on USB `D:` until 22:29Z, now on internal C: (C:\Users\louis\soccerlab-research\expb) after D: reported corruption | DONE |
+| B5 | ~~USB `D:` must stay plugged in~~ (superseded: the store is on C:; D: holds only a recovery copy) | n/a |
 
 ### C. Pilot exit criteria (evaluated after 14 days; GO to lock only if all pass)
 
@@ -113,12 +113,12 @@ commit on this branch.
 .\var\venv\Scripts\python.exe -m soccerlab expb spotcheck --fixture bdl:epl:<id> --venue draftkings --selection home --american -110 --at 2026-11-22T14:05:00Z --stake-accepted 10
 .\var\venv\Scripts\python.exe -m soccerlab expb spotcheck-report
 # weekly closing-reference refresh:
-foreach ($c in "E0","SP1","I1","F1") { Invoke-WebRequest "https://www.football-data.co.uk/mmz4281/2627/$c.csv" -OutFile "D:\soccerlab-research\expb\fd\${c}_2627.csv" }
+foreach ($c in "E0","SP1","I1","F1") { Invoke-WebRequest "https://www.football-data.co.uk/mmz4281/2627/$c.csv" -OutFile "C:\Users\louis\soccerlab-research\expb\fd\${c}_2627.csv" }
 .\var\venv\Scripts\python.exe -m soccerlab expb aliases
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\E0_2627.csv epl
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\SP1_2627.csv laliga
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\I1_2627.csv seriea
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\F1_2627.csv ligue1
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import C:\Users\louis\soccerlab-research\expb\fd\E0_2627.csv epl
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import C:\Users\louis\soccerlab-research\expb\fd\SP1_2627.csv laliga
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import C:\Users\louis\soccerlab-research\expb\fd\I1_2627.csv seriea
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import C:\Users\louis\soccerlab-research\expb\fd\F1_2627.csv ligue1
 ```
 
 ### Pause, stop, roll back
@@ -126,7 +126,7 @@ foreach ($c in "E0","SP1","I1","F1") { Invoke-WebRequest "https://www.football-d
 ```powershell
 Disable-ScheduledTask -TaskName soccerlab-expb-odds-logger      # pause immediately (data kept)
 Enable-ScheduledTask  -TaskName soccerlab-expb-odds-logger      # resume
-Copy-Item D:\soccerlab-research\expb\exp_b_odds.sqlite3 "D:\soccerlab-research\expb\backup_$(Get-Date -Format yyyyMMdd).sqlite3"   # while disabled
+Copy-Item C:\Users\louis\soccerlab-research\expb\exp_b_odds.sqlite3 "C:\Users\louis\soccerlab-research\expb\backup_$(Get-Date -Format yyyyMMdd).sqlite3"   # while disabled
 powershell -ExecutionPolicy Bypass -File research_tasks\install_expb_task.ps1 -Uninstall        # remove the task
 ```
 

@@ -205,3 +205,10 @@ def test_manifest_json_is_valid(live, tmp_path):
     m = B.make_backup(src, dest)
     on_disk = json.loads((dest / m["file"]).with_suffix(".json").read_text(encoding="utf-8"))
     assert on_disk["sha256"] == m["sha256"] and on_disk["source_volume"] != on_disk["backup_volume"]
+
+
+def test_damaged_volume_is_refused_as_destination(live, tmp_path, monkeypatch):
+    src, *_ = live
+    monkeypatch.setattr(B, "volume_id", lambda p: "SRC" if "src" in Path(p).parts else "3CF6E1FA")
+    with pytest.raises(B.BackupError, match="damaged"):
+        B.make_backup(src, tmp_path / "bak")

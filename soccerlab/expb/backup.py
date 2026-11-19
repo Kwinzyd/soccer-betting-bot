@@ -35,6 +35,9 @@ from .db import TABLES
 from .volume import volume_id
 
 NAME_RE = re.compile(r"^exp_b_odds_(\d{8}T\d{6}Z)\.sqlite3$")
+# Volumes that must never receive a backup: the USB stick that logged NTFS corruption and
+# repeated controller errors on 2026-10-21..2026-11-19 (EXP-2026-11-B data-protection report).
+DAMAGED_VOLUMES = {"3CF6E1FA"}
 EXPERIMENT = "EXP-2026-11-B"
 
 
@@ -102,6 +105,8 @@ def make_backup(source, dest=None, keep=14, now=None):
     assert_not_production(dest)
     if (db := _in_dropbox(dest)) is not None:
         raise BackupError(f"refusing a backup target inside a Dropbox folder ({db})")
+    if volume_id(dest) in DAMAGED_VOLUMES:
+        raise BackupError(f"backup target is on volume {volume_id(dest)}, recorded as damaged; use a healthy device")
     if volume_id(src) == volume_id(dest):
         raise BackupError("backup target is on the same volume as the source; use a physically separate volume")
     dest.mkdir(parents=True, exist_ok=True)
