@@ -1,0 +1,2923 @@
+{
+  "code_files": [
+    {
+      "bytes": 217,
+      "path": ".gitignore",
+      "protected": true,
+      "sha256": "c8a7aeaeda3753620f3e13c4da63fd9d1af0ad6b8ef7615365262aaa117066f6"
+    },
+    {
+      "bytes": 2795,
+      "path": "bot.py",
+      "protected": true,
+      "sha256": "fbe038f4f4ece794fefa26981ef16e440ea366212fd0b78c78967654d6750cd6"
+    },
+    {
+      "bytes": 2920,
+      "path": "consolidate.py",
+      "protected": true,
+      "sha256": "8f4dcaa3a806bad5f3d92058f547c9f6215f8e7c2968f49757768d3055980695"
+    },
+    {
+      "bytes": 11265,
+      "path": "fetch_rosters.py",
+      "protected": true,
+      "sha256": "3ee67d9d9f381b743ce4567016b2a5b73f2c61f0400bc09dff26a881ad5891e5"
+    },
+    {
+      "bytes": 5245,
+      "path": "model/README.md",
+      "protected": true,
+      "sha256": "2869bc6207a7fd64d3d0abb37bd91284e30b4a8b9b394790c547dd6b52d9ec4e"
+    },
+    {
+      "bytes": 5099,
+      "path": "model/backtest.py",
+      "protected": true,
+      "sha256": "bfd77a052115c2ff9d970467c8999de577045f00967d56c96d757c3c612a254c"
+    },
+    {
+      "bytes": 3850,
+      "path": "model/blend.py",
+      "protected": true,
+      "sha256": "ceac78edefc89d2f9d5070a80ee28c4e996582205f293df58a89491e660cdea9"
+    },
+    {
+      "bytes": 14938,
+      "path": "model/dcmodel.py",
+      "protected": true,
+      "sha256": "254e698b8aa7374ef8dfc798ccec12be368285b2fc50c7b1ea2d57ca7b015c3b"
+    },
+    {
+      "bytes": 4427,
+      "path": "model/evaluate.py",
+      "protected": true,
+      "sha256": "40ecc35534bf4f50e938bd48fd33a523a9cca5566d389bed5cb2377e72c0051d"
+    },
+    {
+      "bytes": 4120,
+      "path": "model/generate_live_card.py",
+      "protected": true,
+      "sha256": "ade43216c95daba93f2bd817044b07b75c101b275c934b31394387ef753c2323"
+    },
+    {
+      "bytes": 6336,
+      "path": "model/joinodds.py",
+      "protected": true,
+      "sha256": "14d0fbaad86ca0f628e8883bc8ebf2c54c54b2e96e4c3b1e6e801fdcef7e64ae"
+    },
+    {
+      "bytes": 1807,
+      "path": "model/paper.py",
+      "protected": true,
+      "sha256": "d0c0952217a4fdfdfdcaa0566d5ca06826e1073dd7369994c5e97f726227bf50"
+    },
+    {
+      "bytes": 8251,
+      "path": "model/predict.py",
+      "protected": true,
+      "sha256": "b57b8f774f44444860ca70d55b3ec76bdb2882a772c38dcbfa59d4427d1d2aa1"
+    },
+    {
+      "bytes": 9119,
+      "path": "model/predict_seriea_ligue1.py",
+      "protected": true,
+      "sha256": "b7fcadb88b0550debdf894699e001c99d446ec23df3202a5d6b9f0d63293598e"
+    },
+    {
+      "bytes": 2401,
+      "path": "model/sharpen.py",
+      "protected": true,
+      "sha256": "1faf6d01ed9e3973ac9e2c517c10d6ce7bbbd72622b9d61cde73934e62935c22"
+    },
+    {
+      "bytes": 4909,
+      "path": "model/strategy.py",
+      "protected": true,
+      "sha256": "9db315bb326c075dcbeea5bc5739c89e319e34eb939d84d2fd9fc00517ab98ec"
+    },
+    {
+      "bytes": 4837,
+      "path": "model/validate.py",
+      "protected": true,
+      "sha256": "4baf932ca7b7ce896f08e6ed9eb415cac8eb94e525d2e861de2a531fa54febad"
+    },
+    {
+      "bytes": 2996,
+      "path": "odds_logger/README.md",
+      "protected": true,
+      "sha256": "f9ebd088baf1be85471b964f00e5eac64539b80d006b84ee966307d094374570"
+    },
+    {
+      "bytes": 10809,
+      "path": "odds_logger/board_log.py",
+      "protected": true,
+      "sha256": "875a43c0346fe02d8ecde31c342bc68065366b65e1f903e459520a5d108ac7c0"
+    },
+    {
+      "bytes": 3576,
+      "path": "odds_logger/install_task.ps1",
+      "protected": true,
+      "sha256": "d4fc5fb559a5852664f7f81a90f8a9de86bba67852e7560f437fc449bd219e28"
+    },
+    {
+      "bytes": 8762,
+      "path": "odds_logger/log_odds.py",
+      "protected": true,
+      "sha256": "3022ec403c99ce8338721ee1d3122c1a08fa291e58fe80cc4a5cc768661df27b"
+    },
+    {
+      "bytes": 5103,
+      "path": "odds_logger/read_log.py",
+      "protected": true,
+      "sha256": "3ac7a920189278d6ee840aaa51d594bdc065f483a7f6ec47f6a4f8ac35cd6fef"
+    },
+    {
+      "bytes": 12599,
+      "path": "odds_logger/settle.py",
+      "protected": true,
+      "sha256": "6a649fa905a30059dddaacf38e08b1f721d94de54c8e2b1ac4fcb5f39bbfb44b"
+    },
+    {
+      "bytes": 2501,
+      "path": "pull_balldontlie.py",
+      "protected": true,
+      "sha256": "e6ef9530c4fdc9a64df1460c8f246e81e6db352df8d45b1523846142a0c63be8"
+    },
+    {
+      "bytes": 7079,
+      "path": "pull_balldontlie_v2.py",
+      "protected": true,
+      "sha256": "895a9be5ce4281197863cdf3852de64c4af8b3fb278a822a57e129023103b09b"
+    },
+    {
+      "bytes": 3688,
+      "path": "pull_xg.py",
+      "protected": true,
+      "sha256": "a5f59d6c8a621d010fc30a0f68557d1ab35daa7fa5311a7d75377333fc406a6f"
+    },
+    {
+      "bytes": 10674,
+      "path": "series/build_series.py",
+      "protected": true,
+      "sha256": "52aa93d1db3e4a451ca4e19f3b3dd43b5abb9c22941ade7df40a2aadc5582486"
+    },
+    {
+      "bytes": 3893,
+      "path": "series/fixture_brief.py",
+      "protected": true,
+      "sha256": "a73fe71cd3dab48553a7dba55ef960f363aa74e77aed54d79b840f631579a1a6"
+    },
+    {
+      "bytes": 14444,
+      "path": "series/run_board.py",
+      "protected": true,
+      "sha256": "862e639a889aca0eb2544405b17102c66b8866b7616266e18df7e8ec9f3b5e8b"
+    },
+    {
+      "bytes": 6164,
+      "path": "telegram_alerts.py",
+      "protected": true,
+      "sha256": "0351241be06058f49e5dde9fa798dff357ecdd0611df21d9180d2d8027e2f9d1"
+    }
+  ],
+  "code_files_aggregate_sha256": "e4d9e85962f4f80365fa72d01baae7c048b161ae8ac60c7c9e85693d21816046",
+  "data_files": [
+    {
+      "bytes": 715031,
+      "note": "rewritten daily by fetch_rosters.py sync",
+      "path": "active_rosters.json",
+      "protected": false,
+      "sha256": "e7112f3bae91e49e7b67d3ea0168a22597ff8115bf414139c8610f65f8437b37"
+    },
+    {
+      "bytes": 291022,
+      "path": "balldontlie_consolidated/epl_2022_matches.json",
+      "protected": true,
+      "sha256": "52bec966df15ca0a449e4e12736ee5c53721d8773b6547291b7ee1bb181074d1"
+    },
+    {
+      "bytes": 290668,
+      "path": "balldontlie_consolidated/epl_2023_matches.json",
+      "protected": true,
+      "sha256": "399f5450ae6b1b9c20960da7806211728a5ce0439109046a4a7cbbadd5150e9c"
+    },
+    {
+      "bytes": 290668,
+      "path": "balldontlie_consolidated/epl_2024_matches.json",
+      "protected": true,
+      "sha256": "fb687bf1bf20582b192a0f13b2b2ed24a107d73affa55a8880051eec4fdda13e"
+    },
+    {
+      "bytes": 311640,
+      "path": "balldontlie_consolidated/epl_2025_matches.json",
+      "protected": true,
+      "sha256": "18e1f2d5da77221f81c1ec52722f668b781c2fd63e7580f2bb23c6d74d639154"
+    },
+    {
+      "bytes": 581005,
+      "path": "balldontlie_consolidated/epl_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "a0dcf019c9279edbf4d1808e6b0c4e03e2cd21e9a4be047f3e1bff90ef721518"
+    },
+    {
+      "bytes": 2286,
+      "path": "balldontlie_consolidated/epl_2025_teams.json",
+      "protected": true,
+      "sha256": "49fc4416a69b2900576e1b9fe1cdaaa1ab73ccaee089ef272a4e175ce9df25aa"
+    },
+    {
+      "bytes": 305485,
+      "note": "refreshed every 6h by log_odds.py --refresh-schedules",
+      "path": "balldontlie_consolidated/epl_2026_matches.json",
+      "protected": false,
+      "sha256": "3959860fe90ef91ed791b8f857f8da54b62f1fa231e567b8dfea920a3e0f337c"
+    },
+    {
+      "bytes": 9226,
+      "path": "balldontlie_consolidated/epl_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "cb79873dd41270bf2720f993faa3ed6eced7aa7643990d49633ae6402cdeb260"
+    },
+    {
+      "bytes": 2272,
+      "path": "balldontlie_consolidated/epl_2026_teams.json",
+      "protected": true,
+      "sha256": "3f09556b4368b8e52a92bcf5339baf7728efd7f9516a69c83f54c0e3e8a7e314"
+    },
+    {
+      "bytes": 282207,
+      "path": "balldontlie_consolidated/laliga_2022_matches.json",
+      "protected": true,
+      "sha256": "354ba729e15511dbb187d4a0f04c2f0654cd32f14ab69783a564d9e08c67d232"
+    },
+    {
+      "bytes": 290567,
+      "path": "balldontlie_consolidated/laliga_2023_matches.json",
+      "protected": true,
+      "sha256": "5a046565c555e3243c7241c96954acdf77105c9eebaae91879dfc4c36fc5e54d"
+    },
+    {
+      "bytes": 290284,
+      "path": "balldontlie_consolidated/laliga_2024_matches.json",
+      "protected": true,
+      "sha256": "b59f838622a7e47fb5a1ca6c09f21deff0303ed8d16f77ab27e383cff4d50646"
+    },
+    {
+      "bytes": 314926,
+      "path": "balldontlie_consolidated/laliga_2025_matches.json",
+      "protected": true,
+      "sha256": "ed6ff2a44d2348744226908e984abbec4372a915f83872ba6acb642966b39517"
+    },
+    {
+      "bytes": 581258,
+      "path": "balldontlie_consolidated/laliga_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "6733d66a933237920bbb996f94046496077f98311e5aa203798f22ed950518e2"
+    },
+    {
+      "bytes": 2151,
+      "path": "balldontlie_consolidated/laliga_2025_teams.json",
+      "protected": true,
+      "sha256": "8e54ad6c6a79ede501437dbfcc2c9bb73a0758b2d354fa2b77cff4282fe10162"
+    },
+    {
+      "bytes": 301695,
+      "note": "refreshed every 6h by log_odds.py --refresh-schedules",
+      "path": "balldontlie_consolidated/laliga_2026_matches.json",
+      "protected": false,
+      "sha256": "0721daf2361ac78a2ff5764d4f310c7e3823d8f96916037afce37491f7859d4e"
+    },
+    {
+      "bytes": 16904,
+      "path": "balldontlie_consolidated/laliga_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "4922a78fe7040c0376dd6d7129fcc8a957429e22d3ab7538928b0239ee2df490"
+    },
+    {
+      "bytes": 2171,
+      "path": "balldontlie_consolidated/laliga_2026_teams.json",
+      "protected": true,
+      "sha256": "3e65b804797e6463eaef7467912975d8b1ea52e9fe753109ae4a7efdb1095c31"
+    },
+    {
+      "bytes": 282030,
+      "path": "balldontlie_consolidated/ligue1_2022_matches.json",
+      "protected": true,
+      "sha256": "8099f4f4d63e44c4245872a1fe7a8a525d3f5eedd8c8570600e2769f2ae5d810"
+    },
+    {
+      "bytes": 233128,
+      "path": "balldontlie_consolidated/ligue1_2023_matches.json",
+      "protected": true,
+      "sha256": "2117bf74f91649908875f7db0ffa45de5be31b5856fa671905b8e1c7bb1a3a2d"
+    },
+    {
+      "bytes": 233241,
+      "path": "balldontlie_consolidated/ligue1_2024_matches.json",
+      "protected": true,
+      "sha256": "0f5eb2083c53389302487a0b4904ae75b1a413f57df2b78ed2c645575f8b3928"
+    },
+    {
+      "bytes": 251519,
+      "path": "balldontlie_consolidated/ligue1_2025_matches.json",
+      "protected": true,
+      "sha256": "5f78e5120338cdaaf572036918d06e55c930808e18c4ca1bdacdb4f29ee174e9"
+    },
+    {
+      "bytes": 466528,
+      "path": "balldontlie_consolidated/ligue1_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "bf2ef7b660a1e81c590cdb9860ad8b53c31a0c0bc2207ba02636b92520942e98"
+    },
+    {
+      "bytes": 1859,
+      "path": "balldontlie_consolidated/ligue1_2025_teams.json",
+      "protected": true,
+      "sha256": "6860b7611ab44c3e55371994acd18905f023ca5453cf039490dc659c90e46c8a"
+    },
+    {
+      "bytes": 240791,
+      "note": "refreshed every 6h by log_odds.py --refresh-schedules",
+      "path": "balldontlie_consolidated/ligue1_2026_matches.json",
+      "protected": false,
+      "sha256": "e4b3ecc0ef935ed2de04f27449ba63d1276c1227b69599ef4a5bef73762703e0"
+    },
+    {
+      "bytes": 1535,
+      "path": "balldontlie_consolidated/ligue1_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "075b403d0744eae48bb8657f5b2ed8a9b03c28a48111900ce4248a56d0b1eab9"
+    },
+    {
+      "bytes": 1875,
+      "path": "balldontlie_consolidated/ligue1_2026_teams.json",
+      "protected": true,
+      "sha256": "695d6b1664150057ea95306124f2e900a8d4a0373acae3f82ed0b80b60703ac7"
+    },
+    {
+      "bytes": 282284,
+      "path": "balldontlie_consolidated/seriea_2022_matches.json",
+      "protected": true,
+      "sha256": "d1a785294faa56585b8024b76a8c043863d22e1d5a5fea399905a694b3133eca"
+    },
+    {
+      "bytes": 289131,
+      "path": "balldontlie_consolidated/seriea_2023_matches.json",
+      "protected": true,
+      "sha256": "b59366285744e62cfe54c1e900fe50f139b085fef2e9ad28d9dbbf3b548fdaec"
+    },
+    {
+      "bytes": 289496,
+      "path": "balldontlie_consolidated/seriea_2024_matches.json",
+      "protected": true,
+      "sha256": "44f3b9e8ea050e15dc4c0c8dc9919bc463ccb3b578e54c237b5ec9a491a3fe82"
+    },
+    {
+      "bytes": 312970,
+      "path": "balldontlie_consolidated/seriea_2025_matches.json",
+      "protected": true,
+      "sha256": "d3ffe07ad2ae18447451bfa1d1994dc5e11ac51268b55c0f6461db3475b55c43"
+    },
+    {
+      "bytes": 583485,
+      "path": "balldontlie_consolidated/seriea_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "559664a853974b68539901c6c11e78b7bc69a4c8226585f8c571093ecfd1b1d7"
+    },
+    {
+      "bytes": 2096,
+      "path": "balldontlie_consolidated/seriea_2025_teams.json",
+      "protected": true,
+      "sha256": "ec44c2572da6477e4778853741a6fcd4b916286fbaa77671c06311f5859a8b84"
+    },
+    {
+      "bytes": 298223,
+      "note": "refreshed every 6h by log_odds.py --refresh-schedules",
+      "path": "balldontlie_consolidated/seriea_2026_matches.json",
+      "protected": false,
+      "sha256": "da230652970008770e51fa317435169cecee03eb31c63a657ea87a5b533dac66"
+    },
+    {
+      "bytes": 2,
+      "path": "balldontlie_consolidated/seriea_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "bytes": 2088,
+      "path": "balldontlie_consolidated/seriea_2026_teams.json",
+      "protected": true,
+      "sha256": "9723e8265afa55f3acff237e34f1590f6f42e7f3595491c72e9694517d328988"
+    },
+    {
+      "bytes": 70641,
+      "path": "balldontlie_matches/epl_2022_page1.json",
+      "protected": true,
+      "sha256": "9d091e2b11f881c849e6f3aafbc8e6bacac389cb3f93ef64273a6df22a7f0b84"
+    },
+    {
+      "bytes": 70651,
+      "path": "balldontlie_matches/epl_2022_page2.json",
+      "protected": true,
+      "sha256": "61b42ab786811b6c85c07582d025b13a96ca46832bf91ec184529775c3831ad1"
+    },
+    {
+      "bytes": 70655,
+      "path": "balldontlie_matches/epl_2022_page3.json",
+      "protected": true,
+      "sha256": "d49622ac55577b248053ad6734113b2be7a0eda0ad678a0c9e2ead8decd4d382"
+    },
+    {
+      "bytes": 56525,
+      "path": "balldontlie_matches/epl_2022_page4.json",
+      "protected": true,
+      "sha256": "6d75eeaaba2a224e1906f019cdd40acc4a07dc8111ad70bb5c433a24d158a6f4"
+    },
+    {
+      "bytes": 70547,
+      "path": "balldontlie_matches/epl_2023_page1.json",
+      "protected": true,
+      "sha256": "cec1e0e097e8b5fd7cd408ec99715320709d2d85c33f62bc257c2a7b5ab7de2b"
+    },
+    {
+      "bytes": 70544,
+      "path": "balldontlie_matches/epl_2023_page2.json",
+      "protected": true,
+      "sha256": "f973a134cb48e45415bfdf09474b2797cce1976a0a13f86efe005902932fefaf"
+    },
+    {
+      "bytes": 70594,
+      "path": "balldontlie_matches/epl_2023_page3.json",
+      "protected": true,
+      "sha256": "2f5339ffb447afc6d0ace8ae9079fd1a0ab653b503dacdb51cad8701d040b86d"
+    },
+    {
+      "bytes": 56433,
+      "path": "balldontlie_matches/epl_2023_page4.json",
+      "protected": true,
+      "sha256": "65f639221fb7164f0894e70e5319c9336bd25c3d5b7f70db1e442549fb9a0d30"
+    },
+    {
+      "bytes": 70599,
+      "path": "balldontlie_matches/epl_2024_page1.json",
+      "protected": true,
+      "sha256": "b7cef225f8e60e85c2d80c9b5ebbaba45bb3d06c26b66f07c9b7c96692bcfb9c"
+    },
+    {
+      "bytes": 70543,
+      "path": "balldontlie_matches/epl_2024_page2.json",
+      "protected": true,
+      "sha256": "7da6ab656b1577c2a089f4515ab8e86a51d24d836ce39e47ee822254b767a9b3"
+    },
+    {
+      "bytes": 70590,
+      "path": "balldontlie_matches/epl_2024_page3.json",
+      "protected": true,
+      "sha256": "fda8907c101ca184992a6b1f56d639c53972eaac3e97885e967635082f7e0170"
+    },
+    {
+      "bytes": 56378,
+      "path": "balldontlie_matches/epl_2024_page4.json",
+      "protected": true,
+      "sha256": "ea7c92c960ec5c6e47b212992acc2fedf6fb7d9f36d5b57667904136e736eb03"
+    },
+    {
+      "bytes": 76094,
+      "path": "balldontlie_matches/epl_2025_page1.json",
+      "protected": true,
+      "sha256": "fd786ab7c1967457bec6297d90eeb58cb2b280a67a2a532d6544adfac269d5c5"
+    },
+    {
+      "bytes": 76117,
+      "path": "balldontlie_matches/epl_2025_page2.json",
+      "protected": true,
+      "sha256": "e31ee3baaec0bb5bf6ae4ef304c0e6704888e7715dbf169ffd8a59abd79934e2"
+    },
+    {
+      "bytes": 76074,
+      "path": "balldontlie_matches/epl_2025_page3.json",
+      "protected": true,
+      "sha256": "42dc784978bd6fd34cf825fb2e5b4ec030355c51844864aa353c485cca97e227"
+    },
+    {
+      "bytes": 60805,
+      "path": "balldontlie_matches/epl_2025_page4.json",
+      "protected": true,
+      "sha256": "790a27a979928c7a168767a6ddf9aaed073ff3c3402f38e5eb695f031592493f"
+    },
+    {
+      "bytes": 73481,
+      "path": "balldontlie_matches/epl_2026_page1.json",
+      "protected": true,
+      "sha256": "c13201ecbbcb354b2fa1a96aa5c60b5fd23fcfcc5f6ae55e67f796cb5a3f1aa2"
+    },
+    {
+      "bytes": 73745,
+      "path": "balldontlie_matches/epl_2026_page2.json",
+      "protected": true,
+      "sha256": "f9da6d8b2d3474a2b50cbf3d332a77cf7174461dcc9068bc57f1d11acdfd3166"
+    },
+    {
+      "bytes": 73881,
+      "path": "balldontlie_matches/epl_2026_page3.json",
+      "protected": true,
+      "sha256": "3d2f54a0882b74c6a0dce0eecd6d9dd6cf58a048df0d10db716f6dc5b4e0ca8c"
+    },
+    {
+      "bytes": 58990,
+      "path": "balldontlie_matches/epl_2026_page4.json",
+      "protected": true,
+      "sha256": "f8ec7f62b144054d21fbeb96daad2c25cce4e7c90a9169bbfe74612d2b02a1b6"
+    },
+    {
+      "bytes": 70289,
+      "path": "balldontlie_matches/laliga_2022_page1.json",
+      "protected": true,
+      "sha256": "3bd3a9fe6f9e6ced49efdb9a7ea1e2c6cf567644172b860fa2a3a2f24c686789"
+    },
+    {
+      "bytes": 70462,
+      "path": "balldontlie_matches/laliga_2022_page2.json",
+      "protected": true,
+      "sha256": "5a8ee56719025678cb3c4ef8789d8a758d9374bf11b0c8a51b2e7ca7d3576464"
+    },
+    {
+      "bytes": 70328,
+      "path": "balldontlie_matches/laliga_2022_page3.json",
+      "protected": true,
+      "sha256": "2f4ec6bd7da81d0f7e74189cedd73cc21bfce38f98d1841d77ca641fcbcafa48"
+    },
+    {
+      "bytes": 49178,
+      "path": "balldontlie_matches/laliga_2022_page4.json",
+      "protected": true,
+      "sha256": "670eccefac810e0e016911ccdcc8653440881c060d487f1f056cbf1d18bf1720"
+    },
+    {
+      "bytes": 70493,
+      "path": "balldontlie_matches/laliga_2023_page1.json",
+      "protected": true,
+      "sha256": "ffb4fe7fe51797db57d6ccad10b0c66ebe139fb0a4929ba75cc7ad4d38e71528"
+    },
+    {
+      "bytes": 70551,
+      "path": "balldontlie_matches/laliga_2023_page2.json",
+      "protected": true,
+      "sha256": "66b1a10ea19cc9ee66cca02b12ae61dd6e234fd810228b3a4cdaef306078cbd2"
+    },
+    {
+      "bytes": 70558,
+      "path": "balldontlie_matches/laliga_2023_page3.json",
+      "protected": true,
+      "sha256": "53f931602ee0fb0e6d08a2d045dd569451b5b8a4817ca1027caf263d3dcec6b7"
+    },
+    {
+      "bytes": 56415,
+      "path": "balldontlie_matches/laliga_2023_page4.json",
+      "protected": true,
+      "sha256": "3f3d582fb60f850e2caf049791e97cad90b3fc3bf1c4eb0466f330fb8147bbbe"
+    },
+    {
+      "bytes": 70475,
+      "path": "balldontlie_matches/laliga_2024_page1.json",
+      "protected": true,
+      "sha256": "673e7789757cd56edde9b4cf96ec601da03f9e9cd352f0b3fee82e14e170f830"
+    },
+    {
+      "bytes": 70473,
+      "path": "balldontlie_matches/laliga_2024_page2.json",
+      "protected": true,
+      "sha256": "b83f3d4545ae05e9ec243139e7f03b0fbd31adb962c1434c96ef6776962f5668"
+    },
+    {
+      "bytes": 70479,
+      "path": "balldontlie_matches/laliga_2024_page3.json",
+      "protected": true,
+      "sha256": "3ced659beb164a9b0dd2af1cb3947c541d7240df90c7487a360e2e762e219506"
+    },
+    {
+      "bytes": 56301,
+      "path": "balldontlie_matches/laliga_2024_page4.json",
+      "protected": true,
+      "sha256": "3c2193d2319d106b0adfb2971450f10602620428aeeb45e62f1d5fbff0d0066e"
+    },
+    {
+      "bytes": 76950,
+      "path": "balldontlie_matches/laliga_2025_page1.json",
+      "protected": true,
+      "sha256": "7552c25c829ab9dccdd17377d5e83c0f6a5f03e162b6594a561b15b74ca961f7"
+    },
+    {
+      "bytes": 76991,
+      "path": "balldontlie_matches/laliga_2025_page2.json",
+      "protected": true,
+      "sha256": "0a01bce57962801f628e2d36ab01c53d2dfe28488bbc883bd1b4779640d361b5"
+    },
+    {
+      "bytes": 76994,
+      "path": "balldontlie_matches/laliga_2025_page3.json",
+      "protected": true,
+      "sha256": "cf4605b7a31e01375ac5b2fe88da26417dffaa3bc5b3c480691900ace2e0f6b1"
+    },
+    {
+      "bytes": 61441,
+      "path": "balldontlie_matches/laliga_2025_page4.json",
+      "protected": true,
+      "sha256": "6f1485ded375a12b453f11f9f4b44ddcf9123d06b712930eb58e96d273d7ef69"
+    },
+    {
+      "bytes": 70604,
+      "path": "balldontlie_matches/laliga_2026_page1.json",
+      "protected": true,
+      "sha256": "02921916180a766b145531360b162c0922eef91884d77ae9d4673ea732b4a762"
+    },
+    {
+      "bytes": 70612,
+      "path": "balldontlie_matches/laliga_2026_page2.json",
+      "protected": true,
+      "sha256": "a94dfc3db77bc1e5f30d50b7e30b4d427c90abd8c79f6fd6d2ff3b0be5fe3090"
+    },
+    {
+      "bytes": 70580,
+      "path": "balldontlie_matches/laliga_2026_page3.json",
+      "protected": true,
+      "sha256": "3c636603c34a1c96e58c3e9e1044e039030013b2db226d6073fc01712de8e326"
+    },
+    {
+      "bytes": 57942,
+      "path": "balldontlie_matches/laliga_2026_page4.json",
+      "protected": true,
+      "sha256": "e19fcf03b21a2e42f9da52bc837ea2568de4d42c3fb588c893ce47946422fa34"
+    },
+    {
+      "bytes": 70268,
+      "path": "balldontlie_matches/ligue1_2022_page1.json",
+      "protected": true,
+      "sha256": "cd6d3d57cdd29c5e4193441ed5adbe3a7c20953d49e96b7132e1fcdfaeed033a"
+    },
+    {
+      "bytes": 70315,
+      "path": "balldontlie_matches/ligue1_2022_page2.json",
+      "protected": true,
+      "sha256": "5e6daf7b1e2a7803312492e14eafec7d93f8cc37054062cb7b9cbfb892fac2e2"
+    },
+    {
+      "bytes": 70312,
+      "path": "balldontlie_matches/ligue1_2022_page3.json",
+      "protected": true,
+      "sha256": "ca0a1b652b1514339124ad9d6f73cf10a7296bf1acc1706e8476230d8b0c0b97"
+    },
+    {
+      "bytes": 49185,
+      "path": "balldontlie_matches/ligue1_2022_page4.json",
+      "protected": true,
+      "sha256": "574d7f3eeff414092d99a3d291efde0b973ceb40d1a4d39d65193ca63a161144"
+    },
+    {
+      "bytes": 70248,
+      "path": "balldontlie_matches/ligue1_2023_page1.json",
+      "protected": true,
+      "sha256": "7e152b0fe08f43e374d7d63b487b0e2033dfa01a2b4426866ce39b28331e696c"
+    },
+    {
+      "bytes": 70253,
+      "path": "balldontlie_matches/ligue1_2023_page2.json",
+      "protected": true,
+      "sha256": "4cbce0ea55e14e4e7470e08cec73a40fb4ef3ea6feae54ecfa5fb87fa967f752"
+    },
+    {
+      "bytes": 70263,
+      "path": "balldontlie_matches/ligue1_2023_page3.json",
+      "protected": true,
+      "sha256": "48c47df27af53cc7b9b1c4d6558f9dffa5b1f8858099f1d2a0b44b13a1131af2"
+    },
+    {
+      "bytes": 4254,
+      "path": "balldontlie_matches/ligue1_2023_page4.json",
+      "protected": true,
+      "sha256": "39ff5fab7563f83ba152218045f31330b7d0d8c85bf83ec44ad1b577920b3d87"
+    },
+    {
+      "bytes": 70280,
+      "path": "balldontlie_matches/ligue1_2024_page1.json",
+      "protected": true,
+      "sha256": "469547d0001216613c00f6f41067d4411d38d2f346cb2d42f8d0335f904b901b"
+    },
+    {
+      "bytes": 70287,
+      "path": "balldontlie_matches/ligue1_2024_page2.json",
+      "protected": true,
+      "sha256": "fe287ddb0f74f3b3937a2b8883eb93d48e6e8c6658542e625785661ca7337daf"
+    },
+    {
+      "bytes": 70297,
+      "path": "balldontlie_matches/ligue1_2024_page3.json",
+      "protected": true,
+      "sha256": "efb31dc906d65167a1af8c944a8e323b76a561b5a3edda87d835462c5290bac2"
+    },
+    {
+      "bytes": 4267,
+      "path": "balldontlie_matches/ligue1_2024_page4.json",
+      "protected": true,
+      "sha256": "2c4f52e4c9d917ac0cf581db3913594d8b3097b6316918be3e3dc96b5e773ddc"
+    },
+    {
+      "bytes": 76298,
+      "path": "balldontlie_matches/ligue1_2025_page1.json",
+      "protected": true,
+      "sha256": "9cf5942471114f28d3dad8b63f9a4c5de24e61fe8d0b051d891d9dd70ed13579"
+    },
+    {
+      "bytes": 76295,
+      "path": "balldontlie_matches/ligue1_2025_page2.json",
+      "protected": true,
+      "sha256": "25728c047540091720440e262d27a862be621d793d807afedc5a9307668cf823"
+    },
+    {
+      "bytes": 76254,
+      "path": "balldontlie_matches/ligue1_2025_page3.json",
+      "protected": true,
+      "sha256": "31f7844177bab230fb3699fbcaa53587d182c476b049e1227bbcb461304b1b6a"
+    },
+    {
+      "bytes": 4562,
+      "path": "balldontlie_matches/ligue1_2025_page4.json",
+      "protected": true,
+      "sha256": "12527270a823fcde2efd0c38ab5a90741966862d2da5e180041f24c05bdce37a"
+    },
+    {
+      "bytes": 70427,
+      "path": "balldontlie_matches/ligue1_2026_page1.json",
+      "protected": true,
+      "sha256": "c096db4a205cdd2cfc658e3eb4a285f90751bee5fb8b36a29377ba8fc14ee77f"
+    },
+    {
+      "bytes": 70554,
+      "path": "balldontlie_matches/ligue1_2026_page2.json",
+      "protected": true,
+      "sha256": "7d0035c257d929e8ac3b25657a4c7eba124a1ab8bc3bb03efc7a497407d02ecb"
+    },
+    {
+      "bytes": 71408,
+      "path": "balldontlie_matches/ligue1_2026_page3.json",
+      "protected": true,
+      "sha256": "d3b5785c5dea15dd928f414a52ce693da354d60f650ba05c2b800f1d365bcc15"
+    },
+    {
+      "bytes": 4453,
+      "path": "balldontlie_matches/ligue1_2026_page4.json",
+      "protected": true,
+      "sha256": "be0715dedc78f77303e7d4e6dd582aee68e3ef8626e1d8df248b4e5a911c0c4f"
+    },
+    {
+      "bytes": 70358,
+      "path": "balldontlie_matches/seriea_2022_page1.json",
+      "protected": true,
+      "sha256": "b038766bc5a7bf02ed838046ffd5a854153b59526df20eb39638dd7637fd806d"
+    },
+    {
+      "bytes": 70379,
+      "path": "balldontlie_matches/seriea_2022_page2.json",
+      "protected": true,
+      "sha256": "0610aa85404eb3ab635a98435e3a5e4c8794d261e2483566c4a7ff360a600371"
+    },
+    {
+      "bytes": 70387,
+      "path": "balldontlie_matches/seriea_2022_page3.json",
+      "protected": true,
+      "sha256": "17eed58159f1ef7506a2b42e9aa251f2c23831a29806536933da8da2ab1dee3f"
+    },
+    {
+      "bytes": 49216,
+      "path": "balldontlie_matches/seriea_2022_page4.json",
+      "protected": true,
+      "sha256": "b522da14cd684f647b2408b73447cfa50f0e5ca0d16a1800a2ad7e9f643863ed"
+    },
+    {
+      "bytes": 70349,
+      "path": "balldontlie_matches/seriea_2023_page1.json",
+      "protected": true,
+      "sha256": "ab09f06a853321e0150bad1e621d92bb1f1513c3490cff9bda32cfd88e84bb92"
+    },
+    {
+      "bytes": 70354,
+      "path": "balldontlie_matches/seriea_2023_page2.json",
+      "protected": true,
+      "sha256": "8a15996f2c67afc160fd1bbe651d7d4b7a1133bd1b43a78fdf336e64d72155b2"
+    },
+    {
+      "bytes": 70324,
+      "path": "balldontlie_matches/seriea_2023_page3.json",
+      "protected": true,
+      "sha256": "60a9fa7e894b2ffd5e11c42f4a137b9427e3e2b1b78ee0595a8af620b907ffe2"
+    },
+    {
+      "bytes": 55620,
+      "path": "balldontlie_matches/seriea_2023_page4.json",
+      "protected": true,
+      "sha256": "dd8d9df77fcff1595fde45f48e4aae02040943c96262a4bc9b9bc5b58ff69a16"
+    },
+    {
+      "bytes": 70255,
+      "path": "balldontlie_matches/seriea_2024_page1.json",
+      "protected": true,
+      "sha256": "ba157ebe10da89e750c8ba04391c8054e79f3a1a7e6cdb515023b10455e1e64e"
+    },
+    {
+      "bytes": 70255,
+      "path": "balldontlie_matches/seriea_2024_page2.json",
+      "protected": true,
+      "sha256": "e61ed5d294c01de38adc2d5b0c7073ad95777a107b173e9151681f6d1ada19a3"
+    },
+    {
+      "bytes": 70238,
+      "path": "balldontlie_matches/seriea_2024_page3.json",
+      "protected": true,
+      "sha256": "b624c5d0ac02f8281f8f2a130fe68d5629c31b19804a1a31e5d2fcdf5cbb9e8f"
+    },
+    {
+      "bytes": 56204,
+      "path": "balldontlie_matches/seriea_2024_page4.json",
+      "protected": true,
+      "sha256": "7e89aec7315874ad8c26600d557c581621e886a6e9e647299ce2325d74527435"
+    },
+    {
+      "bytes": 76532,
+      "path": "balldontlie_matches/seriea_2025_page1.json",
+      "protected": true,
+      "sha256": "4e1ab20f8323bdbef62f17cab7ca4c474ef21e3d32b5d05a02e07bcb00a06773"
+    },
+    {
+      "bytes": 76423,
+      "path": "balldontlie_matches/seriea_2025_page2.json",
+      "protected": true,
+      "sha256": "59d77914e6620441c7ef8c2edca56bedef180e0f6dea0eb9dd8e5fdd91f63995"
+    },
+    {
+      "bytes": 76389,
+      "path": "balldontlie_matches/seriea_2025_page3.json",
+      "protected": true,
+      "sha256": "b668c1e04522759bc92dfaaad6b3dd91b7c92605a32fc7380652623c1279c144"
+    },
+    {
+      "bytes": 61082,
+      "path": "balldontlie_matches/seriea_2025_page4.json",
+      "protected": true,
+      "sha256": "03d5ec3c775a7651c51188d26c6ae99b91be9dc50869963a1b05ec9fa4bb185a"
+    },
+    {
+      "bytes": 70196,
+      "path": "balldontlie_matches/seriea_2026_page1.json",
+      "protected": true,
+      "sha256": "bcb32c8a800b8694969694bb39069c8b94e184ee1262ad474c33f9fdff07f0a0"
+    },
+    {
+      "bytes": 70173,
+      "path": "balldontlie_matches/seriea_2026_page2.json",
+      "protected": true,
+      "sha256": "a2c54f8d8f489e94a53ed8848207b3da0975f417488c4f88b2b64798f5bac8b0"
+    },
+    {
+      "bytes": 70233,
+      "path": "balldontlie_matches/seriea_2026_page3.json",
+      "protected": true,
+      "sha256": "90233b33001d0657e70a58e8d5e3e267c056cca8f92991a57d2fb6d5e838de37"
+    },
+    {
+      "bytes": 57657,
+      "path": "balldontlie_matches/seriea_2026_page4.json",
+      "protected": true,
+      "sha256": "2746ad8518bb74ced68686fcc5a98d9eacd43f5047f55af29d07f12182aa4556"
+    },
+    {
+      "bytes": 68985,
+      "path": "balldontlie_team_match_stats/epl_batch1_1932-1891.json",
+      "protected": true,
+      "sha256": "d2de191fae955e0cecf984ab9e669e3d5b2a087451a49a571a2b93a716ba6265"
+    },
+    {
+      "bytes": 68894,
+      "path": "balldontlie_team_match_stats/epl_batch2_1889-1836.json",
+      "protected": true,
+      "sha256": "10235dd014958529609f0fae56ab7d9f1b825c29b679494b5337c77e45c23c78"
+    },
+    {
+      "bytes": 68921,
+      "path": "balldontlie_team_match_stats/epl_batch3_1833-1799.json",
+      "protected": true,
+      "sha256": "ed392dfa242c4a6a920d81086fd45986b24bb83a1525981b0b1e5a97eaa0b1ea"
+    },
+    {
+      "bytes": 68930,
+      "path": "balldontlie_team_match_stats/epl_batch4_1779-1758.json",
+      "protected": true,
+      "sha256": "95d2caccef4b5e6a4a6a90fcc4ffc2d0c477b1c9fcb9228182131e4777df8ec1"
+    },
+    {
+      "bytes": 68876,
+      "path": "balldontlie_team_match_stats/epl_batch5_1731-1696.json",
+      "protected": true,
+      "sha256": "7661af715a6e7e5ec9ccd5c1eef3a0fd7d0466ded02e226a9ee4af509c9a898f"
+    },
+    {
+      "bytes": 68857,
+      "path": "balldontlie_team_match_stats/epl_batch6_1709-1645.json",
+      "protected": true,
+      "sha256": "e792fd7af0d728cce10855f1e5a756a2cb8781e4966f38fdde9e4212f9e98aa3"
+    },
+    {
+      "bytes": 68869,
+      "path": "balldontlie_team_match_stats/epl_batch7_1642-1592.json",
+      "protected": true,
+      "sha256": "486a5978db641a53987918132e32baadd56c6a085aa306ab69697dcbbe254ce1"
+    },
+    {
+      "bytes": 42714,
+      "path": "balldontlie_team_match_stats/epl_batch8_1591-3818188.json",
+      "protected": true,
+      "sha256": "8838ee761b953ce42f70203e4d7191239652de798ef4180b59c5001abb3f991e"
+    },
+    {
+      "bytes": 68888,
+      "path": "balldontlie_team_match_stats/laliga_batch1_2627-2582.json",
+      "protected": true,
+      "sha256": "22d990a990725b0086cb17bb1affa54ecf1d6c21d46a88ba7b88df9c2298ba00"
+    },
+    {
+      "bytes": 68924,
+      "path": "balldontlie_team_match_stats/laliga_batch2_2563-2537.json",
+      "protected": true,
+      "sha256": "2bd20f8f9e691056822fe317e244e8ab44384d01a92a0e5c478d9ee798ecf647"
+    },
+    {
+      "bytes": 68952,
+      "path": "balldontlie_team_match_stats/laliga_batch3_2523-2472.json",
+      "protected": true,
+      "sha256": "cac58437448413054101298419eda981b28024e9ab77c91022e48e4454b3dc7a"
+    },
+    {
+      "bytes": 68977,
+      "path": "balldontlie_team_match_stats/laliga_batch4_2470-2429.json",
+      "protected": true,
+      "sha256": "88ebafbaa90b6ef522cea02b6603d34ba8ad34ead4bf1c79f3b0334dd38c8e07"
+    },
+    {
+      "bytes": 68915,
+      "path": "balldontlie_team_match_stats/laliga_batch5_2426-2372.json",
+      "protected": true,
+      "sha256": "0f07de54410dfe1fa0df5c27bcb3090808e0894f56817d5f3baefe7d47a1dc07"
+    },
+    {
+      "bytes": 68938,
+      "path": "balldontlie_team_match_stats/laliga_batch6_2368-2329.json",
+      "protected": true,
+      "sha256": "8c26a3fb48f2989d43b9cc8cadc49fc5f65de238efd125d1ea2ee06453f9a583"
+    },
+    {
+      "bytes": 68925,
+      "path": "balldontlie_team_match_stats/laliga_batch7_2327-2278.json",
+      "protected": true,
+      "sha256": "48e63cd666de6b7c1e49ba39716f303d0c365f350da9d40d044c6466a33eb754"
+    },
+    {
+      "bytes": 52480,
+      "path": "balldontlie_team_match_stats/laliga_batch8_2277-3818888.json",
+      "protected": true,
+      "sha256": "3b60830386e820bd19c09291e6aaa8cd0ec004a9a5154dc1788ca39c30e6bf8d"
+    },
+    {
+      "bytes": 68909,
+      "path": "balldontlie_team_match_stats/ligue1_batch1_2917-2888.json",
+      "protected": true,
+      "sha256": "ffa20c17c8c886326744052dffbb95c237fe53e8cf0119513a613a3ddea69c74"
+    },
+    {
+      "bytes": 68943,
+      "path": "balldontlie_team_match_stats/ligue1_batch2_2887-2827.json",
+      "protected": true,
+      "sha256": "6661da6d2610a090aad01a19697273d51a19ba0952aa9b8bb5416f67f6aa43eb"
+    },
+    {
+      "bytes": 68981,
+      "path": "balldontlie_team_match_stats/ligue1_batch3_2830-2781.json",
+      "protected": true,
+      "sha256": "cd9efe8d26b5b5ccf9b4b940ffe8e61472f3cfdf71b52b92eb618b2aa3fc3f73"
+    },
+    {
+      "bytes": 68920,
+      "path": "balldontlie_team_match_stats/ligue1_batch4_2784-2733.json",
+      "protected": true,
+      "sha256": "a62c9a099e449087a20199102736621cee9d675b22a8daa34a3c1af7af78fe33"
+    },
+    {
+      "bytes": 68921,
+      "path": "balldontlie_team_match_stats/ligue1_batch5_2734-2684.json",
+      "protected": true,
+      "sha256": "04f45044d1b4c69acf15672020ec8ee153dbeb1f03ffe58f594dc5d419d96a6a"
+    },
+    {
+      "bytes": 68905,
+      "path": "balldontlie_team_match_stats/ligue1_batch6_2682-2634.json",
+      "protected": true,
+      "sha256": "03714797def50922e8e0ab8f28867a86a0dfe4184baef909814638a691dfc837"
+    },
+    {
+      "bytes": 8331,
+      "path": "balldontlie_team_match_stats/ligue1_batch7_2628-3819275.json",
+      "protected": true,
+      "sha256": "8aa2381b2deb12f27ae8605dea5b3a65f04c10325818ebb6b195b923d91056d5"
+    },
+    {
+      "bytes": 69204,
+      "path": "balldontlie_team_match_stats/seriea_batch1_51062-51018.json",
+      "protected": true,
+      "sha256": "76898da4851eece3590705f792c75af60370cd597b50c98e7ed6c3b57af1c451"
+    },
+    {
+      "bytes": 69220,
+      "path": "balldontlie_team_match_stats/seriea_batch2_51013-50971.json",
+      "protected": true,
+      "sha256": "d01cb22f5fabe4c75e73dd69a8004aba523b3f13cbc87ba3e009a3d46839e000"
+    },
+    {
+      "bytes": 69274,
+      "path": "balldontlie_team_match_stats/seriea_batch3_50957-50926.json",
+      "protected": true,
+      "sha256": "7f96a8acf2e10fffbac01090f6ab837d2127042f4594f35e5f58cfac80b06bd1"
+    },
+    {
+      "bytes": 69232,
+      "path": "balldontlie_team_match_stats/seriea_batch4_50903-50852.json",
+      "protected": true,
+      "sha256": "25d90654200c01cf8bb83ca994a607901250600254629205dbcea4359340141e"
+    },
+    {
+      "bytes": 69224,
+      "path": "balldontlie_team_match_stats/seriea_batch5_50857-50807.json",
+      "protected": true,
+      "sha256": "4c5c3f64815cdfbaa73465420120938cd97c494578afc1088dc2baba889c386b"
+    },
+    {
+      "bytes": 69228,
+      "path": "balldontlie_team_match_stats/seriea_batch6_50809-50754.json",
+      "protected": true,
+      "sha256": "d474d979e63409263b8d7cdc8bc6b36ae27ee56f42e9582d4c0987e3361ac4ce"
+    },
+    {
+      "bytes": 69210,
+      "path": "balldontlie_team_match_stats/seriea_batch7_50768-50704.json",
+      "protected": true,
+      "sha256": "343e333c85d84faafa5a75921f5f3ea492ec5ba47ba7590f4ce73a479ad9fc13"
+    },
+    {
+      "bytes": 41549,
+      "path": "balldontlie_team_match_stats/seriea_batch8_50708-50686.json",
+      "protected": true,
+      "sha256": "5e43486896aa8657af9956c96be6064d44dd296192b7d18808b3ea9664c59d8d"
+    },
+    {
+      "bytes": 2096,
+      "path": "balldontlie_teams/epl_teams_2025.json",
+      "protected": true,
+      "sha256": "c4b25c9d50f7e1826182f8bd90482c0f0dc0d85c76b5fe54adc531fefdc4aaa0"
+    },
+    {
+      "bytes": 2082,
+      "path": "balldontlie_teams/epl_teams_2026.json",
+      "protected": true,
+      "sha256": "473b6ca0c9e62aa3c38f1664a6be1c03dfb3dc92a2cdb592f471e8f9b449b608"
+    },
+    {
+      "bytes": 1961,
+      "path": "balldontlie_teams/laliga_teams_2025.json",
+      "protected": true,
+      "sha256": "c71a0ee5038dfd2a4c8afe6d090cc1dd17d5344df66c30436b94189ec03fdced"
+    },
+    {
+      "bytes": 1981,
+      "path": "balldontlie_teams/laliga_teams_2026.json",
+      "protected": true,
+      "sha256": "77cea2085ecf47cd71430d4b8abf8d81068facc22b50d6f44305e9890a96c9d0"
+    },
+    {
+      "bytes": 1689,
+      "path": "balldontlie_teams/ligue1_teams_2025.json",
+      "protected": true,
+      "sha256": "27c07371b6f8e8be9b339691a67e5472557576b9178327806d2ee115a9d4a3ab"
+    },
+    {
+      "bytes": 1705,
+      "path": "balldontlie_teams/ligue1_teams_2026.json",
+      "protected": true,
+      "sha256": "ed3849fb6d07a630dc2467ce654cd37ce4b94201861a0c9f71dfeceb60c27db2"
+    },
+    {
+      "bytes": 1906,
+      "path": "balldontlie_teams/seriea_teams_2025.json",
+      "protected": true,
+      "sha256": "0461b46af91e8c003769dece515b0192c50a61f81a6d56cfde40feece98d9636"
+    },
+    {
+      "bytes": 1898,
+      "path": "balldontlie_teams/seriea_teams_2026.json",
+      "protected": true,
+      "sha256": "1c498d1b299504d269cbaa66eccf1df0aebc4fb1496bafe7fe647ba700e8feae"
+    },
+    {
+      "bytes": 753299,
+      "path": "comp.json",
+      "protected": true,
+      "sha256": "487f86f9ac5f905545c854992dcc7e276e628056756eca1d4728e77c72d8d06d"
+    },
+    {
+      "bytes": 143,
+      "path": "comp3.json",
+      "protected": true,
+      "sha256": "f5ca18fbac30a6080c8d590062d1e5b3d0c7f507df2b141503e896b02949f920"
+    },
+    {
+      "bytes": 374983,
+      "path": "fixtures/la-liga_140_2022.json",
+      "protected": true,
+      "sha256": "a6e4f3b70ce0b30e00d66d69ac81de3f35a540cffd3ed6e7e7f5980f4eec2d20"
+    },
+    {
+      "bytes": 380235,
+      "path": "fixtures/la-liga_140_2023.json",
+      "protected": true,
+      "sha256": "26b5796999f50b1ec0333001152bb62c6369074c722648cbc032c6a04cf32997"
+    },
+    {
+      "bytes": 374697,
+      "path": "fixtures/la-liga_140_2024.json",
+      "protected": true,
+      "sha256": "602fe9355cd294dff3bba9fb746b40811d99cd04faeff958bb0728d9444639dd"
+    },
+    {
+      "bytes": 212,
+      "path": "fixtures/la-liga_140_2025.json",
+      "protected": true,
+      "sha256": "05895cc2e95ae95b3feb777ab4569e066038112df8c8a4b036dcbe373a8223d5"
+    },
+    {
+      "bytes": 212,
+      "path": "fixtures/la-liga_140_2026.json",
+      "protected": true,
+      "sha256": "abcf56534ce8d3ab7b218a73b16f530550492cdab100b0fa2335fc28b1dec90a"
+    },
+    {
+      "bytes": 367773,
+      "path": "fixtures/ligue-1_61_2022.json",
+      "protected": true,
+      "sha256": "2934ad151021cc34d2736565158b1a91d8e0da361398fd2cdf7c95cc968ebf92"
+    },
+    {
+      "bytes": 298749,
+      "path": "fixtures/ligue-1_61_2023.json",
+      "protected": true,
+      "sha256": "dcccfe235fa6f6f7feea21b49d9c702e05efd0aa01019b90ec325d70a3f85008"
+    },
+    {
+      "bytes": 297841,
+      "path": "fixtures/ligue-1_61_2024.json",
+      "protected": true,
+      "sha256": "48dbdf169aacb0d45e58d8a5beb0331148232dda2719d52bfca62f32d0a21817"
+    },
+    {
+      "bytes": 211,
+      "path": "fixtures/ligue-1_61_2025.json",
+      "protected": true,
+      "sha256": "9e4ad358df75393046e9f17ff618110c5a98e54296dbe1e357cff61f098bd1eb"
+    },
+    {
+      "bytes": 211,
+      "path": "fixtures/ligue-1_61_2026.json",
+      "protected": true,
+      "sha256": "420e21d5b52510204e38fb44c3c991c6441f66fe70ac56b1523df4f6209fc235"
+    },
+    {
+      "bytes": 372519,
+      "path": "fixtures/premier-league_39_2022.json",
+      "protected": true,
+      "sha256": "fe1d71ecfed8c1c0bc81c823019f2bf8dcedac40a5fb5691346d06f084049595"
+    },
+    {
+      "bytes": 372126,
+      "path": "fixtures/premier-league_39_2023.json",
+      "protected": true,
+      "sha256": "cdfef7389055b6742f062dcddb875a7f69d5f7922b55778a9457751e8af189f7"
+    },
+    {
+      "bytes": 371739,
+      "path": "fixtures/premier-league_39_2024.json",
+      "protected": true,
+      "sha256": "5b3223051a61d53a3cb83f3312ffda3f044bc845b1b7d3f8f91426dbf04a6096"
+    },
+    {
+      "bytes": 211,
+      "path": "fixtures/premier-league_39_2025.json",
+      "protected": true,
+      "sha256": "54597a260bdee2e3c7db60525c24aee8b71ecfea4243a1ef6b915725398a47a2"
+    },
+    {
+      "bytes": 211,
+      "path": "fixtures/premier-league_39_2026.json",
+      "protected": true,
+      "sha256": "e57e98a19624d54f7f224a8d789e5a67b2254f317e34d4f74597626cabd73d2a"
+    },
+    {
+      "bytes": 309273,
+      "path": "fixtures/primeira-liga_94_2022.json",
+      "protected": true,
+      "sha256": "4b1f66de6981a4063adef8f62cf14a5c548f9c5f01bbe79edb5b7ddac7dd17d0"
+    },
+    {
+      "bytes": 309202,
+      "path": "fixtures/primeira-liga_94_2023.json",
+      "protected": true,
+      "sha256": "ab17698160a9639ed96f4f76e77bba6c7b307a80c6afb80260c5eedb5aa957fe"
+    },
+    {
+      "bytes": 308676,
+      "path": "fixtures/primeira-liga_94_2024.json",
+      "protected": true,
+      "sha256": "eae74bd030542c869602f9c8bf0586038829a88583315f85d0d47c19877a5d54"
+    },
+    {
+      "bytes": 211,
+      "path": "fixtures/primeira-liga_94_2025.json",
+      "protected": true,
+      "sha256": "2052a0b10949f369892cab528b1bed25829474909b6a234cdb3182580431e477"
+    },
+    {
+      "bytes": 211,
+      "path": "fixtures/primeira-liga_94_2026.json",
+      "protected": true,
+      "sha256": "b8c755da8329e25c173e746c93608c0524ea9dfcf5287b2a36a81c9a1f38a44b"
+    },
+    {
+      "bytes": 368676,
+      "path": "fixtures/serie-a_135_2022.json",
+      "protected": true,
+      "sha256": "92a9dbaf41c018ab74220616c96be383198c1a0544818337beaa7a0403a7253c"
+    },
+    {
+      "bytes": 368798,
+      "path": "fixtures/serie-a_135_2023.json",
+      "protected": true,
+      "sha256": "04c05b9f8720ebf19629ff4844649e5130000ab7ff921e574d4a7f472d4dba6e"
+    },
+    {
+      "bytes": 367083,
+      "path": "fixtures/serie-a_135_2024.json",
+      "protected": true,
+      "sha256": "f11965409f3ef21e5552813beb79dddc1468ee4e56a2844e1b600985f6ecb3dc"
+    },
+    {
+      "bytes": 212,
+      "path": "fixtures/serie-a_135_2025.json",
+      "protected": true,
+      "sha256": "1f6f6a17ee30fe4abccd64951ad9d6067f382cf3479d4260c51d9c0f5bc2ccc5"
+    },
+    {
+      "bytes": 212,
+      "path": "fixtures/serie-a_135_2026.json",
+      "protected": true,
+      "sha256": "a16e1bfed30e3d814f4db7894fe5eeb41d879c941fa50613c992044c18e07073"
+    },
+    {
+      "bytes": 1388917,
+      "path": "model/odds_joined.json",
+      "protected": true,
+      "sha256": "3b01b63784cbc746d67f2430e3c7d04505b042630f35282a35bbbfdd9aaa36e9"
+    },
+    {
+      "bytes": 57636,
+      "path": "odds.json",
+      "protected": true,
+      "sha256": "8de4adc4bb685c636f204342a50d4e4595ceb48f18c5e4edab89fd90ab0a1f91"
+    },
+    {
+      "bytes": 175799,
+      "path": "odds_hist/E0_2223.csv",
+      "protected": true,
+      "sha256": "e51361323bcdcdcec2faf8f58e7bcfc4f5b193ed6017b284c71538ed70d98ea2"
+    },
+    {
+      "bytes": 171815,
+      "path": "odds_hist/E0_2324.csv",
+      "protected": true,
+      "sha256": "0b669038e94bf305603d841f02006c7d35ebd41c8722c76e479f2393079b995f"
+    },
+    {
+      "bytes": 196729,
+      "path": "odds_hist/E0_2425.csv",
+      "protected": true,
+      "sha256": "316173b11634e5fdb836b0f3f9b4728df5044a44e1539361b6bdf18f0d3909a1"
+    },
+    {
+      "bytes": 203057,
+      "path": "odds_hist/E0_2526.csv",
+      "protected": true,
+      "sha256": "e7b387ac3ee2eda59d9e1f31f95457362e29cfbb956e686e939a58e32b23eb11"
+    },
+    {
+      "bytes": 170784,
+      "path": "odds_hist/F1_2223.csv",
+      "protected": true,
+      "sha256": "35ec7a4685ea069207b76f069fd4f5dfbc622a5c3f35b381e63a422e47ba61ec"
+    },
+    {
+      "bytes": 134693,
+      "path": "odds_hist/F1_2324.csv",
+      "protected": true,
+      "sha256": "baecfbeb21a5e480eeb48b2f09cc7c27558a869cbcbd4237e8a64b0c791438b7"
+    },
+    {
+      "bytes": 154396,
+      "path": "odds_hist/F1_2425.csv",
+      "protected": true,
+      "sha256": "01614b0c394726a06f1c7470906c39fc56a7f3b3713dd0f1f8a82037e3b00a7f"
+    },
+    {
+      "bytes": 158164,
+      "path": "odds_hist/F1_2526.csv",
+      "protected": true,
+      "sha256": "703cbff8a53f634e9db7b65afbe78c1e5e9a12b55547bec978b1a09c7090636d"
+    },
+    {
+      "bytes": 171192,
+      "path": "odds_hist/I1_2223.csv",
+      "protected": true,
+      "sha256": "7be75cd7c88be4fb9f34bc586f5c1ce80eccefdb7a8e8d597f9abdc3627ef979"
+    },
+    {
+      "bytes": 166634,
+      "path": "odds_hist/I1_2324.csv",
+      "protected": true,
+      "sha256": "56cc1981e8cf62d1c66276fd26bd4ab58e7f804507dfd416deb517972a7763cd"
+    },
+    {
+      "bytes": 191341,
+      "path": "odds_hist/I1_2425.csv",
+      "protected": true,
+      "sha256": "601d409c2fe7fc013b87e4f92b7eb3c76266d5bb654eedb8acba4eb55fc1c679"
+    },
+    {
+      "bytes": 195836,
+      "path": "odds_hist/I1_2526.csv",
+      "protected": true,
+      "sha256": "23a86eeb997f77556ec0bc351e8d07ed01d51cde4a692ac69d8e454a6b472cc3"
+    },
+    {
+      "bytes": 171818,
+      "path": "odds_hist/SP1_2223.csv",
+      "protected": true,
+      "sha256": "a14f0133951dd721f310e3378efe591a241e647342c18825223e05dc8aadb003"
+    },
+    {
+      "bytes": 167783,
+      "path": "odds_hist/SP1_2324.csv",
+      "protected": true,
+      "sha256": "c124815dae7337325a67623fa05493ef870f67f78828aa86b0f60d5bea20f0fc"
+    },
+    {
+      "bytes": 192482,
+      "path": "odds_hist/SP1_2425.csv",
+      "protected": true,
+      "sha256": "bb544fa35b029896047a4bd7c12f3c8e50ff40451bb582c003549482fdeaa8a8"
+    },
+    {
+      "bytes": 197272,
+      "path": "odds_hist/SP1_2526.csv",
+      "protected": true,
+      "sha256": "95596a8dbb8adb1bd7e9b86701c279569955477ae97c77bc1c146375da81b1c3"
+    },
+    {
+      "bytes": 4040,
+      "path": "odds_hist/SP1_2627.csv",
+      "protected": true,
+      "sha256": "6642a89236b33cec5dfb9561c81f030254dc8ab649f5442d44cd9a66e386c6eb"
+    },
+    {
+      "bytes": 248,
+      "path": "r.json",
+      "protected": true,
+      "sha256": "b6948e42eaabffb24b236825164c449c609a27393643dcc05a09fbafe2ad8169"
+    },
+    {
+      "bytes": 128144,
+      "note": "rewritten by fetch_rosters.py",
+      "path": "rosters/bundesliga_roster.json",
+      "protected": false,
+      "sha256": "3d827a4e326f0f8e329d80f6e10dd3bec0e792b2611ca220bbd03d437ba94031"
+    },
+    {
+      "bytes": 152632,
+      "note": "rewritten by fetch_rosters.py",
+      "path": "rosters/epl_roster.json",
+      "protected": false,
+      "sha256": "7690e8b9947b5bccb642b3b9054869a04c179efb8df24fff96efb7dd2bd1e34a"
+    },
+    {
+      "bytes": 140489,
+      "note": "rewritten by fetch_rosters.py",
+      "path": "rosters/laliga_roster.json",
+      "protected": false,
+      "sha256": "29b687015225512efe65c93f992e70d0957b5ba13fb3bea8a375aaeebbb37ce4"
+    },
+    {
+      "bytes": 121740,
+      "note": "rewritten by fetch_rosters.py",
+      "path": "rosters/ligue1_roster.json",
+      "protected": false,
+      "sha256": "ce629067663d866b535d0bb3c453d2b9755409dba67afd57ed6aed3fbbc25ad3"
+    },
+    {
+      "bytes": 172034,
+      "note": "rewritten by fetch_rosters.py",
+      "path": "rosters/seriea_roster.json",
+      "protected": false,
+      "sha256": "4de4fd3d57413f0f6cad0141551ea40ebb87eb69ed518f2d466e9e79e8a4ed8d"
+    },
+    {
+      "bytes": 54,
+      "path": "rr.json",
+      "protected": true,
+      "sha256": "3494d22a0b9ae1678a72df5841b7a6ec60e75499b91341f9763a556d6b8cb1f9"
+    },
+    {
+      "bytes": 2311,
+      "path": "series/board.json",
+      "protected": true,
+      "sha256": "82feee89778f8dd7201d6fd453ddebe22bd06a0a984c213e5181cc3720f2df51"
+    },
+    {
+      "bytes": 252144,
+      "path": "ucl.json",
+      "protected": true,
+      "sha256": "78179ad9d1269d8de4ff5b075c27d1c569d3681b684f02086c3d98542e3b04da"
+    },
+    {
+      "bytes": 101190,
+      "path": "ucl_2026_matches.json",
+      "protected": true,
+      "sha256": "3820f476f87c4007cee3a99964f053426e8abbb03739ae6110d7e6d022109271"
+    },
+    {
+      "bytes": 8978,
+      "path": "ucl_matches_2026_10_20.json",
+      "protected": true,
+      "sha256": "b992e299ee9735f037c90c069fefe27b6807e1a6e2083e2e0973944ffb039632"
+    },
+    {
+      "bytes": 8956,
+      "path": "ucl_matches_2026_10_21.json",
+      "protected": true,
+      "sha256": "85283cfa390fd61db0e7c5806ff125c9485e8d1545c8a457335c77a221574362"
+    },
+    {
+      "bytes": 6760,
+      "path": "ucl_odds_2026_10_20.json",
+      "protected": true,
+      "sha256": "6e0303c043be98431f5701abd2b9701f9812b4aef31a55036be17f8cca5bfebe"
+    },
+    {
+      "bytes": 6756,
+      "path": "ucl_odds_2026_10_21.json",
+      "protected": true,
+      "sha256": "3554cf1830ff130878437e15c4b87df75d309de5124bc5ea424a06f9fa5bf10c"
+    },
+    {
+      "bytes": 5531,
+      "path": "ucl_teams.json",
+      "protected": true,
+      "sha256": "6f03265cc311ab26f81d460a1d9c4ea08fedf3c914262a55d8bd65ccb571666b"
+    },
+    {
+      "bytes": 1503,
+      "path": "xg/fixture_877942.json",
+      "protected": true,
+      "sha256": "bce13319248ff57f251a63e68ebd1019c346fd5e4eab94c37c90a9aa5a92e929"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877943.json",
+      "protected": true,
+      "sha256": "59c5816e1b0491009d38624518316ccf51762a3598938d8dffb42d9b47ed4716"
+    },
+    {
+      "bytes": 1489,
+      "path": "xg/fixture_877944.json",
+      "protected": true,
+      "sha256": "9b3ba0a4918b5e80ed42580a90a03bfbfca99a7a59e923d24b41f6e1dce2ac2a"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877945.json",
+      "protected": true,
+      "sha256": "ab75db5aaf168a0dc8ddf495edab224c631054942d783b359d11255e53d60cae"
+    },
+    {
+      "bytes": 1496,
+      "path": "xg/fixture_877946.json",
+      "protected": true,
+      "sha256": "6d6ee46d447855f0e8adb50de54eb6c056e4b01a5698537e1e6893351539e6ce"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_877947.json",
+      "protected": true,
+      "sha256": "2b4dc9392736865d1c43083bba11d05bb89d2fd16f60fdad60701d2e8ad270ba"
+    },
+    {
+      "bytes": 1503,
+      "path": "xg/fixture_877948.json",
+      "protected": true,
+      "sha256": "3f7d1add74476a4565a5aefb9e4f1db3d91bba6dcfe48ab7808c775f2b743a6c"
+    },
+    {
+      "bytes": 1501,
+      "path": "xg/fixture_877949.json",
+      "protected": true,
+      "sha256": "348907f708bb01d2a5d26191de2949d698cd7f9c625e9247d5ba4258ce5a4b55"
+    },
+    {
+      "bytes": 1499,
+      "path": "xg/fixture_877950.json",
+      "protected": true,
+      "sha256": "32dbc83c29b7b2585ae2d2ab82af5ddafba454373c3925cf2b3ae756db30f2bb"
+    },
+    {
+      "bytes": 1487,
+      "path": "xg/fixture_877951.json",
+      "protected": true,
+      "sha256": "3e8cd5e52bc8322cf534d557b0b7e41e070ae8387e0251178a2b519380025181"
+    },
+    {
+      "bytes": 1501,
+      "path": "xg/fixture_877952.json",
+      "protected": true,
+      "sha256": "c037b375746beaf163a434937c6d0a6ae80b84a5639926d9127b59ef60b9830f"
+    },
+    {
+      "bytes": 1499,
+      "path": "xg/fixture_877953.json",
+      "protected": true,
+      "sha256": "0595dd8e4fd0ed140b0a514f70888d05cc229b3d18f25282d96080cb9d5faf0d"
+    },
+    {
+      "bytes": 1501,
+      "path": "xg/fixture_877954.json",
+      "protected": true,
+      "sha256": "7bf2d83ed90004c55413b6be681740fc810fbbb07104f15882105633c123f252"
+    },
+    {
+      "bytes": 1495,
+      "path": "xg/fixture_877955.json",
+      "protected": true,
+      "sha256": "639255d36d7aabfdf112e5ff101dd0a1e83da0dbf5473dc0a56ae885f9d11a79"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_877956.json",
+      "protected": true,
+      "sha256": "25c30ec5527c4cd94b3a2629754976f4f9c730394ec210bc69089b78bf2ab7dc"
+    },
+    {
+      "bytes": 1502,
+      "path": "xg/fixture_877957.json",
+      "protected": true,
+      "sha256": "58dfed14719e977c3020e2812eaea5592e08a7eb656b3dddd70048ace03dc9aa"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877958.json",
+      "protected": true,
+      "sha256": "a3ac556aaac2eb155464e77303347acfc52210035589a4242d983b8d2ddbcc45"
+    },
+    {
+      "bytes": 1485,
+      "path": "xg/fixture_877959.json",
+      "protected": true,
+      "sha256": "cb6f322581bee10cc74256a4f5a67c6ae5ab5646e42006c7d8e06afd1b0a2ba9"
+    },
+    {
+      "bytes": 1486,
+      "path": "xg/fixture_877960.json",
+      "protected": true,
+      "sha256": "31bdc2b6a847c7e1f33d219363037bd2700f3075ee3fac68876f492e6d05e487"
+    },
+    {
+      "bytes": 1486,
+      "path": "xg/fixture_877961.json",
+      "protected": true,
+      "sha256": "3be007592d569ce9ce35a4197f1b17594fa9c6f30a5c4c38545af814ca351777"
+    },
+    {
+      "bytes": 1498,
+      "path": "xg/fixture_877962.json",
+      "protected": true,
+      "sha256": "17ba4737de95adccdbb4298fc15527c5508b570f01773fe61ba36e12c788c80f"
+    },
+    {
+      "bytes": 1489,
+      "path": "xg/fixture_877963.json",
+      "protected": true,
+      "sha256": "49d7d91447daa50f029c0e736e318414883bdc8d2ad4bd130c862abfca6855fb"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877964.json",
+      "protected": true,
+      "sha256": "abe321a9d403c288f058add1d368f9ae929097e9dd9d333170d70a7651c20e10"
+    },
+    {
+      "bytes": 1495,
+      "path": "xg/fixture_877965.json",
+      "protected": true,
+      "sha256": "458131d105b3a042cc76c52b3b25c2f01ca72b85c61bfedbf7d8c6d009ae6078"
+    },
+    {
+      "bytes": 1502,
+      "path": "xg/fixture_877966.json",
+      "protected": true,
+      "sha256": "bd397b240584012f6064f87adaca4b881a9557e018f0ee6e1938ed181e19375b"
+    },
+    {
+      "bytes": 1494,
+      "path": "xg/fixture_877967.json",
+      "protected": true,
+      "sha256": "4f68c80caa127feb065589152f129cf06dab377b06fbd48a82b9964d07802f75"
+    },
+    {
+      "bytes": 1498,
+      "path": "xg/fixture_877968.json",
+      "protected": true,
+      "sha256": "2d02fdc5d74d4d5a0b3b0b63da1086276ba53ac01bafdc51822361f83bea210b"
+    },
+    {
+      "bytes": 1503,
+      "path": "xg/fixture_877969.json",
+      "protected": true,
+      "sha256": "2f7cf107218adfe64318ad3846cb607db8fc0b4fc31f71b49328e2e96643b70c"
+    },
+    {
+      "bytes": 1496,
+      "path": "xg/fixture_877970.json",
+      "protected": true,
+      "sha256": "3556a07c0dd0860a6eb60d78bb1cc9a235d9c091b530cfbe02ba44b19fc8eb17"
+    },
+    {
+      "bytes": 1502,
+      "path": "xg/fixture_877971.json",
+      "protected": true,
+      "sha256": "ca0f12dcfe0a28954059af141c382b668dce7582e7577a32e4f7efc672495041"
+    },
+    {
+      "bytes": 1501,
+      "path": "xg/fixture_877972.json",
+      "protected": true,
+      "sha256": "802ceb06988bb3bcaf84fb80ca3cf6cfde5eedb6207b08623a8e7d99df638acb"
+    },
+    {
+      "bytes": 1500,
+      "path": "xg/fixture_877973.json",
+      "protected": true,
+      "sha256": "d983bcd056daa1866e5079fda283cd635a48fca11bae0cec58543d49b64917b7"
+    },
+    {
+      "bytes": 1508,
+      "path": "xg/fixture_877974.json",
+      "protected": true,
+      "sha256": "670a4763fe9f99aa2eb66ad9c435158b260e3b5264e7bf634a9a6b433d027345"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877975.json",
+      "protected": true,
+      "sha256": "0f799bb403ab831e9b728f40475bdbcfd43857edfeef4ccf15575f4429e1bdc8"
+    },
+    {
+      "bytes": 1501,
+      "path": "xg/fixture_877976.json",
+      "protected": true,
+      "sha256": "d7fa72afe86cf647c71a1948ed9cbf27ba40b8787b37f2ae427dedde2a35f727"
+    },
+    {
+      "bytes": 1495,
+      "path": "xg/fixture_877977.json",
+      "protected": true,
+      "sha256": "642c496ddb31f3c08c7f62a84f5ee545ab4d64137826a8a0177ae5677b4fdd70"
+    },
+    {
+      "bytes": 1489,
+      "path": "xg/fixture_877978.json",
+      "protected": true,
+      "sha256": "0d267ce51a22f82530d6a755bebc22fab891bf2cb4f3a5a1be760375e2789d8d"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_877979.json",
+      "protected": true,
+      "sha256": "0666e0487dafacee6eeece7e413ee53c78e405bbaab2e2c2cde8533be716d83a"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877980.json",
+      "protected": true,
+      "sha256": "ba9695869fb53d33924cb5ecb6ffe627e8118553ee9961692b07a5938dd854bf"
+    },
+    {
+      "bytes": 1494,
+      "path": "xg/fixture_877981.json",
+      "protected": true,
+      "sha256": "29f7e069cc9f945d71a8a6bfcfb4377862cc6e303c143733ddcca3d1883d452e"
+    },
+    {
+      "bytes": 1504,
+      "path": "xg/fixture_877982.json",
+      "protected": true,
+      "sha256": "5bfe0aa662f0c54fbba1ada6fa46573651c9370c1249519e5c23745cf09d398a"
+    },
+    {
+      "bytes": 1501,
+      "path": "xg/fixture_877983.json",
+      "protected": true,
+      "sha256": "e8169810a16949a6ad111365a9ec1d9d43076803f41252710adc436b728feeb1"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877984.json",
+      "protected": true,
+      "sha256": "03c25ee90a1cbcd5e9d16636645df37a846337e2c259f63a9c43919bf4b6fb18"
+    },
+    {
+      "bytes": 1491,
+      "path": "xg/fixture_877985.json",
+      "protected": true,
+      "sha256": "c0d6cb55abc83c00aa150a47a3dd3831150a6521c383cee294792726a25e307a"
+    },
+    {
+      "bytes": 1503,
+      "path": "xg/fixture_877986.json",
+      "protected": true,
+      "sha256": "9d84caecd26122fcb3a162f5311e6cc820d821eedc887e5ec2990222820e6d2f"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_877987.json",
+      "protected": true,
+      "sha256": "5588b652f0d07a861825c5e77a715ae2423432c4a9cb35616e5f501c4cbfdb96"
+    },
+    {
+      "bytes": 1498,
+      "path": "xg/fixture_877988.json",
+      "protected": true,
+      "sha256": "786e22e7925f1ea4aa8ae2b4394482015cf76df4a21919e209af75281737d89c"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_877989.json",
+      "protected": true,
+      "sha256": "1bacb494a8ac65030bc992c2dc33e62234c2a37bd80ce600018a9f850754439f"
+    },
+    {
+      "bytes": 1494,
+      "path": "xg/fixture_877990.json",
+      "protected": true,
+      "sha256": "84bf7edede69205653c4f962b8a47df9dfdc72fc69e08f1878583d195efa950c"
+    },
+    {
+      "bytes": 1498,
+      "path": "xg/fixture_877991.json",
+      "protected": true,
+      "sha256": "238dc3939ec6f386617a3047783808131dbb39965d6a25f0b38a92e2d059232d"
+    },
+    {
+      "bytes": 1508,
+      "path": "xg/fixture_877992.json",
+      "protected": true,
+      "sha256": "16faffefa696338cff94d97dba14d622fd0d4edb79a3df28e3a27ad4bd1e6269"
+    },
+    {
+      "bytes": 1499,
+      "path": "xg/fixture_877993.json",
+      "protected": true,
+      "sha256": "fda84a4872c7392d04531e232524a7b342e4e666515ebc2bb2eb3726ae62b934"
+    },
+    {
+      "bytes": 1488,
+      "path": "xg/fixture_877994.json",
+      "protected": true,
+      "sha256": "021da240ebabcd27e0731c4f2566611ae4d6eeb2b31d0ac4c7ec5927f8c919c8"
+    },
+    {
+      "bytes": 1492,
+      "path": "xg/fixture_877995.json",
+      "protected": true,
+      "sha256": "46d6c80019326272d4fc00396d0f3c72c1aead0e62b27a00fd61348127d6fb7c"
+    },
+    {
+      "bytes": 1492,
+      "path": "xg/fixture_877996.json",
+      "protected": true,
+      "sha256": "184b456eb326365d1ac0fd5500aaf739e1bff4ff2a386d8a44f3d623c9817fa8"
+    },
+    {
+      "bytes": 1488,
+      "path": "xg/fixture_877997.json",
+      "protected": true,
+      "sha256": "a0c4dfe5b8e389c1429c63590a9ae729a38478bc79a05c1e59e031baebd6df19"
+    },
+    {
+      "bytes": 1495,
+      "path": "xg/fixture_877998.json",
+      "protected": true,
+      "sha256": "0aaef4153250a615e270578540c900f88e6be131c4b5224a74f8dfff86c7cad7"
+    },
+    {
+      "bytes": 1501,
+      "path": "xg/fixture_877999.json",
+      "protected": true,
+      "sha256": "6394ea7fa8eadf6080cebc6d30eff0ef04af8648425be57d01d504247faeb116"
+    },
+    {
+      "bytes": 1498,
+      "path": "xg/fixture_878000.json",
+      "protected": true,
+      "sha256": "35cbd9d5188159767651d9d7d2727c954168832bb97e7f1e50de3043c7a45b90"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_878001.json",
+      "protected": true,
+      "sha256": "6034ee8d5130b565cdd0a406da383f682079e9245f1ed71b96c95f79c20b5069"
+    },
+    {
+      "bytes": 1497,
+      "path": "xg/fixture_878002.json",
+      "protected": true,
+      "sha256": "4cd9a7cbc199a5c5ea7fb846a64955de77dcefa85fa86ab960664c062362fff0"
+    },
+    {
+      "bytes": 1489,
+      "path": "xg/fixture_878003.json",
+      "protected": true,
+      "sha256": "a2b5dc02bce064a298e47c6a8740a62e8171170c52522b13441cedaa232acb18"
+    },
+    {
+      "bytes": 1490,
+      "path": "xg/fixture_878004.json",
+      "protected": true,
+      "sha256": "41625224c9a3ac327ce2c3aadc25a93c33ceb1d10c9e1363fe64151ee8f206a3"
+    },
+    {
+      "bytes": 1499,
+      "path": "xg/fixture_878005.json",
+      "protected": true,
+      "sha256": "cdab6f4d2686dd5a60a10ad25ed908d6c9ffdba1e74bfa0bfb45ba6e4d4dc358"
+    },
+    {
+      "bytes": 1502,
+      "path": "xg/fixture_878006.json",
+      "protected": true,
+      "sha256": "4384eff9b335ed0bedae979680b90bb06420fb047ed8b23dedaaea0155c7549e"
+    },
+    {
+      "bytes": 1496,
+      "path": "xg/fixture_878007.json",
+      "protected": true,
+      "sha256": "62329258b9cf3c6abbf92b021c34410c278f8afad6c15dbfd77bde51293876eb"
+    },
+    {
+      "bytes": 1492,
+      "path": "xg/fixture_878008.json",
+      "protected": true,
+      "sha256": "0aec7d0c4a3ce63e063da1f7ea5af3b3b3f935ca249d2a53bd186cc103ceea38"
+    },
+    {
+      "bytes": 1498,
+      "path": "xg/fixture_878009.json",
+      "protected": true,
+      "sha256": "52050eccd9bde70c3d99b1e2c9be1ac0d20ee039a20c45d4eed769e53f58726e"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_878010.json",
+      "protected": true,
+      "sha256": "308997e52915f7738408bfe5c9059d509f74546e83a9967a7c3a5a2db32f7a54"
+    },
+    {
+      "bytes": 1500,
+      "path": "xg/fixture_878011.json",
+      "protected": true,
+      "sha256": "491d8098bc3076835eb7a7897d145795fd699f741aca0c71dc24f118e04b701e"
+    },
+    {
+      "bytes": 1502,
+      "path": "xg/fixture_878012.json",
+      "protected": true,
+      "sha256": "952c0a29e3bd0f24f0e4730a5a46612bbb1c90e66c6a4b13ac9240a8966c65be"
+    },
+    {
+      "bytes": 1500,
+      "path": "xg/fixture_878013.json",
+      "protected": true,
+      "sha256": "f61e49e73663520aeefb640a591ca9ca8dacae7d04b9be53bafe85bf751b2549"
+    },
+    {
+      "bytes": 1486,
+      "path": "xg/fixture_878014.json",
+      "protected": true,
+      "sha256": "45263c39b5ff29fe364972a79526c60c4816597fc4a1ec8574d6c18056743533"
+    },
+    {
+      "bytes": 1503,
+      "path": "xg/fixture_878015.json",
+      "protected": true,
+      "sha256": "4e7d11d8143acffd42f08ab648d0bae42808ba31a4d203792d04bd74aa0bf33d"
+    },
+    {
+      "bytes": 1491,
+      "path": "xg/fixture_878016.json",
+      "protected": true,
+      "sha256": "d4c50c93cfd7261fcd2faf2725eda5586253c085241545c8ffa806defa29e770"
+    },
+    {
+      "bytes": 1490,
+      "path": "xg/fixture_878017.json",
+      "protected": true,
+      "sha256": "0474e522503d320bc6d9623012e6f4a11fe72b79d2c347eb48fefb176161ebab"
+    },
+    {
+      "bytes": 1503,
+      "path": "xg/fixture_878018.json",
+      "protected": true,
+      "sha256": "5874aced449bfd29e69baccf98968ff37c4bd551d38df792eec0334a6f674057"
+    },
+    {
+      "bytes": 1495,
+      "path": "xg/fixture_878019.json",
+      "protected": true,
+      "sha256": "a2b3098f0da4376d2c3c101fae7236e0b8a0f6c7ca49f89b68a1c1674eff218e"
+    },
+    {
+      "bytes": 1495,
+      "path": "xg/fixture_878020.json",
+      "protected": true,
+      "sha256": "b9972c6b75eb335f651d59613d6867f199176297511c10b17ecf14cf51302878"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_878021.json",
+      "protected": true,
+      "sha256": "146b5d794c4141ea95e8e5d96e321105314c60d083296d22df8173428be5fc34"
+    },
+    {
+      "bytes": 1507,
+      "path": "xg/fixture_878022.json",
+      "protected": true,
+      "sha256": "96afe37912fd8dc4e3065c62c742a1b190d1ee5241589227cd111919d510c302"
+    },
+    {
+      "bytes": 1496,
+      "path": "xg/fixture_878023.json",
+      "protected": true,
+      "sha256": "bd8e88f4458084c9ae289dd79bb9efa39a2874054a922d3bd9f01e147dd274c2"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_878024.json",
+      "protected": true,
+      "sha256": "69813cb5849eacedf0db6c00feac737295e56c210e971764a843348a4de3c65e"
+    },
+    {
+      "bytes": 1499,
+      "path": "xg/fixture_878025.json",
+      "protected": true,
+      "sha256": "a018e927b5aacb47f53d73607a11ba7e94cee0ce0b37dd589a2c9915b1d395d4"
+    },
+    {
+      "bytes": 1500,
+      "path": "xg/fixture_878026.json",
+      "protected": true,
+      "sha256": "8b76d8d4e7e5f14a93b67cd0537d18766188e4f7deb7e9da07125b8f29662c09"
+    },
+    {
+      "bytes": 1493,
+      "path": "xg/fixture_878027.json",
+      "protected": true,
+      "sha256": "d50a0ff7a9297d4edd09cf65e0fcc5081bb9c89eac769337858ed148ddd24b59"
+    },
+    {
+      "bytes": 1499,
+      "path": "xg/fixture_878028.json",
+      "protected": true,
+      "sha256": "11e70f22302ee850b877b818fb15df9d9e644b206cd5aec25b200f95d0cd2f2b"
+    },
+    {
+      "bytes": 1491,
+      "path": "xg/fixture_878029.json",
+      "protected": true,
+      "sha256": "911aff308c57aaf276cf80fbc585f8493dde5dbbcbf995a7e18a410d9f480730"
+    },
+    {
+      "bytes": 1498,
+      "path": "xg/fixture_878030.json",
+      "protected": true,
+      "sha256": "8595b8707bf94bf38f4e8a14f0d14e40c8ad4afac46239b52a23c85a0dfb272a"
+    },
+    {
+      "bytes": 1496,
+      "path": "xg/fixture_878031.json",
+      "protected": true,
+      "sha256": "b459699a0f9ce90b16c871a663f580d66829cd05337ef343b229334da8ef04d8"
+    }
+  ],
+  "data_files_aggregate_sha256": "279091e06db3b627064a6d45c974656971c800e8447b7b1fab63ac24f60e4c97",
+  "dependencies": {
+    "lockfile": "none existed at baseline (no requirements file in repo)",
+    "numpy": "2.4.1",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.14",
+    "scipy": "1.17.1"
+  },
+  "description": "Dixon-Coles bivariate Poisson ratings with time decay, ridge to a promoted-team prior, rho by grid search, and a geometric goals/xG blend; 1X2 picks flagged when model minus best-book de-vigged probability exceeds 2pp and Kelly > 0.",
+  "documented_performance": {
+    "clv_open_to_close_pp": {
+      "thr_0.02": -0.04,
+      "thr_0.03": -0.05,
+      "thr_0.05": -0.03
+    },
+    "flat_roi_at_close_2025": {
+      "thr_0.02": -0.154,
+      "thr_0.03": -0.139,
+      "thr_0.05": -0.088,
+      "thr_0.08": -0.017
+    },
+    "optimal_blend_weight_on_model_vs_close": 0.0,
+    "source": "model/README.md at baseline commit (not independently reproduced at freeze)",
+    "vs_pinnacle_close_2022_2025": {
+      "market": 0.9735,
+      "model": 0.9982,
+      "n": 3804
+    },
+    "vs_pinnacle_close_2025": {
+      "market": 0.9718,
+      "model": 0.9892,
+      "n": 749
+    },
+    "walk_forward_logloss_2023_2025": {
+      "logloss": 0.9874,
+      "n": 4336
+    }
+  },
+  "entrypoints": {
+    "fit": "model/dcmodel.py:fit_asof",
+    "predict": "model/predict.py (via bot.py)",
+    "prior": "model/dcmodel.py:estimate_promoted_prior"
+  },
+  "frozen_utc": "2026-11-19T19:46:30+00:00",
+  "git": {
+    "commit": "e1b55feffc29f3bf6f3d74d136ff49bf413d96ad",
+    "repository": "Kwinzyd/soccer-betting-bot"
+  },
+  "golden_asof": "2026-11-19",
+  "golden_predictions": [
+    {
+      "away": "Fulham",
+      "home": "Manchester City",
+      "kickoff": "2026-11-21T12:30:00.000Z",
+      "lam_a": 0.8801923181858436,
+      "lam_h": 2.096329199413565,
+      "league": "epl",
+      "match_id": 3818301,
+      "p_away": 0.14314916204070838,
+      "p_draw": 0.20686649856075914,
+      "p_home": 0.6499843393985325,
+      "p_over25": 0.5715282865591863,
+      "used_xg": true
+    },
+    {
+      "away": "Nottingham Forest",
+      "home": "AFC Bournemouth",
+      "kickoff": "2026-11-21T15:00:00.000Z",
+      "lam_a": 1.1481813999727908,
+      "lam_h": 1.6393154220384383,
+      "league": "epl",
+      "match_id": 3818288,
+      "p_away": 0.2618479609619937,
+      "p_draw": 0.2552957959750247,
+      "p_home": 0.4828562430629815,
+      "p_over25": 0.527560471685166,
+      "used_xg": true
+    },
+    {
+      "away": "Sunderland",
+      "home": "Aston Villa",
+      "kickoff": "2026-11-21T15:00:00.000Z",
+      "lam_a": 0.9439251006152184,
+      "lam_h": 1.5788235703722049,
+      "league": "epl",
+      "match_id": 3818290,
+      "p_away": 0.2202706292200281,
+      "p_draw": 0.2632390466526041,
+      "p_home": 0.5164903241273677,
+      "p_over25": 0.4620087957764228,
+      "used_xg": true
+    },
+    {
+      "away": "Espanyol",
+      "home": "Athletic Club",
+      "kickoff": "2026-11-20T20:00:00.000Z",
+      "lam_a": 0.8461467443615893,
+      "lam_h": 1.532586232688047,
+      "league": "laliga",
+      "match_id": 3819007,
+      "p_away": 0.20439697198979417,
+      "p_draw": 0.2638998507765392,
+      "p_home": 0.5317031772336668,
+      "p_over25": 0.42472510516868445,
+      "used_xg": true
+    },
+    {
+      "away": "Deportivo",
+      "home": "Alav\u00e9s",
+      "kickoff": "2026-11-21T13:00:00.000Z",
+      "lam_a": 0.8570896435158201,
+      "lam_h": 1.3815077515047676,
+      "league": "laliga",
+      "match_id": 3819006,
+      "p_away": 0.22971591264574548,
+      "p_draw": 0.28181624353889445,
+      "p_home": 0.48846784381536007,
+      "p_over25": 0.38761669240202823,
+      "used_xg": true
+    },
+    {
+      "away": "Valencia",
+      "home": "Rayo Vallecano",
+      "kickoff": "2026-11-21T15:15:00.000Z",
+      "lam_a": 0.9632954207460666,
+      "lam_h": 1.3287433182614135,
+      "league": "laliga",
+      "match_id": 3819013,
+      "p_away": 0.26781937933517996,
+      "p_draw": 0.28465742361001445,
+      "p_home": 0.44752319705480575,
+      "p_over25": 0.4018488703590877,
+      "used_xg": true
+    },
+    {
+      "away": "Cagliari",
+      "home": "Como",
+      "kickoff": "2026-11-21T14:00:00.000Z",
+      "lam_a": 0.7336751481254694,
+      "lam_h": 1.8435625171834173,
+      "league": "seriea",
+      "match_id": 3819696,
+      "p_away": 0.14113446678534358,
+      "p_draw": 0.22228193847289515,
+      "p_home": 0.6365835947417613,
+      "p_over25": 0.475840862814344,
+      "used_xg": true
+    },
+    {
+      "away": "Lecce",
+      "home": "Lazio",
+      "kickoff": "2026-11-21T14:00:00.000Z",
+      "lam_a": 0.6915288575029271,
+      "lam_h": 1.6214824694761478,
+      "league": "seriea",
+      "match_id": 3819698,
+      "p_away": 0.15538048609517147,
+      "p_draw": 0.24852570228368714,
+      "p_home": 0.5960938116211414,
+      "p_over25": 0.40740852311653547,
+      "used_xg": true
+    },
+    {
+      "away": "AS Roma",
+      "home": "Parma",
+      "kickoff": "2026-11-21T17:00:00.000Z",
+      "lam_a": 1.6421924332599047,
+      "lam_h": 0.7239037215276629,
+      "league": "seriea",
+      "match_id": 3819701,
+      "p_away": 0.5924880611561386,
+      "p_draw": 0.24663421476849082,
+      "p_home": 0.16087772407537035,
+      "p_over25": 0.4214086927753403,
+      "used_xg": true
+    },
+    {
+      "away": "Le Havre AC",
+      "home": "Troyes",
+      "kickoff": "2026-11-20T19:45:00.000Z",
+      "lam_a": 1.110233379858114,
+      "lam_h": 1.273053131607074,
+      "league": "ligue1",
+      "match_id": 3819377,
+      "p_away": 0.31691658917800714,
+      "p_draw": 0.2870389278402123,
+      "p_home": 0.39604448298178063,
+      "p_over25": 0.42591853373537064,
+      "used_xg": true
+    },
+    {
+      "away": "Paris Saint-Germain",
+      "home": "Nice",
+      "kickoff": "2026-11-21T16:15:00.000Z",
+      "lam_a": 2.0006304547707043,
+      "lam_h": 1.0195898796629914,
+      "league": "ligue1",
+      "match_id": 3819371,
+      "p_away": 0.5971942384593378,
+      "p_draw": 0.2201255359010689,
+      "p_home": 0.18268022563959335,
+      "p_over25": 0.5813242447429106,
+      "used_xg": true
+    },
+    {
+      "away": "AJ Auxerre",
+      "home": "AS Monaco",
+      "kickoff": "2026-11-21T19:45:00.000Z",
+      "lam_a": 1.0038017752664992,
+      "lam_h": 2.01976447621233,
+      "league": "ligue1",
+      "match_id": 3819361,
+      "p_away": 0.1770972640528513,
+      "p_draw": 0.2178815787789503,
+      "p_home": 0.6050211571681984,
+      "p_over25": 0.5820683228412561,
+      "used_xg": true
+    }
+  ],
+  "golden_tolerance": 1e-06,
+  "hyperparameters": {
+    "asof_granularity": "UTC calendar date; matches with date < asof",
+    "devig": "power, per best-priced book",
+    "edge_threshold": 0.02,
+    "half_life_days": 462.09812037329687,
+    "leagues": [
+      "epl",
+      "laliga",
+      "seriea",
+      "ligue1"
+    ],
+    "log_lambda_clip": [
+      -6,
+      3
+    ],
+    "max_goals": 12,
+    "mean_pin_K": 1.0,
+    "min_matches_goals": 60,
+    "min_matches_xg": 80,
+    "optimizer": "L-BFGS-B maxiter=500 ftol=1e-11",
+    "promoted_prior_reg": 1.0,
+    "refit_days_backtest": 14,
+    "reg": 2.0,
+    "rho_grid": [
+      -0.25,
+      0.25,
+      101
+    ],
+    "rho_ridge": 50.0,
+    "seasons": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "stake": "1 paper unit; half-Kelly displayed only",
+    "xg_alpha": 0.3,
+    "xg_seasons": [
+      2025,
+      2026
+    ],
+    "xi": 0.0015
+  },
+  "known_evaluation_limitations": [
+    "estimate_promoted_prior() uses every season in the data (incl. later ones) and is reused for all historical predictions",
+    "backtest.baselines() trains on all non-test seasons, including later ones",
+    "xi/reg tuned on 2024-2025 and alpha on 2025, then 2023-2025 reported as out-of-sample",
+    "team index includes future-season entrants (affects centring of ratings)",
+    "promoted flag uses max(season of training data), so at each season opener last season's promoted sides keep the promoted prior",
+    "xG treated as available the day after each match; actually ingested 2026-08-22, with no provider timestamps",
+    "football-data 'open' columns are early snapshots (Fri/Tue collection), not true opening prices",
+    "settle.report_clv averages over all three 1X2 outcomes, which cancels to zero by construction",
+    "settle.report_shopping counts every 3-hourly observation of a fixture as a separate bet",
+    "predict.py de-vigs each side using the book that offers the best price on that side (biases edge upward)"
+  ],
+  "learned_coefficients": {
+    "epl": {
+      "goals": {
+        "atk": {
+          "1": 0.11681572248916515,
+          "10": -0.03613140141831123,
+          "11": -0.05220157654709837,
+          "115": -0.08342058126863344,
+          "12": 0.34232337765270815,
+          "122": -0.48173218613213337,
+          "13": 0.4397335607228262,
+          "131": -0.28447461925379225,
+          "14": 0.15710303618355545,
+          "15": 0.20871610086538228,
+          "16": -0.029867549712177373,
+          "16251": 0.03306530244125766,
+          "17": -0.21146144971809927,
+          "18": 0.08191186199972984,
+          "19": -0.029041429070948668,
+          "2": 0.344649446433475,
+          "20": -0.24545310511680743,
+          "3": 0.1738937362114544,
+          "30583": -0.20570317617837933,
+          "4": 0.15939172973722104,
+          "5": 0.24801184713474136,
+          "6": -0.21775076192843384,
+          "6507": -0.27359338253966686,
+          "7": 0.21726269955625915,
+          "7825480": -0.15295708186092763,
+          "8": -0.08626191260045453,
+          "9": -0.13282820808191195
+        },
+        "converged": true,
+        "def": {
+          "1": 0.06178868199269329,
+          "10": 0.09548076973298511,
+          "11": 0.10860488738249503,
+          "115": -0.33135673317618913,
+          "12": 0.2012787918382806,
+          "122": -0.3390977687598725,
+          "13": 0.3586183707432442,
+          "131": -0.2648383399578733,
+          "14": 0.03948376237760853,
+          "15": 0.04798754303594736,
+          "16": 0.09352544292016213,
+          "16251": -0.3594650142699683,
+          "17": 0.09445501971538182,
+          "18": -0.02270510521972558,
+          "19": -0.10139160247527022,
+          "2": 0.6343927133913769,
+          "20": -0.12435690412490848,
+          "3": 0.07545207921275264,
+          "30583": 0.23308198558860693,
+          "4": 0.08542974873377425,
+          "5": 0.16284444846690785,
+          "6": -0.2494548426565442,
+          "6507": -0.5323123804504271,
+          "7": 0.0733308633019211,
+          "7825480": -0.21969110955381338,
+          "8": -0.011285033795865474,
+          "9": 0.1901997260063198
+        },
+        "home_adv": 0.18827910401746006,
+        "mu": 0.22569226383924326,
+        "rho": -0.044999999999999984
+      },
+      "promoted_prior": [
+        -0.2718808034179245,
+        -0.23665474236822245
+      ],
+      "xg": {
+        "atk": {
+          "1": 0.19695398432618633,
+          "10": -0.05146558985644467,
+          "11": 0.05145403936608105,
+          "115": 0.06906161567909075,
+          "12": 0.16304986357512413,
+          "122": 0.020132590749745105,
+          "13": 0.31261038716684647,
+          "131": 0.020132590749745105,
+          "14": 0.2154283462581277,
+          "15": 0.10579608526722079,
+          "16": -0.1055925100434223,
+          "16251": 0.020132590749745105,
+          "17": -0.23926746506088012,
+          "18": -0.23970562496021938,
+          "19": -0.08159288095129387,
+          "2": 0.20457648139453674,
+          "20": -0.3256639833537977,
+          "3": -0.047426460273857406,
+          "30583": -0.19633009220544131,
+          "4": 0.2078655447480961,
+          "5": 0.10510255932894821,
+          "6": -0.38130678953019215,
+          "6507": 0.020132590749745105,
+          "7": 0.263141062431457,
+          "7825480": -0.34454187561445254,
+          "8": 0.12294805075178379,
+          "9": -0.08562511144247816
+        },
+        "converged": true,
+        "def": {
+          "1": -0.07502393888149854,
+          "10": 0.01063229453578893,
+          "11": -0.022866307633083605,
+          "115": 0.07866639129237038,
+          "12": 0.09719392083015291,
+          "122": 0.017521616909351244,
+          "13": 0.15786522464681907,
+          "131": 0.017521616909351244,
+          "14": 0.07445775254191087,
+          "15": 0.0019725533345473123,
+          "16": -0.034239682248562144,
+          "16251": 0.017521616909351244,
+          "17": -0.022277990310226134,
+          "18": -0.04238784262832374,
+          "19": -0.09367842374719591,
+          "2": 0.5425576649279285,
+          "20": -0.10328852955356395,
+          "3": -0.011340061155842577,
+          "30583": -0.2104163309384002,
+          "4": -0.018426478804494283,
+          "5": 0.06528571179868242,
+          "6": -0.3094900415976461,
+          "6507": 0.017521616909351244,
+          "7": 0.00331481599103782,
+          "7825480": -0.11328291712775551,
+          "8": 0.012109248505550053,
+          "9": -0.05742350141560054
+        },
+        "home_adv": 0.21770942583489822,
+        "mu": 0.17841549394196082,
+        "rho": 0.0
+      }
+    },
+    "laliga": {
+      "goals": {
+        "atk": {
+          "14410": 0.003740153727709452,
+          "1491": -0.1928517203380824,
+          "1494": -0.10801337005761745,
+          "1501": -0.3907971915900721,
+          "20714": -0.4450240346912547,
+          "20717": -0.04065943197536161,
+          "20726": 0.1265513097604037,
+          "39": -0.07016298880330676,
+          "40": 0.08011361008678686,
+          "41": 0.371736434782385,
+          "42": 0.7888684790583437,
+          "43": 0.05486541550158551,
+          "44": 0.019834936992797453,
+          "45": -0.07775154298832126,
+          "46": -0.32985182419281545,
+          "47": 0.090246013730859,
+          "48": 0.09091408679098337,
+          "49": -0.10136638042969871,
+          "50": -0.03914335524857451,
+          "51": -0.08989874688876115,
+          "52": 0.22902826772692642,
+          "53": 0.5607649740606064,
+          "54": -0.45867546294606387,
+          "55": 0.16976766180431818,
+          "56": 0.04345375366242471,
+          "57": -0.09139994069603698,
+          "58": 0.3740763534220804,
+          "7884": -0.1461225715778685,
+          "7890": -0.42224288868437454
+        },
+        "converged": true,
+        "def": {
+          "14410": -0.22863928488024557,
+          "1491": -0.03385360132868601,
+          "1494": -0.028340362461156295,
+          "1501": -0.41679532077321935,
+          "20714": -0.2581831231050634,
+          "20717": 0.10444227480356304,
+          "20726": -0.5369053567003929,
+          "39": 0.04240291373891075,
+          "40": 0.19508567364073476,
+          "41": 0.32872186905038536,
+          "42": 0.3181950092383319,
+          "43": 0.08308390586726343,
+          "44": -0.0670019985753839,
+          "45": 0.03534203350968362,
+          "46": 0.21350406503923078,
+          "47": -0.00042216308547616166,
+          "48": -0.11150168802857,
+          "49": 0.08362426924190756,
+          "50": -0.020837230955785914,
+          "51": 0.09539760307422072,
+          "52": 0.1209720289822077,
+          "53": 0.43626919563196775,
+          "54": -0.07009249487050248,
+          "55": -0.0017782659349399362,
+          "56": -0.05422861783502892,
+          "57": 0.025865776614767133,
+          "58": 0.06882492758982202,
+          "7884": -0.33313141998018764,
+          "7890": 0.009979382491641802
+        },
+        "home_adv": 0.284171206365281,
+        "mu": 0.08610740947915735,
+        "rho": -0.024999999999999994
+      },
+      "promoted_prior": [
+        -0.23758816887114462,
+        -0.18602417349039102
+      ],
+      "xg": {
+        "atk": {
+          "14410": 0.02458023628474362,
+          "1491": 0.02458023628474362,
+          "1494": 0.02458023628474362,
+          "1501": 0.02458023628474362,
+          "20714": -0.44246720845065823,
+          "20717": -0.507774247514386,
+          "20726": 0.04949832358514791,
+          "39": 0.038761040346222776,
+          "40": 0.0292203144726451,
+          "41": 0.16956888317241384,
+          "42": 0.5576529823336627,
+          "43": 0.01726324631061106,
+          "44": -0.09726570298050657,
+          "45": -0.004886220580387225,
+          "46": -0.4355872790826114,
+          "47": 0.015095775815172652,
+          "48": 0.06919742855949064,
+          "49": -0.08254741263446377,
+          "50": -0.04366928981444811,
+          "51": 0.08686208439933898,
+          "52": 0.11349979816383253,
+          "53": 0.4477602001983577,
+          "54": -0.269278078398909,
+          "55": 0.12232550623788785,
+          "56": -0.16564496478601914,
+          "57": 0.00952001160184733,
+          "58": 0.17541339133729641,
+          "7884": 0.02458023628474362,
+          "7890": 0.02458023628474362
+        },
+        "converged": true,
+        "def": {
+          "14410": 0.01924494321233866,
+          "1491": 0.01924494321233866,
+          "1494": 0.01924494321233866,
+          "1501": 0.01924494321233866,
+          "20714": 0.12101078575082427,
+          "20717": -0.23792389877463227,
+          "20726": 0.009903463261855518,
+          "39": 0.09277270345206945,
+          "40": 0.1956850762724508,
+          "41": 0.027258241095511317,
+          "42": 0.09198400335513336,
+          "43": 0.03914611448396453,
+          "44": -0.18242948854731572,
+          "45": -0.08152259834131363,
+          "46": 0.18117151854349398,
+          "47": -0.07270561007379175,
+          "48": -0.1587900969219241,
+          "49": -0.1829364968850446,
+          "50": 0.026360750742519187,
+          "51": -0.021373904142978673,
+          "52": 0.06486420935945995,
+          "53": 0.18504625725133433,
+          "54": -0.13559907294507056,
+          "55": -0.10936912870114701,
+          "56": -0.0990833232657983,
+          "57": 0.07727838627805421,
+          "58": 0.05378244947831367,
+          "7884": 0.01924494321233866,
+          "7890": 0.01924494321233866
+        },
+        "home_adv": 0.26459623887152567,
+        "mu": 0.07939925445060013,
+        "rho": 0.0
+      }
+    },
+    "ligue1": {
+      "goals": {
+        "atk": {
+          "11896": -0.3385816824750049,
+          "11901": -0.2909504376012568,
+          "15132": -0.49025650814054184,
+          "2249": -0.19449637000267003,
+          "2252": -0.055559098001307386,
+          "2257": -0.20306646157329417,
+          "59": -0.08537635751841591,
+          "60": 0.31202240572735584,
+          "61": -0.36016755419416996,
+          "62": 0.12222706545546988,
+          "63": -0.2106800718647066,
+          "64": 0.24018246723140568,
+          "65": 0.14004307233349297,
+          "66": -0.014781258697248986,
+          "67": 0.23846314697216706,
+          "68": 0.39515589927782097,
+          "69": -0.23490839491659937,
+          "70": -0.279468712251332,
+          "71": 0.06086608172290091,
+          "72": 0.15076598639530814,
+          "73": 0.5694664044880987,
+          "74": 0.3074810728079953,
+          "75": 0.23407663924486974,
+          "76": 0.06431744653605287,
+          "7827705": -0.07677478095639008
+        },
+        "converged": true,
+        "def": {
+          "11896": -0.16595869294102936,
+          "11901": -0.0623211166566618,
+          "15132": -0.2847970126654752,
+          "2249": 0.11253227147103291,
+          "2252": -0.3823944807390463,
+          "2257": -0.23580602648936394,
+          "59": -0.04387729449496218,
+          "60": 0.08399268383080795,
+          "61": -0.07696519034418385,
+          "62": 0.0018450583106680838,
+          "63": -0.08578395846212054,
+          "64": 0.2562888565147693,
+          "65": 0.38916517204228496,
+          "66": 0.05532737078323343,
+          "67": 0.17416248648854069,
+          "68": 0.09646205004152032,
+          "69": -0.3082757389092682,
+          "70": -0.01815890738777279,
+          "71": 0.09007329144737238,
+          "72": 0.15331292770546545,
+          "73": 0.4109992135921321,
+          "74": -0.03534880359640839,
+          "75": -0.014610782865665847,
+          "76": 0.08419297006244868,
+          "7827705": -0.19405634673831787
+        },
+        "home_adv": 0.19560948683043827,
+        "mu": 0.18939327684591334,
+        "rho": -0.04000000000000001
+      },
+      "promoted_prior": [
+        -0.15858084475368842,
+        -0.17908493808526477
+      ],
+      "xg": {
+        "atk": {
+          "11896": 0.0063237679828870704,
+          "11901": 0.0063237679828870704,
+          "15132": 0.0063237679828870704,
+          "2249": 0.0063237679828870704,
+          "2252": 0.0063237679828870704,
+          "2257": 0.0063237679828870704,
+          "59": -0.25285817281895523,
+          "60": 0.1894200592925864,
+          "61": -0.3474546220406389,
+          "62": -0.07219442927413608,
+          "63": -0.1763199188061232,
+          "64": 0.3344442969898318,
+          "65": 0.1210768675405544,
+          "66": -0.03144335060697743,
+          "67": 0.09327941874316174,
+          "68": 0.25633601238705866,
+          "69": -0.2887863090294526,
+          "70": -0.1861678956819888,
+          "71": -0.07278309727035143,
+          "72": -0.029379164131999765,
+          "73": 0.3922196703336823,
+          "74": 0.1547744005198455,
+          "75": 0.09718157220028126,
+          "76": -0.06703461259145999,
+          "7827705": -0.15225333365224075
+        },
+        "converged": true,
+        "def": {
+          "11896": 0.007182544522164027,
+          "11901": 0.007182544522164027,
+          "15132": 0.007182544522164027,
+          "2249": 0.007182544522164027,
+          "2252": 0.007182544522164027,
+          "2257": 0.007182544522164027,
+          "59": 0.006147502059244646,
+          "60": -0.024281326598167167,
+          "61": -0.10508577547051871,
+          "62": -0.04134102467883467,
+          "63": -0.0586999369409027,
+          "64": 0.10145440554687758,
+          "65": 0.2849986464690712,
+          "66": 0.04651248719674574,
+          "67": 0.035674743608721846,
+          "68": 0.013444516006328445,
+          "69": -0.23373352788061758,
+          "70": 0.0058087121437848405,
+          "71": -0.16431776149707047,
+          "72": -0.13261691000838233,
+          "73": 0.375135873955098,
+          "74": -0.0938332066599115,
+          "75": 0.024016111796732496,
+          "76": 0.08951937028780152,
+          "7827705": -0.17189816646898534
+        },
+        "home_adv": 0.23672253660002365,
+        "mu": 0.19450218600570154,
+        "rho": 0.0
+      }
+    },
+    "seriea": {
+      "goals": {
+        "atk": {
+          "101": 0.28222339389382634,
+          "22240": 0.3971003359755775,
+          "2861": 0.33131823765769003,
+          "2869": 0.16422897514967646,
+          "37696": -0.10039391231232889,
+          "37697": 0.293153561467365,
+          "37698": -0.2921584521276851,
+          "37699": 0.15755327889391124,
+          "37700": -0.08132534089543503,
+          "37701": -0.3799306625126292,
+          "37705": -0.347374805297921,
+          "37707": -0.25958544479676304,
+          "37708": -0.4655843906212098,
+          "37709": 0.0795026872815453,
+          "37710": -0.034737096990642424,
+          "37711": -0.03791414812986827,
+          "40816": -0.37652423512430083,
+          "57927": -0.2735584746043832,
+          "62430": 0.35376782099015136,
+          "80": 0.3118062217540417,
+          "84392": -0.28981532275577576,
+          "88682": -0.314371076499757,
+          "88683": -0.1312846747707667,
+          "92957": -0.06378126661186646,
+          "9406": 0.20301311940925781,
+          "95": 0.6430335180078626,
+          "96": 0.23163815357042758
+        },
+        "converged": true,
+        "def": {
+          "101": 0.31975321751500246,
+          "22240": 0.3554969295650275,
+          "2861": 0.19470486086380695,
+          "2869": 0.12726034720373103,
+          "37696": -0.05682975859168078,
+          "37697": 0.3337967830474738,
+          "37698": -0.14383854085295178,
+          "37699": -0.006459231598279976,
+          "37700": 0.04494490759764372,
+          "37701": -0.12608999374790086,
+          "37705": -0.06964162768019291,
+          "37707": 0.018999830970323928,
+          "37708": -0.31833098649864305,
+          "37709": -0.22727597186633694,
+          "37710": -0.023317433211841772,
+          "37711": -0.09059951837731241,
+          "40816": -0.2891359271005589,
+          "57927": -0.06986196846121324,
+          "62430": -0.1517102328702727,
+          "80": 0.15836029643038152,
+          "84392": -0.1628656334738492,
+          "88682": -0.1291609425458233,
+          "88683": -0.323751028128237,
+          "92957": -0.2632949395317088,
+          "9406": 0.2276570871491619,
+          "95": 0.32316252734673,
+          "96": 0.34802694684752106
+        },
+        "home_adv": 0.11102652322923759,
+        "mu": 0.144152803612619,
+        "rho": -0.014999999999999986
+      },
+      "promoted_prior": [
+        -0.14612475693206353,
+        -0.2177936496296748
+      ],
+      "xg": {
+        "atk": {
+          "101": 0.06860645951808485,
+          "22240": 0.16745327739987398,
+          "2861": 0.23973367032184795,
+          "2869": -0.05872377075446828,
+          "37696": -0.1549629900006467,
+          "37697": 0.2600509180962806,
+          "37698": -0.24773619864625132,
+          "37699": 0.10782103534834443,
+          "37700": -0.02423252996778563,
+          "37701": -0.2598081018540135,
+          "37705": -0.32460633178464315,
+          "37707": -0.34306597291436813,
+          "37708": -0.14730832762523607,
+          "37709": -0.07318383469929608,
+          "37710": -0.011935651812920419,
+          "37711": -0.08840076133505531,
+          "40816": 7.136200134341086e-07,
+          "57927": 7.136200134341086e-07,
+          "62430": 7.136200134341086e-07,
+          "80": 0.19651346539799325,
+          "84392": 7.136200134341086e-07,
+          "88682": 7.136200134341086e-07,
+          "88683": 7.136200134341086e-07,
+          "92957": 7.136200134341086e-07,
+          "9406": -0.07276844699537705,
+          "95": 0.40334186888048745,
+          "96": 0.3632072280870551
+        },
+        "converged": true,
+        "def": {
+          "101": 0.19907205780657922,
+          "22240": 0.16634551172487766,
+          "2861": 0.0432169823034069,
+          "2869": 0.03514078322301739,
+          "37696": -0.0947067339319564,
+          "37697": 0.3005298477682622,
+          "37698": -0.17971507941301493,
+          "37699": -0.055933636600137046,
+          "37700": -0.028554336438996825,
+          "37701": -0.06946691896663182,
+          "37705": -0.18009605283936594,
+          "37707": -0.1674448320352342,
+          "37708": -0.2109141877806673,
+          "37709": -0.14506976643623595,
+          "37710": -0.13350292340106884,
+          "37711": -0.1101467907609364,
+          "40816": -7.136200134939869e-07,
+          "57927": -7.136200134939869e-07,
+          "62430": -7.136200134939869e-07,
+          "80": 0.07933337911536872,
+          "84392": -7.136200134939869e-07,
+          "88682": -7.136200134939869e-07,
+          "88683": -7.136200134939869e-07,
+          "92957": -7.136200134939869e-07,
+          "9406": -0.0005380499474950131,
+          "95": 0.24606383256559658,
+          "96": 0.3063919093847263
+        },
+        "home_adv": 0.1722441738903447,
+        "mu": 0.09995149911340491,
+        "rho": 0.0
+      }
+    }
+  },
+  "manifest_sha256": "caacd19f3561c4001b3b22532b830b129e9a367ebd267f8ce8564955eb24965c",
+  "model_id": "soccer-dc-legacy",
+  "production_entrypoints": [
+    {
+      "command": "python -u bot.py",
+      "cwd": "<repo root>",
+      "effect": "polls odds, refreshes 2026 schedules, runs predict.py (non-preview): writes odds_logger/paper.sqlite3 and sends Telegram alerts",
+      "schedule": "every 3h",
+      "task": "balldontlie-odds-logger"
+    },
+    {
+      "command": "python -u settle.py --refresh",
+      "cwd": "odds_logger",
+      "effect": "writes results_cache.json, settled.jsonl; prints drift/ROI",
+      "schedule": "daily",
+      "task": "balldontlie-odds-settle"
+    },
+    {
+      "command": "python -u fetch_rosters.py sync",
+      "cwd": "<repo root>",
+      "effect": "writes rosters/, active_rosters.json; may send Telegram",
+      "schedule": "daily",
+      "task": "balldontlie-roster-sync"
+    }
+  ],
+  "providers": {
+    "api-football": {
+      "base": "https://v3.football.api-sports.io",
+      "use": "fixtures + statistics (xG partial)"
+    },
+    "balldontlie": {
+      "base": "https://api.balldontlie.io",
+      "endpoints": [
+        "matches",
+        "teams",
+        "team_match_stats",
+        "odds"
+      ],
+      "rate_limit": "5 req/min (observed)",
+      "versions": {
+        "epl": "v2",
+        "laliga": "v1",
+        "ligue1": "v1",
+        "seriea": "v1"
+      }
+    },
+    "football-data.co.uk": {
+      "files": "odds_hist/{E0,SP1,I1,F1}_{2223..2526}.csv (+SP1_2627)",
+      "use": "historical Pinnacle/avg/max early and closing 1X2 odds"
+    },
+    "fotmob": {
+      "use": "rosters (fetch_rosters.py); not used by the model"
+    }
+  },
+  "role": "legacy-baseline",
+  "schema": "soccerlab.manifest/1",
+  "status": "UNVALIDATED -- preserved for comparison and regression only",
+  "test_results": [
+    {
+      "command": "python odds_logger/settle.py --selftest",
+      "exit_code": 0,
+      "note": "settle.py reads the BallDontLie key at import time, so even --selftest needs credentials present",
+      "passed": true
+    },
+    {
+      "command": "soccerlab.legacy_baseline.gradient_check()",
+      "max_rel_error": 6.825058916465724e-10,
+      "passed": true
+    }
+  ]
+}
