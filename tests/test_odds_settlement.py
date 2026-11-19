@@ -164,7 +164,7 @@ def test_legacy_report_clv_is_identically_zero():
     rng = np.random.default_rng(3)
     rows = []
     for mid in range(40):
-        for k, t in enumerate(("2026-11-20T09:00:00+00:00", "2026-11-21T12:00:00+00:00")):
+        for t in ("2026-11-20T09:00:00+00:00", "2026-11-21T12:00:00+00:00"):
             p = rng.dirichlet([4, 3, 3]) * 1.06
             rows.append({"match_id": mid, "vendor": "x", "observed_at": t,
                          "fair": list(odds.devig_power(np.clip(p, 0.02, 0.95)))})

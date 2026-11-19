@@ -46,7 +46,9 @@ def url_for(league, endpoint, params):
 
 
 def urllib_transport(url, headers, timeout=30):
-    req = urllib.request.Request(url, headers=headers)
+    if not url.startswith(BASE + "/"):
+        raise ValueError("refusing to fetch outside the provider base URL")
+    req = urllib.request.Request(url, headers=headers)  # noqa: S310 (https, fixed host checked above)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:   # noqa: S310 (fixed https host)
             return r.status, r.read()

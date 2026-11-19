@@ -221,7 +221,7 @@ def golden_check(m):
     errs = []
     coeffs, golden = compute_golden(m["git"]["commit"], m["golden_asof"])
     tol = m.get("golden_tolerance", TOL)
-    for g_new, g_old in zip(golden, m["golden_predictions"]):
+    for g_new, g_old in zip(golden, m["golden_predictions"], strict=False):  # count checked below
         for k in ("p_home", "p_draw", "p_away", "p_over25", "lam_h", "lam_a"):
             if abs(g_new[k] - g_old[k]) > tol:
                 errs.append(f"golden {g_old['league']} {g_old['match_id']} {k}: {g_new[k]} != {g_old[k]}")

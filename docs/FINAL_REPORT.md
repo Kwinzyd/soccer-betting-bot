@@ -76,7 +76,9 @@ Also: [PRODUCTION_INVENTORY.md](PRODUCTION_INVENTORY.md), CI workflow
 | `python -m soccerlab paper ...` | 3 | refused: no promoted model (intended) |
 | `python -m soccerlab settle --schedule-dir var/snap` | 0 | 20 open; CLV vs 46h-old proxy, inconclusive (intended labelling) |
 | `python -m soccerlab health` (production, read-only) | 1 | RED: 17 auth failures in 24h (a real finding) |
-| `ruff`, `pip-audit` | not run | not installed locally; configured in CI |
+| `ruff check soccerlab tests` (isolated venv) | 0 | clean after fixing 16 findings (zip length checks in golden verification, SQL-filter allowlist, unused vars) |
+| `pip_audit -r requirements-lock.txt` (isolated venv) | 0 | no known vulnerabilities |
+| full suite + both `--golden` verifications re-run in the venv | 0 | 105 passed; both manifests verify |
 | GitHub CI | not run | branch not pushed |
 
 ## Evidence classification

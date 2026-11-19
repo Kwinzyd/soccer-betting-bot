@@ -49,7 +49,7 @@ def calibration_table(p, hit, edges=(0, .05, .10, .15, .20, .25, .30, .40, .50, 
     p = np.asarray(p, dtype=float)
     hit = np.asarray(hit, dtype=float)
     out = []
-    for lo, hi in zip(edges[:-1], edges[1:]):
+    for lo, hi in zip(edges[:-1], edges[1:], strict=True):
         sel = (p >= lo) & (p < hi)
         n = int(sel.sum())
         if n == 0:
@@ -68,7 +68,7 @@ def ece_classwise(P, y, n_bins=10):
     for k in range(P.shape[1]):
         p, hit = P[:, k], (y == k).astype(float)
         tot = 0.0
-        for lo, hi in zip(edges[:-1], edges[1:]):
+        for lo, hi in zip(edges[:-1], edges[1:], strict=True):
             sel = (p >= lo) & (p < hi)
             if sel.any():
                 tot += sel.mean() * abs(p[sel].mean() - hit[sel].mean())

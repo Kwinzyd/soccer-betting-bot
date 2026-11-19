@@ -12,7 +12,6 @@ import dataclasses
 import json
 import time
 from collections import defaultdict
-from datetime import timedelta
 
 import numpy as np
 
@@ -71,7 +70,7 @@ def build_rows(leagues, log=print):
         E = mods["evaluate"]
         for lg in leagues:
             for block in ([2022, 2023, 2024, 2025], [2026]):
-                for mid, p, res, pov, yov in E.walk_predictions(lg, block):
+                for mid, p, _res, _pov, _yov in E.walk_predictions(lg, block):
                     legacy_p[(lg, int(mid))] = np.asarray(p, dtype=float)
     log(f"  legacy     all     {time.time() - t:5.1f}s")
 

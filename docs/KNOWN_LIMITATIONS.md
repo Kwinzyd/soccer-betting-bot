@@ -48,9 +48,9 @@
 
 * The new paper/alert path is not connected to the scheduler; production
   continues to run legacy code (by design, pending authorization).
-* Linting (`ruff`) and dependency audit (`pip-audit`) are configured in CI but
-  were not executed locally (tools not installed on this machine; not
-  installed globally to avoid altering the production interpreter).
+* `ruff` 0.6.9 and `pip-audit` 2.7.3 were run in an isolated venv
+  (`var/venv`, research worktree only); the production interpreter was not
+  modified. pip-audit covers only the locked runtime dependencies.
 * CI has not been run on GitHub: the branch was not pushed.
 * Golden tolerances (1e-6) assume the locked numpy/scipy versions; another
   BLAS/platform may need a documented tolerance change (new version id).

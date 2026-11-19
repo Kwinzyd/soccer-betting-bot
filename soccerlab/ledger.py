@@ -71,19 +71,22 @@ def kill_switch_on():
 
 
 class RiskEngine:
-    def __init__(self, store, limits: RiskLimits = RiskLimits()):
+    def __init__(self, store, limits: RiskLimits = None):
         self.store = store
-        self.limits = limits
+        self.limits = limits or RiskLimits()
 
     # -------------------------------------------------------------- exposure
 
     def _open_units(self, namespace, where="", params=()):
+        # `where` is only ever one of the constant clauses in check(); values are bound.
+        if where not in ("", "AND e.league=?", "AND e.vendor=?"):
+            raise ValueError("unexpected exposure filter")
         rows = self.store.db.execute(f"""
             SELECT e.stake FROM paper_entries e
             LEFT JOIN (SELECT entry_uid, state FROM settlements s1 WHERE id = (
                 SELECT MAX(id) FROM settlements s2 WHERE s2.entry_uid = s1.entry_uid)) s
             ON s.entry_uid = e.entry_uid
-            WHERE e.namespace = ? AND (s.state IS NULL OR s.state IN ('pending','review')) {where}""",
+            WHERE e.namespace = ? AND (s.state IS NULL OR s.state IN ('pending','review')) {where}""",  # noqa: S608
                                      (namespace, *params)).fetchall()
         return sum(r[0] for r in rows)
 
@@ -179,7 +182,7 @@ def settle_entries(store, namespace, grader, source):
 def performance(store, namespace):
     """Realised P&L from settled entries at their quoted entry price; open
     exposure reported separately (never marked to model)."""
-    rows = store.db.execute(f"""
+    rows = store.db.execute("""
         SELECT e.stake, s.state, s.pnl FROM paper_entries e LEFT JOIN (
             SELECT entry_uid, state, pnl FROM settlements s1 WHERE id = (
                 SELECT MAX(id) FROM settlements s2 WHERE s2.entry_uid = s1.entry_uid)) s

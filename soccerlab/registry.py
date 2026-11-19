@@ -135,7 +135,10 @@ def golden_check(m):
     errs = []
     if cfg != spec["config"]:
         errs.append("registered config differs from frozen hyperparameters")
-    for new, old in zip(_synthetic_golden(cfg), m["golden_synthetic"]):
+    syn = _synthetic_golden(cfg)
+    if len(syn) != len(m["golden_synthetic"]):
+        errs.append("synthetic golden case count changed")
+    for new, old in zip(syn, m["golden_synthetic"], strict=False):
         if not np.allclose(new["p"], old["p"], atol=m["golden_tolerance"], rtol=0):
             errs.append(f"golden {old['case']}: {new['p']} != {old['p']}")
     # real-data golden uses the commit's data, not the (possibly refreshed) working tree
@@ -144,7 +147,9 @@ def golden_check(m):
             p = Path(tmp) / Path(e["path"]).name
             p.write_bytes(git_blob_bytes(m["git"]["commit"], e["path"], cwd=REPO_ROOT))
         real = _real_golden(cfg, m["xg_mode"], data_dir=tmp)
-    for new, old in zip(real, m["golden_real"]["cases"]):
+    if len(real) != len(m["golden_real"]["cases"]):
+        errs.append("real-data golden case count changed")
+    for new, old in zip(real, m["golden_real"]["cases"], strict=False):
         if new["case"] != old["case"] or not np.allclose(new["p"], old["p"], atol=m["golden_tolerance"], rtol=0):
             errs.append(f"golden {old['case']}: {new['p']} != {old['p']}")
     return errs

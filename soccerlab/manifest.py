@@ -91,7 +91,7 @@ def _git_equivalent(commit, paths, repo_root) -> dict:
         out = subprocess.run(["git", "hash-object", "--stdin-paths"], cwd=repo_root, check=True,
                              input="\n".join(paths).encode("utf-8"), capture_output=True).stdout
         ids = out.decode().split()
-        return {p: blob.get(p) == i for p, i in zip(paths, ids)}
+        return {p: blob.get(p) == i for p, i in zip(paths, ids, strict=True)}
     except Exception:                                            # noqa: BLE001
         return {}
 
