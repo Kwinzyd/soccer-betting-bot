@@ -11,7 +11,8 @@
   probe [SCHEDULE_DIR]     minimal auth / permission / rate-limit probe (8 requests max)
   init-store DIR           put the database/lock/CSVs in DIR (e.g. a USB drive); writes a marker + pointer
   where                    print the active store directory (exit 4 if unavailable)
-  backup [--source DB] [--dest DIR] [--keep N]   verified online backup to a separate volume
+  backup [--source DB] [--dest DIR] [--keep N] [--offsite onedrive]   verified online backup (separate volume,
+                           or an approved cloud-synced folder with --offsite)
   backup-verify FILE | backup-list [--dest DIR] | restore FILE NEW_TARGET
   report [--source DB] [--hours 24] [--out FILE]  read-only live-pilot report
   pin-identity             record the store's volume serial (drive-identity check)
@@ -57,6 +58,8 @@ def main(argv):
     ap.add_argument("--american", type=float), ap.add_argument("--at"), ap.add_argument("--stake-accepted", type=float)
     ap.add_argument("--note")
     ap.add_argument("--source"), ap.add_argument("--dest"), ap.add_argument("--keep", type=int, default=14)
+    ap.add_argument("--offsite", choices=["onedrive"], default=None,
+                    help="destination is inside an approved cloud-synced folder (same volume allowed)")
     ap.add_argument("--hours", type=float, default=24.0), ap.add_argument("--out")
     a = ap.parse_args(argv)
 
@@ -68,7 +71,7 @@ def main(argv):
         try:
             if a.action == "backup":
                 src = a.source or str(store_dir() / "exp_b_odds.sqlite3")
-                m = B.make_backup(src, a.dest, keep=a.keep)
+                m = B.make_backup(src, a.dest, keep=a.keep, offsite=a.offsite)
                 print(f"backup ok: {m['file']} ({m['bytes']} bytes, sha256 {m['sha256'][:16]}..., "
                       f"rows {sum(m['row_counts'].values())}); pruned {m['pruned'] or 'none'}")
             elif a.action == "backup-verify":

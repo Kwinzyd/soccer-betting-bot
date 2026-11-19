@@ -12,7 +12,8 @@
 param([switch]$Install, [switch]$Uninstall,
       [string]$Source = "$env:USERPROFILE\soccerlab-research\expb\exp_b_odds.sqlite3",
       [string]$Dest = "",                     # REQUIRED: a separate, healthy physical device (not C:, not the damaged USB)
-      [int]$Keep = 14, [string]$At = "06:15")
+      [int]$Keep = 14, [string]$At = "06:15",
+      [ValidateSet("", "onedrive")] [string]$Offsite = "")   # "onedrive": Dest is inside the OneDrive folder
 
 $TaskName = "soccerlab-expb-backup"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -31,6 +32,10 @@ if (-not $Dest) {
 $py = Join-Path (Split-Path -Parent $Worktree) "api-football-data-research\var\venv\Scripts\python.exe"
 if (-not (Test-Path $py)) { $py = (Get-Command python -ErrorAction Stop).Source }
 $args_ = "-u -m soccerlab expb backup --source `"$Source`" --dest `"$Dest`" --keep $Keep"
+if ($Offsite) { $args_ += " --offsite $Offsite" }
+if ((-not $Offsite) -and $env:OneDrive -and $Dest.StartsWith($env:OneDrive, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Dest is inside OneDrive: pass -Offsite onedrive"
+}
 $action = New-ScheduledTaskAction -Execute $py -Argument $args_ -WorkingDirectory $Worktree
 $trigger = New-ScheduledTaskTrigger -Daily -At $At
 $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
@@ -40,7 +45,7 @@ Write-Host "Task:     $TaskName (daily at $At local, catches up if the PC was of
 Write-Host "Runs:     $py $args_"
 Write-Host "Code:     $Worktree"
 Write-Host "Source:   $Source (read-only)"
-Write-Host "Target:   $Dest (keep $Keep)"
+Write-Host "Target:   $Dest (keep $Keep; off-device service: $(if ($Offsite) { $Offsite } else { "none" }))"
 if (-not $Install) { Write-Host ""; Write-Host "DRY RUN - nothing registered."; exit 0 }
 Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger -Settings $settings `
     -Description "EXP-2026-11-B verified daily database backup (read-only on the source)" | Out-Null

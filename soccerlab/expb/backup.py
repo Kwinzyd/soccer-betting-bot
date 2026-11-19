@@ -26,6 +26,8 @@ import os
 import re
 import shutil
 import sqlite3
+import subprocess
+import tempfile
 from pathlib import Path
 
 from ..hashing import atomic_write_json, sha256_file
@@ -43,6 +45,39 @@ EXPERIMENT = "EXP-2026-11-B"
 
 class BackupError(RuntimeError):
     pass
+
+
+# ------------------------------------------------------------ approved sync services
+# A folder synced by an approved cloud service counts as off-device even though its
+# local copy shares the source's volume. Only OneDrive (Personal) is approved, and only
+# when the destination is inside its folder and the client is running.
+SYNC_SERVICES = ("onedrive",)
+
+
+def onedrive_root():
+    root = os.environ.get("OneDriveConsumer") or os.environ.get("OneDrive")
+    return Path(root) if root else None
+
+
+def onedrive_running():
+    if os.name != "nt":
+        return False
+    r = subprocess.run(["tasklist", "/FI", "IMAGENAME eq OneDrive.exe", "/NH"], capture_output=True, text=True)
+    return "OneDrive.exe" in r.stdout
+
+
+def check_sync_service(dest, service):
+    if service not in SYNC_SERVICES:
+        raise BackupError(f"unsupported off-device service {service!r}")
+    root = onedrive_root()
+    if root is None or not root.is_dir():
+        raise BackupError("OneDrive folder not found (OneDrive / OneDriveConsumer environment variable)")
+    d, r = Path(dest).resolve(), root.resolve()
+    if d != r and r not in d.parents:
+        raise BackupError(f"{dest} is not inside the OneDrive folder {root}")
+    if not onedrive_running():
+        raise BackupError("OneDrive is not running; the backup would not leave this machine")
+    return r
 
 
 def default_dest():
@@ -95,7 +130,10 @@ def _fsync(path):
         os.close(fd)
 
 
-def make_backup(source, dest=None, keep=14, now=None):
+def make_backup(source, dest=None, keep=14, now=None, offsite=None, staging=None):
+    """offsite="onedrive": dest must be inside the running OneDrive folder; the copy is built and
+    verified in a local staging directory outside the synced tree and moved in only when complete,
+    so the sync client never sees a partial file."""
     src, dest = Path(source), Path(dest or default_dest())
     now = now or utcnow()
     if not src.is_file():
@@ -107,9 +145,19 @@ def make_backup(source, dest=None, keep=14, now=None):
         raise BackupError(f"refusing a backup target inside a Dropbox folder ({db})")
     if volume_id(dest) in DAMAGED_VOLUMES:
         raise BackupError(f"backup target is on volume {volume_id(dest)}, recorded as damaged; use a healthy device")
-    if volume_id(src) == volume_id(dest):
-        raise BackupError("backup target is on the same volume as the source; use a physically separate volume")
+    if offsite:
+        sync_root = check_sync_service(dest, offsite)
+        stage = Path(staging or Path(tempfile.gettempdir()) / "soccerlab-expb-staging")
+        if stage.resolve() == sync_root or sync_root in stage.resolve().parents:
+            raise BackupError("staging directory must be outside the synced folder")
+    else:
+        if volume_id(src) == volume_id(dest):
+            raise BackupError("backup target is on the same volume as the source; use a physically separate volume")
+        stage = dest
     dest.mkdir(parents=True, exist_ok=True)
+    stage.mkdir(parents=True, exist_ok=True)
+    if volume_id(stage) != volume_id(dest):
+        raise BackupError("staging and destination must share a volume so publication is an atomic rename")
     need = 3 * (src.stat().st_size + (src.with_name(src.name + "-wal").stat().st_size
                                       if src.with_name(src.name + "-wal").exists() else 0))
     if shutil.disk_usage(dest).free < need:
@@ -119,7 +167,7 @@ def make_backup(source, dest=None, keep=14, now=None):
     final = dest / f"exp_b_odds_{stamp}.sqlite3"
     if final.exists():
         raise BackupError(f"{final.name} already exists")
-    tmp = dest / f".tmp-{stamp}-{os.getpid()}.sqlite3"
+    tmp = stage / f".tmp-{stamp}-{os.getpid()}.sqlite3"
     prev = list_backups(dest)
     prev_counts = json.loads(prev[-1].with_suffix(".json").read_text(encoding="utf-8"))["row_counts"] if prev else None
     try:
@@ -144,12 +192,19 @@ def make_backup(source, dest=None, keep=14, now=None):
         raise
     manifest = {"experiment": EXPERIMENT, "created_at": iso(now), "source": str(src),
                 "source_volume": volume_id(src), "backup_volume": volume_id(dest), "file": final.name,
-                "bytes": final.stat().st_size, "sha256": digest, "integrity_check": "ok", "row_counts": counts}
-    atomic_write_json(final.with_suffix(".json"), manifest)
+                "bytes": final.stat().st_size, "sha256": digest, "integrity_check": "ok", "row_counts": counts,
+                "offsite": offsite}
+    if offsite:                                          # publish the manifest the same way: staged, then renamed
+        staged = stage / f".tmp-{stamp}-{os.getpid()}.json"
+        atomic_write_json(staged, manifest)
+        os.replace(staged, final.with_suffix(".json"))
+    else:
+        atomic_write_json(final.with_suffix(".json"), manifest)
     pruned = prune(dest, keep, protect=final)
-    for stale in dest.glob(".tmp-*.sqlite3"):           # leftovers from killed runs
-        if stale != tmp:
-            stale.unlink(missing_ok=True)
+    for d_ in {dest, stage}:                             # leftovers from killed runs
+        for stale in d_.glob(".tmp-*"):
+            if stale != tmp:
+                stale.unlink(missing_ok=True)
     return dict(manifest, pruned=[p.name for p in pruned])
 
 

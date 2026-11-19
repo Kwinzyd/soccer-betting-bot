@@ -212,3 +212,68 @@ def test_damaged_volume_is_refused_as_destination(live, tmp_path, monkeypatch):
     monkeypatch.setattr(B, "volume_id", lambda p: "SRC" if "src" in Path(p).parts else "3CF6E1FA")
     with pytest.raises(B.BackupError, match="damaged"):
         B.make_backup(src, tmp_path / "bak")
+
+
+# ------------------------------------------------------------ approved off-device service (OneDrive)
+
+@pytest.fixture
+def onedrive(tmp_path, monkeypatch):
+    root = tmp_path / "OneDrive"
+    root.mkdir()
+    monkeypatch.setattr(B, "onedrive_root", lambda: root)
+    monkeypatch.setattr(B, "onedrive_running", lambda: True)
+    monkeypatch.setattr(B, "volume_id", lambda p: "C")                 # source, staging and OneDrive share C:
+    return root
+
+
+def test_onedrive_same_volume_allowed_only_with_offsite(live, tmp_path, onedrive):
+    src, *_ = live
+    dest = onedrive / "soccerlab-backups" / "expb" / "daily"
+    with pytest.raises(B.BackupError, match="same volume"):
+        B.make_backup(src, dest)                                        # plain mode still refuses
+    m = B.make_backup(src, dest, offsite="onedrive", staging=tmp_path / "stage")
+    assert m["offsite"] == "onedrive" and B.verify_backup(dest / m["file"])
+    assert sorted(p.name for p in dest.iterdir()) == sorted([m["file"], m["file"][:-8] + ".json"])   # nothing partial lands
+    assert not list((tmp_path / "stage").glob(".tmp-*"))
+
+
+def test_onedrive_refusals(live, tmp_path, onedrive, monkeypatch):
+    src, *_ = live
+    with pytest.raises(B.BackupError, match="not inside the OneDrive"):
+        B.make_backup(src, tmp_path / "elsewhere", offsite="onedrive", staging=tmp_path / "stage")
+    with pytest.raises(B.BackupError, match="outside the synced folder"):
+        B.make_backup(src, onedrive / "bak", offsite="onedrive", staging=onedrive / "stage")
+    monkeypatch.setattr(B, "onedrive_running", lambda: False)
+    with pytest.raises(B.BackupError, match="not running"):
+        B.make_backup(src, onedrive / "bak", offsite="onedrive", staging=tmp_path / "stage")
+    monkeypatch.setattr(B, "onedrive_root", lambda: None)
+    with pytest.raises(B.BackupError, match="OneDrive folder not found"):
+        B.make_backup(src, onedrive / "bak", offsite="onedrive", staging=tmp_path / "stage")
+    with pytest.raises(B.BackupError, match="unsupported"):
+        B.make_backup(src, onedrive / "bak", offsite="dropbox", staging=tmp_path / "stage")
+
+
+def test_onedrive_failed_backup_leaves_nothing_in_synced_folder(live, tmp_path, onedrive, monkeypatch):
+    src, *_ = live
+    dest = onedrive / "bak"
+
+    def boom(conn):
+        raise RuntimeError("crash during verification")
+    monkeypatch.setattr(B, "_check", boom)
+    with pytest.raises(RuntimeError):
+        B.make_backup(src, dest, offsite="onedrive", staging=tmp_path / "stage")
+    assert not dest.exists() or list(dest.iterdir()) == []
+    assert not list((tmp_path / "stage").glob(".tmp-*"))
+
+
+def test_onedrive_retention_never_touches_other_folders(live, tmp_path, onedrive):
+    src, *_ = live
+    dest = onedrive / "daily"
+    keepme = onedrive / "emergency"
+    keepme.mkdir()
+    (keepme / "exp_b_odds_20261119T222716Z.sqlite3").write_bytes(b"x")
+    (keepme / "exp_b_odds_20261119T222716Z.json").write_text("{}")
+    for d in range(20, 25):
+        B.make_backup(src, dest, keep=2, offsite="onedrive", staging=tmp_path / "stage",
+                      now=parse_utc(f"2026-11-{d}T06:15:00Z"))
+    assert len(B.list_backups(dest)) == 2 and len(list(keepme.iterdir())) == 2
