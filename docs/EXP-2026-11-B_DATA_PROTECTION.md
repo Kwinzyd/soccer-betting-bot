@@ -3,9 +3,12 @@
 > **Update 2026-11-19 22:37 UTC — store migrated to C:.** Live store:
 > `C:\Users\louis\soccerlab-research\expb`. Recovery copies:
 > `C:\Users\louis\soccerlab-backups\expb\emergency\` and `...\migration\` (verified,
-> sha256 manifests), plus the untouched original on the damaged USB `D:`. The daily
-> backup task is not installed because no separate healthy device exists yet, so
-> off-device protection is **incomplete**. Event log:
+> sha256 manifests), plus the untouched original on the damaged USB `D:`.
+> **Update 23:26 UTC:** daily off-device backups to OneDrive (Personal) are active:
+> task `soccerlab-expb-backup`, 06:15 local, `--offsite onedrive --keep 14`, destination
+> `C:\Users\louis\OneDrive\soccerlab-backups\expb\daily`. Each copy is staged outside the
+> synced folder, verified, then renamed in. `expb backup-sync-status --dest <dir>`
+> confirms the newest copy reached the cloud (`in_sync`). Event log:
 > `registry/experiments/EXP-2026-11-B_operations.json`. The rest of this document
 > describes the pre-migration state.
 
