@@ -51,6 +51,21 @@
       "at": "2026-11-19T22:37:03Z",
       "event": "backup_status",
       "detail": "daily backup task NOT installed: no separate healthy physical device or approved off-device service available; recovery copies = emergency + migration snapshots on C: (taken from D:) and the original on damaged D:. Off-device protection incomplete."
+    },
+    {
+      "at": "2026-11-19T23:24:06Z",
+      "event": "offsite_backup_first",
+      "detail": "user-designated OneDrive (Personal; client running, account signed in) as the off-device backup service; first backup C:\\Users\\louis\\OneDrive\\soccerlab-backups\\expb\\daily\\exp_b_odds_20261119T232406Z.sqlite3; integrity ok; sha256 manifest ok; independent prefix verification vs live store PASS; OneDrive StorageProviderState in_sync"
+    },
+    {
+      "at": "2026-11-19T23:26:13Z",
+      "event": "backup_task_installed",
+      "detail": "soccerlab-expb-backup, daily 06:15 local, --offsite onedrive --keep 14, destination C:\\Users\\louis\\OneDrive\\soccerlab-backups\\expb\\daily; staged outside the synced folder then atomically renamed in; manual test run result 0, backup 20261119T232614Z verified and in_sync. Emergency and migration snapshots stay in separate local folders outside retention."
+    },
+    {
+      "at": "2026-11-19T23:26:39Z",
+      "event": "logger_gaps_found",
+      "detail": "5-minute slots 22:47, 22:57, 23:02, 23:07, 23:17 and 23:22 have no runs row; the 23:22 instance ended 0x41306 (terminated); recorded runs started 40-96 s after launch; Task Scheduler reports 0 missed runs. No poll was due in those slots and no poll is open, so no observations were lost. Suspected cause: task Priority 7 (below-normal CPU, low I/O) starved during heavy local test runs. Proposed fix (Priority 5) not applied: not permitted in this session."
     }
   ]
 }
