@@ -20,6 +20,9 @@ PROD_ROOT = Path(os.environ["SOCCERLAB_PROD_ROOT"]) if os.environ.get("SOCCERLAB
 
 def ensure_var() -> Path:
     VAR_DIR.mkdir(parents=True, exist_ok=True)
+    gi = VAR_DIR / ".gitignore"
+    if not gi.exists():
+        gi.write_text("*\n", encoding="utf-8")   # research state never enters git
     return VAR_DIR
 
 

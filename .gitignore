@@ -16,7 +16,3 @@ __pycache__/
 /gdate.txt
 /gid.txt
 /nhl_daily_report_*.md
-
-# soccerlab research state (snapshots, sqlite stores)
-/var/
-.pytest_cache/
