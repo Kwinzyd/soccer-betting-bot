@@ -1,0 +1,18 @@
+{
+  "comment": "Roles and permissions per model id. 'promoted' is set only by a human after all gates in docs/EXPERIMENT_PLAN.md pass; no code in soccerlab writes it.",
+  "models": [
+    {
+      "id": "soccer-dc-legacy",
+      "status": "legacy-baseline",
+      "manifest": "registry/soccer-dc-legacy/manifest.json",
+      "note": "unvalidated; the live bot still runs this code on main"
+    },
+    {
+      "id": "soccer-dc-pit-v1",
+      "status": "challenger",
+      "manifest": "registry/soccer-dc-pit-v1/manifest.json",
+      "note": "failed Gate C in EXP-2026-11-A; shadow forward-tracking only"
+    }
+  ],
+  "promoted": []
+}

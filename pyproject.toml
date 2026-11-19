@@ -1,0 +1,27 @@
+[project]
+name = "soccerlab"
+version = "0.1.0"
+description = "Point-in-time research, evaluation and paper-trading layer for the soccer betting bot"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.0", "scipy>=1.13"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+markers = [
+    "slow: touches the real historical data (seconds to minutes)",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["model", "odds_logger", "series", "*.py.bak"]
+src = ["soccerlab", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "S"]
+ignore = ["S101", "S603", "S607", "S311", "E501"]

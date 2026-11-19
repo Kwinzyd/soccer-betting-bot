@@ -1,0 +1,43 @@
+# Offline CI: no API keys, no Telegram, no scheduled-task installation.
+# Deployment (install_task.ps1) is deliberately not part of CI.
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    # Windows matches production (Task Scheduler host) and the platform the
+    # golden predictions were frozen on.
+    runs-on: windows-latest
+    env:
+      # legacy settle.py reads a key at import time; tests never call the API
+      BALLDONTLIE_KEY: ci-dummy-not-a-key
+      SOCCERLAB_ALERTS: "0"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # manifest verification reads baseline blobs from history
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install locked dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Lint
+        run: python -m ruff check soccerlab tests
+      - name: Dependency vulnerability scan
+        run: python -m pip_audit -r requirements-lock.txt
+      - name: Static audit (secrets, hosts, execution primitives)
+        run: python -m soccerlab audit
+      - name: Tests (offline; sockets blocked)
+        run: python -m pytest -q
+      - name: Legacy baseline manifest + golden recompute
+        run: python -m soccerlab baseline verify --golden
+      - name: Challenger manifest + golden recompute
+        run: python -m soccerlab model verify soccer-dc-pit-v1 --golden
+      - name: Data verification
+        run: python -m soccerlab data verify

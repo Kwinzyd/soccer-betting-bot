@@ -38,6 +38,10 @@ def main(argv=None):
     pp = sub.add_parser("paper", help="paper predictions with risk checks (production-paper namespace)")
     pp.add_argument("--poll", required=True)
     pp.add_argument("--model", default=None, help="must be a PROMOTED model id")
+    for p_ in (sp, pp):
+        p_.add_argument("--replay", action="store_true",
+                        help="decide as of the poll's own timestamp (+1 min) instead of now")
+        p_.add_argument("--schedule-dir", default=None, help="directory with *_2026_matches.json snapshots")
 
     st = sub.add_parser("settle", help="settle paper/shadow entries from a schedule file")
     st.add_argument("--schedule-dir", default=None)
@@ -71,7 +75,7 @@ def main(argv=None):
 
     if a.cmd in ("shadow", "paper"):
         from . import live
-        return live.main(a.cmd, poll=a.poll, model_id=a.model)
+        return live.main(a.cmd, poll=a.poll, model_id=a.model, replay=a.replay, schedule_dir=a.schedule_dir)
 
     if a.cmd == "settle":
         from . import live

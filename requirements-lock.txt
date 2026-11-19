@@ -1,0 +1,4 @@
+# Exact versions the baseline manifest and EXP-2026-11-A were produced with
+# (python 3.13.14, Windows 11). Golden-prediction tolerances (1e-6) assume these.
+numpy==2.4.1
+scipy==1.17.1
