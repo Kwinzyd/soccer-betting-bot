@@ -1,7 +1,9 @@
 # EXP-2026-11-B — 14-day observational pilot: readiness report
 
 Prepared 2026-11-19 on `research/quant-audit` (not pushed, not merged).
-**Nothing is installed or running.** The pilot collects odds only: no
+**Update 2026-11-19 22:00 UTC: task installed with authorization; pilot started at 2026-11-19T21:58:29Z
+(ends 2026-12-03T21:58:29Z); store on the USB drive `D:\soccerlab-research\expb`.**
+Original readiness text follows. The pilot collects odds only: no
 predictions, no picks, no Telegram, no staking, no real-money execution.
 All pilot records are excluded from the eventual locked analysis.
 
@@ -28,7 +30,7 @@ All pilot records are excluded from the eventual locked analysis.
 | A4 | API authentication | probe 2026-11-19T21:34:51Z: HTTP 200 for `matches` and `odds` in all 4 leagues; 8 requests total; key never printed | GO |
 | A5 | rate limit | `x-ratelimit-limit: 5`; remaining 4 → 3 per league pair; reset ~60s ahead. Windows appear per league/route (inferred, unconfirmed); logger keeps global 13s spacing | GO (conservative) |
 | A6 | vendors returned | DraftKings, FanDuel, Polymarket (Ligue 1 sample: no Polymarket) | GO |
-| A7 | 2026-27 football-data CSVs | 4 files downloaded to `var\expb\fd\`; 100/119/110/90 rows = BallDontLie finals; `BFEC*` 100% present; no Pinnacle columns; no duplicates | GO |
+| A7 | 2026-27 football-data CSVs | 4 files downloaded to `D:\soccerlab-research\expb\fd\`; 100/119/110/90 rows = BallDontLie finals; `BFEC*` 100% present; no Pinnacle columns; no duplicates | GO |
 | A8 | team aliases | all 6 promoted teams resolved from 2026-27 results (5–10 unique matches each, 0 conflicting votes); every 2026 team mapped; evidence in `registry/experiments/team_aliases.json` | GO |
 | A9 | closing-reference join | 419/419 rows matched to a unique fixture with agreeing scores; 0 quarantined | GO |
 | A10 | protocol guard | `expb evaluate` → REFUSED (exit 3); no approved venues | GO |
@@ -42,7 +44,8 @@ All pilot records are excluded from the eventual locked analysis.
 | B1 | explicit authorization to run `install_expb_task.ps1 -Install` | **PENDING** |
 | B2 | legacy logger stays disabled during the pilot (it shares the 5/min key limit) | **CONFIRM** |
 | B3 | PC on and online across kickoff windows (Fri–Mon afternoons/evenings UTC, Tue–Thu evenings). A sleeping machine shows up as missed snapshots, not invented data | **CONFIRM** |
-| B4 | disk: C: has 20 GB free (92% used); pilot needs < 50 MB | OK, but low headroom overall |
+| B4 | disk: pilot store moved to USB `D:` (NTFS, 112 GB free); C: holds only code and `var\venv` | DONE |
+| B5 | USB `D:` must stay plugged in. If it is missing, every run exits 4 and writes nothing (marker check); monitor shows liveness red | CONFIRM |
 
 ### C. Pilot exit criteria (evaluated after 14 days; GO to lock only if all pass)
 
@@ -110,12 +113,12 @@ commit on this branch.
 .\var\venv\Scripts\python.exe -m soccerlab expb spotcheck --fixture bdl:epl:<id> --venue draftkings --selection home --american -110 --at 2026-11-22T14:05:00Z --stake-accepted 10
 .\var\venv\Scripts\python.exe -m soccerlab expb spotcheck-report
 # weekly closing-reference refresh:
-foreach ($c in "E0","SP1","I1","F1") { Invoke-WebRequest "https://www.football-data.co.uk/mmz4281/2627/$c.csv" -OutFile "var\expb\fd\${c}_2627.csv" }
+foreach ($c in "E0","SP1","I1","F1") { Invoke-WebRequest "https://www.football-data.co.uk/mmz4281/2627/$c.csv" -OutFile "D:\soccerlab-research\expb\fd\${c}_2627.csv" }
 .\var\venv\Scripts\python.exe -m soccerlab expb aliases
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import var\expb\fd\E0_2627.csv epl
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import var\expb\fd\SP1_2627.csv laliga
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import var\expb\fd\I1_2627.csv seriea
-.\var\venv\Scripts\python.exe -m soccerlab expb closing-import var\expb\fd\F1_2627.csv ligue1
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\E0_2627.csv epl
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\SP1_2627.csv laliga
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\I1_2627.csv seriea
+.\var\venv\Scripts\python.exe -m soccerlab expb closing-import D:\soccerlab-research\expb\fd\F1_2627.csv ligue1
 ```
 
 ### Pause, stop, roll back
@@ -123,7 +126,7 @@ foreach ($c in "E0","SP1","I1","F1") { Invoke-WebRequest "https://www.football-d
 ```powershell
 Disable-ScheduledTask -TaskName soccerlab-expb-odds-logger      # pause immediately (data kept)
 Enable-ScheduledTask  -TaskName soccerlab-expb-odds-logger      # resume
-Copy-Item var\expb\exp_b_odds.sqlite3 "var\expb\backup_$(Get-Date -Format yyyyMMdd).sqlite3"   # while disabled
+Copy-Item D:\soccerlab-research\expb\exp_b_odds.sqlite3 "D:\soccerlab-research\expb\backup_$(Get-Date -Format yyyyMMdd).sqlite3"   # while disabled
 powershell -ExecutionPolicy Bypass -File research_tasks\install_expb_task.ps1 -Uninstall        # remove the task
 ```
 

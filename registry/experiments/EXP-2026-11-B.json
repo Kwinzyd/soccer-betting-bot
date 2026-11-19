@@ -73,8 +73,10 @@
   "closing_reference_strong_status": "PROVISIONAL: football-data documents BFE* as 'Betfair Exchange' but not back/lay/mid, commission, or closing capture time",
   "pilot": {
     "duration_days": 14,
-    "start": null,
-    "end": null,
-    "use": "data-quality acceptance criteria only; excluded from every endpoint (quotes must be retrieved >= locked_at)"
+    "start": "2026-11-19T21:58:29Z",
+    "end": "2026-12-03T21:58:29Z",
+    "use": "data-quality acceptance criteria only; excluded from every endpoint (quotes must be retrieved >= locked_at)",
+    "store": "D:\\soccerlab-research\\expb (USB, NTFS); pointer var/expb/DB_LOCATION; marker .soccerlab-expb-store",
+    "task": "soccerlab-expb-odds-logger, every 5 min, installed 2026-11-19 with user authorization"
   }
 }
