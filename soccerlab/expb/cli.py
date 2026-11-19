@@ -11,6 +11,10 @@
   probe [SCHEDULE_DIR]     minimal auth / permission / rate-limit probe (8 requests max)
   init-store DIR           put the database/lock/CSVs in DIR (e.g. a USB drive); writes a marker + pointer
   where                    print the active store directory (exit 4 if unavailable)
+  backup [--source DB] [--dest DIR] [--keep N]   verified online backup to a separate volume
+  backup-verify FILE | backup-list [--dest DIR] | restore FILE NEW_TARGET
+  report [--source DB] [--hours 24] [--out FILE]  read-only live-pilot report
+  pin-identity             record the store's volume serial (drive-identity check)
 """
 
 import argparse
@@ -45,17 +49,57 @@ def spotcheck_report(db, tolerance_minutes=10):
 def main(argv):
     ap = argparse.ArgumentParser(prog="soccerlab expb")
     ap.add_argument("action", choices=["run", "monitor", "quality", "aliases", "closing-import", "spotcheck",
-                                       "spotcheck-report", "evaluate", "probe", "init-store", "where"])
+                                       "spotcheck-report", "evaluate", "probe", "init-store", "where",
+                                       "backup", "backup-verify", "backup-list", "restore", "report", "pin-identity"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--db", default=None)
     ap.add_argument("--fixture"), ap.add_argument("--venue"), ap.add_argument("--selection")
     ap.add_argument("--american", type=float), ap.add_argument("--at"), ap.add_argument("--stake-accepted", type=float)
     ap.add_argument("--note")
+    ap.add_argument("--source"), ap.add_argument("--dest"), ap.add_argument("--keep", type=int, default=14)
+    ap.add_argument("--hours", type=float, default=24.0), ap.add_argument("--out")
     a = ap.parse_args(argv)
 
     if a.action == "run":
         from .logger import main as run_main
         return run_main(a.db)
+    if a.action in ("backup", "backup-verify", "backup-list", "restore"):
+        from . import backup as B
+        try:
+            if a.action == "backup":
+                src = a.source or str(store_dir() / "exp_b_odds.sqlite3")
+                m = B.make_backup(src, a.dest, keep=a.keep)
+                print(f"backup ok: {m['file']} ({m['bytes']} bytes, sha256 {m['sha256'][:16]}..., "
+                      f"rows {sum(m['row_counts'].values())}); pruned {m['pruned'] or 'none'}")
+            elif a.action == "backup-verify":
+                m = B.verify_backup(a.args[0])
+                print(f"verified: {m['file']} integrity ok, sha256 ok, rows {sum(m['row_counts'].values())}")
+            elif a.action == "backup-list":
+                for f in B.list_backups(a.dest or B.default_dest()):
+                    print(f"  {f}")
+            else:
+                if len(a.args) != 2:
+                    ap.error("restore needs BACKUP TARGET")
+                print(f"restored to {B.restore(a.args[0], a.args[1])} (logger NOT repointed)")
+            return 0
+        except (B.BackupError, StoreUnavailable) as exc:
+            print(f"BACKUP FAILED: {exc}")
+            return 5
+    if a.action == "report":
+        from . import report24
+        src = a.source or str(store_dir() / "exp_b_odds.sqlite3")
+        R = report24.build(src, hours=a.hours)
+        text = report24.render(R, report24.volume_health(src))
+        if a.out:
+            from ..hashing import atomic_write_text
+            atomic_write_text(a.out, text)
+        print(text)
+        return 0
+    if a.action == "pin-identity":
+        from .db import pin_store_identity
+        d, vid = pin_store_identity()
+        print(f"store {d} pinned to volume {vid}")
+        return 0
     if a.action == "init-store":
         if len(a.args) != 1:
             ap.error("init-store needs DIRECTORY")

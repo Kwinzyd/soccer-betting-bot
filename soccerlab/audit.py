@@ -26,7 +26,27 @@ def tracked():
                           text=True).stdout.splitlines()
 
 
-def main():
+def history_problems():
+    """Scan every commit reachable from any ref (not just the work tree)."""
+    revs = subprocess.run(["git", "rev-list", "--all"], cwd=REPO_ROOT, check=True, capture_output=True,
+                          text=True).stdout.split()
+    problems = []
+    names = subprocess.run(["git", "log", "--all", "--name-only", "--format="], cwd=REPO_ROOT, check=True,
+                           capture_output=True, text=True).stdout.splitlines()
+    for f in sorted(set(names)):
+        if f in MUST_BE_UNTRACKED or f.endswith((".key", ".env")):
+            problems.append(f"history: secret-bearing file {f} was committed")
+    for label, pat in (("telegram bot token", r"[0-9]{8,10}:[A-Za-z0-9_-]{35}"),
+                       ("uuid-like key literal", r"['\"][0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}['\"]")):
+        r = subprocess.run(["git", "grep", "-I", "-l", "-E", pat, *revs], cwd=REPO_ROOT, capture_output=True, text=True)
+        for hit in sorted(set(r.stdout.splitlines()))[:20]:
+            path = hit.split(":", 1)[1] if ":" in hit else hit
+            if not path.startswith(("balldontlie_", "fixtures/", "xg/", "rosters/", "odds_hist/")):
+                problems.append(f"history: possible {label} in {hit}")
+    return problems, len(revs)
+
+
+def main(history=False):
     files = tracked()
     problems, notes = [], []
     for f in files:
@@ -50,6 +70,10 @@ def main():
             if f != "soccerlab/audit.py" and EXECUTION_WORDS.search(src):
                 problems.append(f"{f}: mentions a real-money execution primitive")
     notes.append(f"scanned {len(files)} tracked files")
+    if history:
+        hp, n = history_problems()
+        problems += hp
+        notes.append(f"scanned {n} commits across all refs")
     for n in notes:
         print(f"  {n}")
     for p in problems:

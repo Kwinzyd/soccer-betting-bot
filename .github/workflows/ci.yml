@@ -1,5 +1,7 @@
-# Offline CI: no API keys, no Telegram, no scheduled-task installation.
-# Deployment (install_task.ps1) is deliberately not part of CI.
+# Offline CI: no API keys, no Telegram, no scheduled-task installation, no live data.
+# Network is used only to install pinned packages from PyPI and for pip-audit's
+# vulnerability lookup. Every test runs with sockets blocked (tests/conftest.py).
+# Deployment (install_task.ps1, install_expb_*.ps1 -Install) is deliberately not part of CI.
 name: ci
 
 on:
@@ -31,8 +33,8 @@ jobs:
         run: python -m ruff check soccerlab tests
       - name: Dependency vulnerability scan
         run: python -m pip_audit -r requirements-lock.txt
-      - name: Static audit (secrets, hosts, execution primitives)
-        run: python -m soccerlab audit
+      - name: Static audit incl. full-history secret scan (secrets, hosts, execution primitives)
+        run: python -m soccerlab audit --history
       - name: Tests (offline; sockets blocked)
         run: python -m pytest -q
       - name: Legacy baseline manifest + golden recompute

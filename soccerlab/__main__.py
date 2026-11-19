@@ -26,7 +26,8 @@ def main(argv=None):
     r.add_argument("model_id", nargs="?")
     r.add_argument("--golden", action="store_true")
 
-    sub.add_parser("audit", help="static audit checks over the repository")
+    au = sub.add_parser("audit", help="static audit checks over the repository")
+    au.add_argument("--history", action="store_true", help="also scan every commit for secrets")
 
     d = sub.add_parser("data", help="data verification and completeness report")
     d.add_argument("action", choices=["verify", "completeness"])
@@ -70,7 +71,7 @@ def main(argv=None):
 
     if a.cmd == "audit":
         from . import audit
-        return audit.main()
+        return audit.main(history=a.history)
 
     if a.cmd == "data":
         from . import datacheck

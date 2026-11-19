@@ -88,6 +88,7 @@ def _triggers():
 DB_NAME = "exp_b_odds.sqlite3"
 STORE_MARKER = ".soccerlab-expb-store"
 POINTER = "DB_LOCATION"          # var/expb/DB_LOCATION: one line, the external store directory
+IDENTITY = "STORE_IDENTITY"      # var/expb/STORE_IDENTITY: volume serial the store must be on (optional)
 
 
 class StoreUnavailable(RuntimeError):
@@ -113,6 +114,12 @@ def store_dir():
     d = Path(target)
     if not (d / STORE_MARKER).is_file():
         raise StoreUnavailable(f"external store {d} unavailable or not initialised (missing {STORE_MARKER})")
+    ident = local / IDENTITY
+    if ident.exists():
+        from .volume import volume_id
+        want, got = ident.read_text(encoding="utf-8").strip(), volume_id(d)
+        if want != got:
+            raise StoreUnavailable(f"store {d} is on volume {got}, expected {want} (different drive on the same letter?)")
     return d
 
 
@@ -134,6 +141,18 @@ def init_store(directory):
     local.mkdir(exist_ok=True)
     (local / POINTER).write_text(str(d) + "\n", encoding="utf-8")
     return d
+
+
+def pin_store_identity():
+    """Record the current store's volume serial in var/expb/STORE_IDENTITY (on the
+    local disk, not on the store) so that a different drive mounted at the same
+    letter is refused even if the marker file was copied onto it."""
+    from .volume import volume_id
+    d = store_dir()
+    local = ensure_var() / "expb"
+    vid = volume_id(d)
+    (local / IDENTITY).write_text(vid + "\n", encoding="utf-8")
+    return d, vid
 
 
 def utcnow_():
