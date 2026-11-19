@@ -9,6 +9,8 @@
   spotcheck-report         agreement between spot checks and logged quotes
   evaluate                 primary analysis -- refuses until the protocol is locked
   probe [SCHEDULE_DIR]     minimal auth / permission / rate-limit probe (8 requests max)
+  init-store DIR           put the database/lock/CSVs in DIR (e.g. a USB drive); writes a marker + pointer
+  where                    print the active store directory (exit 4 if unavailable)
 """
 
 import argparse
@@ -17,7 +19,7 @@ from datetime import timedelta
 
 from ..odds import american_to_decimal
 from ..timeutil import iso, parse_utc, utcnow
-from .db import DB
+from .db import DB, StoreUnavailable, init_store, store_dir
 
 
 def spotcheck_report(db, tolerance_minutes=10):
@@ -43,7 +45,7 @@ def spotcheck_report(db, tolerance_minutes=10):
 def main(argv):
     ap = argparse.ArgumentParser(prog="soccerlab expb")
     ap.add_argument("action", choices=["run", "monitor", "quality", "aliases", "closing-import", "spotcheck",
-                                       "spotcheck-report", "evaluate", "probe"])
+                                       "spotcheck-report", "evaluate", "probe", "init-store", "where"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--db", default=None)
     ap.add_argument("--fixture"), ap.add_argument("--venue"), ap.add_argument("--selection")
@@ -54,6 +56,19 @@ def main(argv):
     if a.action == "run":
         from .logger import main as run_main
         return run_main(a.db)
+    if a.action == "init-store":
+        if len(a.args) != 1:
+            ap.error("init-store needs DIRECTORY")
+        d = init_store(a.args[0])
+        print(f"research store initialised at {d}; logger now writes there")
+        return 0
+    if a.action == "where":
+        try:
+            print(store_dir())
+            return 0
+        except StoreUnavailable as exc:
+            print(f"STORE UNAVAILABLE: {exc}")
+            return 4
     if a.action == "probe":
         from .probe import main as probe_main
         return probe_main(a.args[0] if a.args else "balldontlie_consolidated")
@@ -63,7 +78,12 @@ def main(argv):
         for lg, m in res.items():
             print(f"  {lg}: {len(m)} team aliases")
         return 0
-    with DB(a.db) as db:
+    try:
+        db = DB(a.db)
+    except StoreUnavailable as exc:
+        print(f"STORE UNAVAILABLE: {exc}")
+        return 4 if a.action != "monitor" else 1
+    with db:
         if a.action == "monitor":
             from .monitor import main as mon
             return mon(db)

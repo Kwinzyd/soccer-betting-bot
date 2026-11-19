@@ -18,7 +18,6 @@ import urllib.request
 
 from .. import provider
 from ..hashing import atomic_write_json
-from ..paths import ensure_var
 from ..timeutil import iso, parse_utc, utcnow
 from . import config as C
 from .logger import load_key
@@ -88,8 +87,8 @@ def run(schedule_dir, key=None, call=_call, sleep=time.sleep, now=None):
 
 def main(schedule_dir):
     rep = run(schedule_dir)
-    path = ensure_var() / "expb" / f"probe_{rep.get('probed_at', iso(utcnow())).replace(':', '')}.json"
-    path.parent.mkdir(exist_ok=True)
+    from .db import store_dir
+    path = store_dir() / f"probe_{rep.get('probed_at', iso(utcnow())).replace(':', '')}.json"
     atomic_write_json(path, rep)
     for r in rep.get("requests", []):
         print(f"  {r['league']:7s} {r['endpoint']:8s} HTTP {r['status']}  rows={r.get('rows')}  "

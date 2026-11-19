@@ -325,3 +325,26 @@ def test_probe_records_permissions_and_rate_headers(tmp_path):
     assert rep["requests"][0]["rate_headers"] == {"x-ratelimit-limit": "5", "x-ratelimit-remaining": "4"}
     assert any(r["endpoint"] == "odds" and r["vendors"] == ["draftkings"] for r in rep["requests"])
     assert len(seen) <= 2 * len(C.LEAGUES)
+
+
+# ------------------------------------------------------------ external store
+
+def test_external_store_pointer_and_fail_closed(tmp_path, monkeypatch):
+    from soccerlab.expb import db as dbm
+    usb = tmp_path / "usb" / "soccerlab-research"
+    d = dbm.init_store(usb)
+    assert dbm.store_dir() == d and dbm.default_path() == d / dbm.DB_NAME
+    with DB() as db:
+        assert db.path.parent == d
+    assert closing.download_dir() == d / "fd"
+    # drive unplugged / different stick on the same letter: marker gone -> refuse, create nothing
+    (d / dbm.STORE_MARKER).unlink()
+    with pytest.raises(dbm.StoreUnavailable):
+        DB()
+    before = sorted(p.name for p in d.iterdir())
+    assert L.main() == 4
+    assert sorted(p.name for p in d.iterdir()) == before
+    monkeypatch.setenv("SOCCERLAB_EXPB_STORE", str(tmp_path / "nowhere"))
+    with pytest.raises(dbm.StoreUnavailable):
+        dbm.store_dir()
+    assert not (tmp_path / "nowhere").exists()

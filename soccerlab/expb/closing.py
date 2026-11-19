@@ -26,7 +26,7 @@ from datetime import datetime, timedelta
 
 from ..hashing import atomic_write_json, sha256_file
 from ..odds import InvalidOdds, check_decimal, validate_1x2
-from ..paths import DATA_DIR, ODDS_HIST_DIR, REGISTRY_DIR, var_dir
+from ..paths import DATA_DIR, ODDS_HIST_DIR, REGISTRY_DIR
 from ..timeutil import iso, parse_utc, utcnow
 
 ALIASES = REGISTRY_DIR / "experiments" / "team_aliases.json"
@@ -51,9 +51,11 @@ def _read_fd(path):
 
 
 def download_dir():
-    """Where user-downloaded current-season football-data CSVs go ({code}_{2627}.csv).
+    """Where user-downloaded current-season football-data CSVs go ({code}_{2627}.csv):
+    `fd/` inside the research store (the USB store when one is configured).
     Not odds_hist/: those files are protected by the legacy baseline manifest."""
-    return var_dir() / "expb" / "fd"
+    from .db import store_dir
+    return store_dir() / "fd"
 
 
 MIN_VOTES, DOMINANCE = 3, 3

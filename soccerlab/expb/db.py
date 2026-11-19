@@ -85,10 +85,60 @@ def _triggers():
         for t in TABLES for op in ("UPDATE", "DELETE"))
 
 
+DB_NAME = "exp_b_odds.sqlite3"
+STORE_MARKER = ".soccerlab-expb-store"
+POINTER = "DB_LOCATION"          # var/expb/DB_LOCATION: one line, the external store directory
+
+
+class StoreUnavailable(RuntimeError):
+    """The configured external store is missing (drive unplugged, different
+    stick on the same letter, folder removed). Fail closed: never create a
+    fresh database somewhere unexpected."""
+
+
+def store_dir():
+    """Directory holding the database, lock file and downloaded CSVs.
+
+    Order: SOCCERLAB_EXPB_STORE env var, then the pointer file
+    var/expb/DB_LOCATION, then var/expb/ itself. An external store must
+    already exist and carry STORE_MARKER (created by `expb init-store`)."""
+    import os
+    local = ensure_var() / "expb"
+    local.mkdir(exist_ok=True)
+    target = os.environ.get("SOCCERLAB_EXPB_STORE")
+    if not target and (local / POINTER).exists():
+        target = (local / POINTER).read_text(encoding="utf-8").strip()
+    if not target:
+        return local
+    d = Path(target)
+    if not (d / STORE_MARKER).is_file():
+        raise StoreUnavailable(f"external store {d} unavailable or not initialised (missing {STORE_MARKER})")
+    return d
+
+
 def default_path():
-    d = ensure_var() / "expb"
-    d.mkdir(exist_ok=True)
-    return d / "exp_b_odds.sqlite3"
+    return store_dir() / DB_NAME
+
+
+def init_store(directory):
+    """Create an external store directory, mark it, and point the logger at it."""
+    import json as _json
+    d = Path(directory)
+    assert_not_production(d)
+    d.mkdir(parents=True, exist_ok=True)
+    marker = d / STORE_MARKER
+    if not marker.exists():
+        marker.write_text(_json.dumps({"experiment": "EXP-2026-11-B", "created_at": iso(utcnow_())}) + "\n",
+                          encoding="utf-8")
+    local = ensure_var() / "expb"
+    local.mkdir(exist_ok=True)
+    (local / POINTER).write_text(str(d) + "\n", encoding="utf-8")
+    return d
+
+
+def utcnow_():
+    from ..timeutil import utcnow
+    return utcnow()
 
 
 class DB:

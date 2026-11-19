@@ -29,7 +29,7 @@ from .. import provider
 from ..odds import InvalidOdds, american_to_decimal, validate_1x2
 from ..timeutil import iso, parse_utc, utcnow
 from . import config as C
-from .db import DB
+from .db import DB, StoreUnavailable
 
 
 def load_key():
@@ -386,8 +386,13 @@ class Runner:
 
 
 def main(db_path=None, client=None):
-    """Entry point for the scheduled task. Exit 0 ok/locked, 1 provider/auth failure, 2 no key."""
-    db = DB(db_path)
+    """Entry point for the scheduled task. Exit 0 ok/locked, 1 provider/auth failure, 2 no key,
+    4 research store unavailable (e.g. USB drive not mounted) -- nothing is written anywhere."""
+    try:
+        db = DB(db_path)
+    except StoreUnavailable as exc:
+        print(f"STORE UNAVAILABLE: {exc}")
+        return 4
     try:
         if client is None:
             key = load_key()
