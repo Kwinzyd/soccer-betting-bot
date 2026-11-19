@@ -259,3 +259,46 @@ def restore(backup, target):
         tmp.unlink(missing_ok=True)
         raise
     return target
+
+
+# ------------------------------------------------------------ cloud sync status (Windows)
+# Values of the shell property System.StorageProviderState (Windows cloud files API).
+PROVIDER_STATES = {0: "none", 1: "sparse", 2: "in_sync", 3: "pinned", 4: "pending_upload",
+                   5: "pending_download", 6: "transferring", 7: "error", 8: "warning", 9: "excluded",
+                   10: "incomplete"}
+
+_PS_STATE = ("$ns=(New-Object -ComObject Shell.Application).Namespace('{d}'); "
+             "Get-ChildItem -LiteralPath '{d}' | ForEach-Object {{ "
+             "$_.Name + '|' + $ns.ParseName($_.Name).ExtendedProperty('System.StorageProviderState') }}")
+
+
+def sync_states(dest, runner=None):
+    """{file name: state} for files in a cloud-synced folder (read-only)."""
+    d = str(Path(dest).resolve()).replace("'", "''")
+    if runner is None:
+        if os.name != "nt":
+            return {}
+        out = subprocess.run(["powershell", "-NoProfile", "-Command", _PS_STATE.format(d=d)],
+                             capture_output=True, text=True, timeout=120).stdout
+    else:
+        out = runner(d)
+    res = {}
+    for line in out.splitlines():
+        if "|" in line:
+            name, _, val = line.rpartition("|")
+            try:
+                res[name] = PROVIDER_STATES.get(int(val), f"unknown({val})")
+            except ValueError:
+                res[name] = "unknown"
+    return res
+
+
+def newest_backup_synced(dest, runner=None):
+    """(ok, newest name, states). ok only if the newest backup AND its manifest are in_sync."""
+    backups = list_backups(dest)
+    if not backups:
+        return False, None, {}
+    st = sync_states(dest, runner)
+    newest = backups[-1]
+    ok = st.get(newest.name) == "in_sync" and st.get(newest.with_suffix(".json").name) == "in_sync"
+    return ok, newest.name, st

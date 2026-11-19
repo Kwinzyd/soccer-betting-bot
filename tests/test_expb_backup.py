@@ -277,3 +277,17 @@ def test_onedrive_retention_never_touches_other_folders(live, tmp_path, onedrive
         B.make_backup(src, dest, keep=2, offsite="onedrive", staging=tmp_path / "stage",
                       now=parse_utc(f"2026-11-{d}T06:15:00Z"))
     assert len(B.list_backups(dest)) == 2 and len(list(keepme.iterdir())) == 2
+
+
+def test_sync_status_parsing_and_newest_check(live, tmp_path, onedrive):
+    src, *_ = live
+    dest = onedrive / "daily"
+    m = B.make_backup(src, dest, offsite="onedrive", staging=tmp_path / "stage")
+    db_name, js = m["file"], m["file"][:-8] + ".json"
+    ok, newest, st = B.newest_backup_synced(dest, runner=lambda d: f"{db_name}|2\n{js}|2\n")
+    assert ok and newest == db_name and st[db_name] == "in_sync"
+    ok, _, st = B.newest_backup_synced(dest, runner=lambda d: f"{db_name}|4\n{js}|2\n")
+    assert not ok and st[db_name] == "pending_upload"
+    ok, _, _ = B.newest_backup_synced(dest, runner=lambda d: "")
+    assert not ok
+    assert B.newest_backup_synced(tmp_path / "empty", runner=lambda d: "") == (False, None, {})

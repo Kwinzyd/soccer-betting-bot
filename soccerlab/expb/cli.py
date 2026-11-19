@@ -14,6 +14,7 @@
   backup [--source DB] [--dest DIR] [--keep N] [--offsite onedrive]   verified online backup (separate volume,
                            or an approved cloud-synced folder with --offsite)
   backup-verify FILE | backup-list [--dest DIR] | restore FILE NEW_TARGET
+  backup-sync-status --dest DIR   cloud sync state of backups (exit 6 if newest not in sync)
   report [--source DB] [--hours 24] [--out FILE]  read-only live-pilot report
   pin-identity             record the store's volume serial (drive-identity check)
 """
@@ -51,7 +52,8 @@ def main(argv):
     ap = argparse.ArgumentParser(prog="soccerlab expb")
     ap.add_argument("action", choices=["run", "monitor", "quality", "aliases", "closing-import", "spotcheck",
                                        "spotcheck-report", "evaluate", "probe", "init-store", "where",
-                                       "backup", "backup-verify", "backup-list", "restore", "report", "pin-identity"])
+                                       "backup", "backup-verify", "backup-list", "backup-sync-status", "restore", "report",
+                                       "pin-identity"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--db", default=None)
     ap.add_argument("--fixture"), ap.add_argument("--venue"), ap.add_argument("--selection")
@@ -66,6 +68,13 @@ def main(argv):
     if a.action == "run":
         from .logger import main as run_main
         return run_main(a.db)
+    if a.action == "backup-sync-status":
+        from . import backup as B
+        ok, newest, st = B.newest_backup_synced(a.dest or B.default_dest())
+        for name, state in sorted(st.items()):
+            print(f"  {state:16s} {name}")
+        print(f"newest backup {newest}: {'IN SYNC (off-device copy confirmed)' if ok else 'NOT CONFIRMED IN SYNC'}")
+        return 0 if ok else 6
     if a.action in ("backup", "backup-verify", "backup-list", "restore"):
         from . import backup as B
         try:
