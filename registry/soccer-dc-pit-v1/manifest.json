@@ -1,0 +1,497 @@
+{
+  "calibration": "none (raw model probabilities)",
+  "code_files": [
+    {
+      "bytes": 6980,
+      "path": "soccerlab/dcpit.py",
+      "protected": true,
+      "sha256": "23da8ed0081163d37bd863e98c73d0091d3f109cd6573b7de83531a3df5e445d"
+    },
+    {
+      "bytes": 7253,
+      "path": "soccerlab/pit.py",
+      "protected": true,
+      "sha256": "3808d04c853a83eed912d6530b172025b94d42125fef2e41a147288472e2858a"
+    },
+    {
+      "bytes": 2956,
+      "path": "soccerlab/walkforward.py",
+      "protected": true,
+      "sha256": "19b35bdcc158d44a477491ed0ccae3a0eb78bec943e9d7649a6db5beace2cb8a"
+    },
+    {
+      "bytes": 5924,
+      "path": "soccerlab/odds.py",
+      "protected": true,
+      "sha256": "6369c78cf4405a0e985c9a50239834b86d765b68943dc6015119b6bf9fadd323"
+    },
+    {
+      "bytes": 1537,
+      "path": "soccerlab/timeutil.py",
+      "protected": true,
+      "sha256": "373f723b18250fe07ae08c5207ed129d680d403567e5515fc3f7448680d1ae4f"
+    },
+    {
+      "bytes": 3240,
+      "path": "soccerlab/legacy.py",
+      "protected": true,
+      "sha256": "d23572ed72e8a90e1fae8f69978f44a6e8f8d7a07c6db7d790c1da9b066efaba"
+    },
+    {
+      "bytes": 14938,
+      "path": "model/dcmodel.py",
+      "protected": true,
+      "sha256": "254e698b8aa7374ef8dfc798ccec12be368285b2fc50c7b1ea2d57ca7b015c3b"
+    }
+  ],
+  "code_files_aggregate_sha256": "d5eef5b279dc0508d09c45fa8c991351037cb55e9ccd740747be3aea91428614",
+  "data_files": [
+    {
+      "bytes": 291022,
+      "path": "balldontlie_consolidated/epl_2022_matches.json",
+      "protected": true,
+      "sha256": "52bec966df15ca0a449e4e12736ee5c53721d8773b6547291b7ee1bb181074d1"
+    },
+    {
+      "bytes": 290668,
+      "path": "balldontlie_consolidated/epl_2023_matches.json",
+      "protected": true,
+      "sha256": "399f5450ae6b1b9c20960da7806211728a5ce0439109046a4a7cbbadd5150e9c"
+    },
+    {
+      "bytes": 290668,
+      "path": "balldontlie_consolidated/epl_2024_matches.json",
+      "protected": true,
+      "sha256": "fb687bf1bf20582b192a0f13b2b2ed24a107d73affa55a8880051eec4fdda13e"
+    },
+    {
+      "bytes": 311640,
+      "path": "balldontlie_consolidated/epl_2025_matches.json",
+      "protected": true,
+      "sha256": "18e1f2d5da77221f81c1ec52722f668b781c2fd63e7580f2bb23c6d74d639154"
+    },
+    {
+      "bytes": 581005,
+      "path": "balldontlie_consolidated/epl_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "a0dcf019c9279edbf4d1808e6b0c4e03e2cd21e9a4be047f3e1bff90ef721518"
+    },
+    {
+      "bytes": 2286,
+      "path": "balldontlie_consolidated/epl_2025_teams.json",
+      "protected": true,
+      "sha256": "49fc4416a69b2900576e1b9fe1cdaaa1ab73ccaee089ef272a4e175ce9df25aa"
+    },
+    {
+      "bytes": 305485,
+      "note": "current season, refreshed by production",
+      "path": "balldontlie_consolidated/epl_2026_matches.json",
+      "protected": false,
+      "sha256": "3959860fe90ef91ed791b8f857f8da54b62f1fa231e567b8dfea920a3e0f337c"
+    },
+    {
+      "bytes": 9226,
+      "path": "balldontlie_consolidated/epl_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "cb79873dd41270bf2720f993faa3ed6eced7aa7643990d49633ae6402cdeb260"
+    },
+    {
+      "bytes": 2272,
+      "path": "balldontlie_consolidated/epl_2026_teams.json",
+      "protected": true,
+      "sha256": "3f09556b4368b8e52a92bcf5339baf7728efd7f9516a69c83f54c0e3e8a7e314"
+    },
+    {
+      "bytes": 282207,
+      "path": "balldontlie_consolidated/laliga_2022_matches.json",
+      "protected": true,
+      "sha256": "354ba729e15511dbb187d4a0f04c2f0654cd32f14ab69783a564d9e08c67d232"
+    },
+    {
+      "bytes": 290567,
+      "path": "balldontlie_consolidated/laliga_2023_matches.json",
+      "protected": true,
+      "sha256": "5a046565c555e3243c7241c96954acdf77105c9eebaae91879dfc4c36fc5e54d"
+    },
+    {
+      "bytes": 290284,
+      "path": "balldontlie_consolidated/laliga_2024_matches.json",
+      "protected": true,
+      "sha256": "b59f838622a7e47fb5a1ca6c09f21deff0303ed8d16f77ab27e383cff4d50646"
+    },
+    {
+      "bytes": 314926,
+      "path": "balldontlie_consolidated/laliga_2025_matches.json",
+      "protected": true,
+      "sha256": "ed6ff2a44d2348744226908e984abbec4372a915f83872ba6acb642966b39517"
+    },
+    {
+      "bytes": 581258,
+      "path": "balldontlie_consolidated/laliga_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "6733d66a933237920bbb996f94046496077f98311e5aa203798f22ed950518e2"
+    },
+    {
+      "bytes": 2151,
+      "path": "balldontlie_consolidated/laliga_2025_teams.json",
+      "protected": true,
+      "sha256": "8e54ad6c6a79ede501437dbfcc2c9bb73a0758b2d354fa2b77cff4282fe10162"
+    },
+    {
+      "bytes": 301695,
+      "note": "current season, refreshed by production",
+      "path": "balldontlie_consolidated/laliga_2026_matches.json",
+      "protected": false,
+      "sha256": "0721daf2361ac78a2ff5764d4f310c7e3823d8f96916037afce37491f7859d4e"
+    },
+    {
+      "bytes": 16904,
+      "path": "balldontlie_consolidated/laliga_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "4922a78fe7040c0376dd6d7129fcc8a957429e22d3ab7538928b0239ee2df490"
+    },
+    {
+      "bytes": 2171,
+      "path": "balldontlie_consolidated/laliga_2026_teams.json",
+      "protected": true,
+      "sha256": "3e65b804797e6463eaef7467912975d8b1ea52e9fe753109ae4a7efdb1095c31"
+    },
+    {
+      "bytes": 282030,
+      "path": "balldontlie_consolidated/ligue1_2022_matches.json",
+      "protected": true,
+      "sha256": "8099f4f4d63e44c4245872a1fe7a8a525d3f5eedd8c8570600e2769f2ae5d810"
+    },
+    {
+      "bytes": 233128,
+      "path": "balldontlie_consolidated/ligue1_2023_matches.json",
+      "protected": true,
+      "sha256": "2117bf74f91649908875f7db0ffa45de5be31b5856fa671905b8e1c7bb1a3a2d"
+    },
+    {
+      "bytes": 233241,
+      "path": "balldontlie_consolidated/ligue1_2024_matches.json",
+      "protected": true,
+      "sha256": "0f5eb2083c53389302487a0b4904ae75b1a413f57df2b78ed2c645575f8b3928"
+    },
+    {
+      "bytes": 251519,
+      "path": "balldontlie_consolidated/ligue1_2025_matches.json",
+      "protected": true,
+      "sha256": "5f78e5120338cdaaf572036918d06e55c930808e18c4ca1bdacdb4f29ee174e9"
+    },
+    {
+      "bytes": 466528,
+      "path": "balldontlie_consolidated/ligue1_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "bf2ef7b660a1e81c590cdb9860ad8b53c31a0c0bc2207ba02636b92520942e98"
+    },
+    {
+      "bytes": 1859,
+      "path": "balldontlie_consolidated/ligue1_2025_teams.json",
+      "protected": true,
+      "sha256": "6860b7611ab44c3e55371994acd18905f023ca5453cf039490dc659c90e46c8a"
+    },
+    {
+      "bytes": 240791,
+      "note": "current season, refreshed by production",
+      "path": "balldontlie_consolidated/ligue1_2026_matches.json",
+      "protected": false,
+      "sha256": "e4b3ecc0ef935ed2de04f27449ba63d1276c1227b69599ef4a5bef73762703e0"
+    },
+    {
+      "bytes": 1535,
+      "path": "balldontlie_consolidated/ligue1_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "075b403d0744eae48bb8657f5b2ed8a9b03c28a48111900ce4248a56d0b1eab9"
+    },
+    {
+      "bytes": 1875,
+      "path": "balldontlie_consolidated/ligue1_2026_teams.json",
+      "protected": true,
+      "sha256": "695d6b1664150057ea95306124f2e900a8d4a0373acae3f82ed0b80b60703ac7"
+    },
+    {
+      "bytes": 282284,
+      "path": "balldontlie_consolidated/seriea_2022_matches.json",
+      "protected": true,
+      "sha256": "d1a785294faa56585b8024b76a8c043863d22e1d5a5fea399905a694b3133eca"
+    },
+    {
+      "bytes": 289131,
+      "path": "balldontlie_consolidated/seriea_2023_matches.json",
+      "protected": true,
+      "sha256": "b59366285744e62cfe54c1e900fe50f139b085fef2e9ad28d9dbbf3b548fdaec"
+    },
+    {
+      "bytes": 289496,
+      "path": "balldontlie_consolidated/seriea_2024_matches.json",
+      "protected": true,
+      "sha256": "44f3b9e8ea050e15dc4c0c8dc9919bc463ccb3b578e54c237b5ec9a491a3fe82"
+    },
+    {
+      "bytes": 312970,
+      "path": "balldontlie_consolidated/seriea_2025_matches.json",
+      "protected": true,
+      "sha256": "d3ffe07ad2ae18447451bfa1d1994dc5e11ac51268b55c0f6461db3475b55c43"
+    },
+    {
+      "bytes": 583485,
+      "path": "balldontlie_consolidated/seriea_2025_team_match_stats.json",
+      "protected": true,
+      "sha256": "559664a853974b68539901c6c11e78b7bc69a4c8226585f8c571093ecfd1b1d7"
+    },
+    {
+      "bytes": 2096,
+      "path": "balldontlie_consolidated/seriea_2025_teams.json",
+      "protected": true,
+      "sha256": "ec44c2572da6477e4778853741a6fcd4b916286fbaa77671c06311f5859a8b84"
+    },
+    {
+      "bytes": 298223,
+      "note": "current season, refreshed by production",
+      "path": "balldontlie_consolidated/seriea_2026_matches.json",
+      "protected": false,
+      "sha256": "da230652970008770e51fa317435169cecee03eb31c63a657ea87a5b533dac66"
+    },
+    {
+      "bytes": 2,
+      "path": "balldontlie_consolidated/seriea_2026_team_match_stats.json",
+      "protected": true,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "bytes": 2088,
+      "path": "balldontlie_consolidated/seriea_2026_teams.json",
+      "protected": true,
+      "sha256": "9723e8265afa55f3acff237e34f1590f6f42e7f3595491c72e9694517d328988"
+    }
+  ],
+  "data_files_aggregate_sha256": "ac1b0a3c58efcfd2d07ae69991b879b9fd80937fe2d206c7597c6f076ce5082b",
+  "dependencies": {
+    "numpy": "2.4.1",
+    "python": "3.13.14",
+    "scipy": "1.17.1"
+  },
+  "evaluation": {
+    "experiment": "EXP-2026-11-A",
+    "plan": "docs/EXPERIMENT_PLAN.md",
+    "plan_sha256": "60101240a24457b4a38f7ea110e845148baa80b525494211aefa85c7642bfe75",
+    "report": "reports/EXP-2026-11-A.json",
+    "report_sha256": "52f40fcc649b843891e7d8c4a499f1e179fb67ce01404e6c2f55aa9c75d48da6"
+  },
+  "evaluation_gates": {
+    "A": "evaluated separately (see test run log)",
+    "B": "fail",
+    "C": "fail",
+    "D": "fail",
+    "E": "fail",
+    "F": "not started (prospective window opens 2026-11-20T00:00Z)",
+    "G": "not evaluated (requires 14 days of shadow operation)"
+  },
+  "features": [
+    "team attack/defence ratings from final-match goals (time-decayed)",
+    "home advantage, global scoring rate, Dixon-Coles rho",
+    "promoted-team prior from earlier cohorts only"
+  ],
+  "frozen_utc": "2026-11-19T20:14:21+00:00",
+  "git": {
+    "commit": "36001ae05ad8583700868ec8952fce7a4ad47a0d"
+  },
+  "golden_real": {
+    "cases": [
+      {
+        "case": "epl:3818301",
+        "lam": [
+          2.1345894540435593,
+          0.8443391138763424
+        ],
+        "p": [
+          0.6662131183929635,
+          0.20130227059418232,
+          0.1324846110128541
+        ]
+      },
+      {
+        "case": "epl:3818288",
+        "lam": [
+          1.5485416821709368,
+          1.143338849091194
+        ],
+        "p": [
+          0.4612155285282866,
+          0.2632914174884687,
+          0.27549305398324464
+        ]
+      },
+      {
+        "case": "epl:3818290",
+        "lam": [
+          1.6379005585516502,
+          0.9405741298789843
+        ],
+        "p": [
+          0.5321748497368337,
+          0.25685066366190124,
+          0.21097448660126505
+        ]
+      },
+      {
+        "case": "laliga:3819007",
+        "lam": [
+          1.5146833911106046,
+          0.8298979456560469
+        ],
+        "p": [
+          0.5312347501647748,
+          0.26605400364022663,
+          0.20271124619499847
+        ]
+      },
+      {
+        "case": "laliga:3819006",
+        "lam": [
+          1.2087424664993467,
+          0.9991737427609448
+        ],
+        "p": [
+          0.4049477717994873,
+          0.2952272540139889,
+          0.2998249741865238
+        ]
+      },
+      {
+        "case": "laliga:3819013",
+        "lam": [
+          1.2900874049251951,
+          0.904351138562728
+        ],
+        "p": [
+          0.45095962606603146,
+          0.29112149074314064,
+          0.25791888319082784
+        ]
+      },
+      {
+        "case": "seriea:3819696",
+        "lam": [
+          1.831598983545324,
+          0.7482680180301096
+        ],
+        "p": [
+          0.6301604120027564,
+          0.22426128658220623,
+          0.14557830141503741
+        ]
+      },
+      {
+        "case": "seriea:3819698",
+        "lam": [
+          1.6952354280078998,
+          0.6498970080123361
+        ],
+        "p": [
+          0.6250822980932943,
+          0.2374830096254829,
+          0.13743469228122296
+        ]
+      },
+      {
+        "case": "seriea:3819701",
+        "lam": [
+          0.6977562202622397,
+          1.685884837577429
+        ],
+        "p": [
+          0.14967305640009265,
+          0.240335246107123,
+          0.6099916974927844
+        ]
+      },
+      {
+        "case": "ligue1:3819377",
+        "lam": [
+          1.1412458427268994,
+          1.1555895302988952
+        ],
+        "p": [
+          0.34919126962370145,
+          0.2945273624918187,
+          0.3562813678844798
+        ]
+      },
+      {
+        "case": "ligue1:3819371",
+        "lam": [
+          1.0354736715168,
+          1.9518875424422228
+        ],
+        "p": [
+          0.1920135137197487,
+          0.22511922226279207,
+          0.5828672640174594
+        ]
+      },
+      {
+        "case": "ligue1:3819361",
+        "lam": [
+          2.097816371934356,
+          1.0202073172665114
+        ],
+        "p": [
+          0.6174338305337684,
+          0.21098465988950751,
+          0.17158150957672397
+        ]
+      }
+    ],
+    "cutoff": "2026-11-19T00:00:00Z"
+  },
+  "golden_synthetic": [
+    {
+      "case": "synthetic:217",
+      "p": [
+        0.7334196506327881,
+        0.16975449893551128,
+        0.09682585043170056
+      ]
+    },
+    {
+      "case": "synthetic:220",
+      "p": [
+        0.46982364036991814,
+        0.22989437611998484,
+        0.30028198351009716
+      ]
+    },
+    {
+      "case": "synthetic:218",
+      "p": [
+        0.8453554228964271,
+        0.10070491877832813,
+        0.05393965832524487
+      ]
+    }
+  ],
+  "golden_tolerance": 1e-06,
+  "historical_cutoff_rule": "fit at weekly 00:00 UTC cutoffs; latest cutoff <= decision time",
+  "hyperparameters": {
+    "max_goals": 12,
+    "min_matches": 60,
+    "min_matches_xg": 80,
+    "prior_reg": 1.0,
+    "refit_days": 7,
+    "reg": 2.0,
+    "use_dc": true,
+    "xg_alpha": 0.0,
+    "xi": 0.0015
+  },
+  "manifest_sha256": "1642e19191c29a201d1ef59e993db01bdf7c167f1ce8d7b01553bae34ade5c46",
+  "metric_definitions": "soccerlab/metrics.py (log-loss natural log; Brier sum over 3; class-wise ECE)",
+  "model_id": "soccer-dc-pit-v1",
+  "role": "challenger",
+  "schema": "soccerlab.manifest/1",
+  "status": "challenger -- research/shadow only",
+  "training_population": "all final league matches with result_at <= cutoff (same league)",
+  "xg_mode": "provider_lag"
+}
