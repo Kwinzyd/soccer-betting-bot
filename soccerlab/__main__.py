@@ -10,6 +10,10 @@ import sys
 
 
 def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
+    if argv[:1] == ["expb"]:                      # sub-CLI owns its own --help
+        from .expb.cli import main as expb_main
+        return expb_main(argv[1:])
     ap = argparse.ArgumentParser(prog="soccerlab")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
@@ -48,6 +52,9 @@ def main(argv=None):
 
     sub.add_parser("health", help="inspect data freshness and pipeline health")
 
+    x = sub.add_parser("expb", help="EXP-2026-11-B research odds logger (logging only)", add_help=False)
+    x.add_argument("rest", nargs=argparse.REMAINDER)
+
     a = ap.parse_args(argv)
 
     if a.cmd == "baseline":
@@ -80,6 +87,10 @@ def main(argv=None):
     if a.cmd == "settle":
         from . import live
         return live.settle_main(schedule_dir=a.schedule_dir)
+
+    if a.cmd == "expb":
+        from .expb.cli import main as expb_main
+        return expb_main(a.rest)
 
     if a.cmd == "health":
         from . import datacheck

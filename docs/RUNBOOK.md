@@ -99,3 +99,31 @@ no-bet with reason "kill switch engaged". Delete the file to resume.
 4. If Gates A–E pass: run shadow ≥ the Gate F sample; evaluate F and G.
 5. Only a human edits `registry/index.json` to set `"status": "promoted"`
    and add the id to `"promoted"`, in a reviewed commit.
+
+## 7. EXP-2026-11-B research odds logger (logging only; not activated)
+
+| purpose | command |
+|---|---|
+| one invocation (what the task runs) | `python -m soccerlab expb run` |
+| monitor (exit 1 on red) | `python -m soccerlab expb monitor` |
+| data-quality summary (allowed pre-lock) | `python -m soccerlab expb quality` |
+| rebuild team aliases (after downloading 2026-27 CSVs into `var\expb\fd\`) | `python -m soccerlab expb aliases` |
+| import Betfair Exchange closes | `python -m soccerlab expb closing-import var\expb\fd\E0_2627.csv epl` |
+| record an obtainability spot check | `python -m soccerlab expb spotcheck --fixture bdl:epl:3818288 --venue draftkings --selection home --american -105 --at 2026-11-21T14:00:00Z --stake-accepted 10` |
+| primary analysis (refuses until locked) | `python -m soccerlab expb evaluate` (exit 3 while draft) |
+
+Install (only after authorization), check, remove:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File research_tasks\install_expb_task.ps1            # dry run
+powershell -ExecutionPolicy Bypass -File research_tasks\install_expb_task.ps1 -Install   # registers soccerlab-expb-odds-logger
+schtasks /Query /TN soccerlab-expb-odds-logger
+powershell -ExecutionPolicy Bypass -File research_tasks\install_expb_task.ps1 -Uninstall
+```
+
+The task runs from the research worktree (using `var\venv` if present),
+every 5 minutes, at most 6 minutes per run, with no overlapping instances. It
+writes only `var\expb\exp_b_odds.sqlite3`. A killed run leaves a lock and an
+open poll. The next run breaks the lock after 20 minutes and marks the poll
+`interrupted` after 30. Rollback = uninstall. The database is append-only;
+back it up by copying the file while no run is active.

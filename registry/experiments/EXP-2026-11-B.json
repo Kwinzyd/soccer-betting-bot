@@ -1,0 +1,34 @@
+{
+  "experiment": "EXP-2026-11-B",
+  "title": "Forward early-price validation (model-free, logging-first)",
+  "status": "draft",
+  "locked_at": null,
+  "comment": "Draft parameters. evaluate.primary() refuses to run while status != 'locked'. Locking requires the decisions in docs/EXP-2026-11-B_DRAFT.md section 9 and must happen before any endpoint statistic is computed.",
+  "approved_entry_venues": [
+    "draftkings",
+    "fanduel"
+  ],
+  "approved_entry_venues_status": "PROPOSED - legal availability, account access and obtainability not yet verified",
+  "observational_venues": [
+    "polymarket"
+  ],
+  "market": "1x2_ft90",
+  "entry_offset_hours": 24,
+  "entry_tolerance_hours": 3,
+  "threshold": null,
+  "close_window_minutes": 30,
+  "closing_reference_strong": "football-data.co.uk Betfair Exchange close (BFECH/BFECD/BFECA), power de-vig",
+  "closing_reference_weak": "approved venues' last complete pre-kickoff books within close_window_minutes, mean power de-vig",
+  "void_if_kickoff_moved_hours": 48,
+  "min_n": 300,
+  "n_boot": 2000,
+  "seed": 0,
+  "threshold_comment": "null = no EV threshold: every fixture with a valid entry snapshot contributes exactly one entry, the argmax-EV selection. Pilot data (DK/FD overround 5-7%, cross-book disagreement median 0.78pp) imply an EV>0 rule would admit too few fixtures to reach min_n; thresholds are a secondary subgroup.",
+  "secondary_entry_offsets_hours": [
+    72,
+    6
+  ],
+  "secondary_thresholds": [
+    0.0
+  ]
+}

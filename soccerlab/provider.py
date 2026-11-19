@@ -41,7 +41,8 @@ def url_for(league, endpoint, params):
         raise ValueError(f"no endpoint version configured for league {league!r}")
     if endpoint not in ENDPOINTS:
         raise ValueError(f"unknown endpoint {endpoint!r}")
-    q = urllib.parse.urlencode(params, doseq=True)
+    # keep literal brackets in "match_ids[]": the form the legacy logger uses and the API is known to accept
+    q = urllib.parse.urlencode(params, doseq=True, safe="[]")
     return f"{BASE}/{league}/{ENDPOINT_VERSION[league]}/{endpoint}" + (f"?{q}" if q else "")
 
 
